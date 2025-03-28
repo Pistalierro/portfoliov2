@@ -1,1 +1,102 @@
-<p>navbar works!</p>
+<nav class="fixed top-0 left-0 z-50 w-full h-16 bg-black/50 backdrop-blur-sm text-gray-200 shadow-md">
+  <div class="max-w-[1280px] w-full h-full mx-auto px-4 py-2 flex items-center justify-between">
+
+    <img alt="logo" class="h-12" src="/logo/AG_logo_500x500_white.png">
+
+    <ul class="hidden md:flex items-center gap-6">
+      <li>
+        <a class="text-md font-pangolin hover:text-shadow-lg transition-text-shadow duration-200" href="#hero">
+          <i class="fa-solid fa-house"></i>
+        </a>
+      </li>
+      <li>
+        <a class="text-md font-pangolin hover:text-shadow-lg transition-text-shadow duration-200" href="#about">
+          {{ 'NAVBAR.ABOUT' | translate }}
+        </a>
+      </li>
+      <li>
+        <a class="text-md font-pangolin hover:text-shadow-lg transition-text-shadow duration-200" href="#projects">
+          {{ 'NAVBAR.PORTFOLIO' | translate }}
+        </a>
+      </li>
+      <li>
+        <a class="text-md font-pangolin hover:text-shadow-lg transition-text-shadow duration-200" href="#skills">
+          {{ 'NAVBAR.SKILLS' | translate }}
+        </a>
+      </li>
+      <li>
+        <a class="text-md font-pangolin hover:text-shadow-lg transition-text-shadow duration-200" href="#contacts">
+          {{ 'NAVBAR.CONTACTS' | translate }}
+        </a>
+      </li>
+
+      <!-- Селектор языка -->
+      <li class="relative">
+        <button
+          (click)="toggleLangList()"
+          class="flex items-center gap-1 text-md font-pangolin hover:text-shadow-lg transition uppercase"
+        >
+          {{ langFlag }} {{ currentLang }}
+          <i class="fa-solid fa-chevron-down text-sm"></i>
+        </button>
+
+        <!-- Выпадающее меню языков -->
+        <ul
+          *ngIf="showLangList"
+          class="absolute left-0 mt-4 w-24 bg-black/50 backdrop-blur-sm text-white rounded shadow-md z-50"
+        >
+          <li>
+            <button (click)="switchLang('ru')" class="w-full text-left px-3 py-1 hover:text-shadow-md duration-200">🇷🇺 RU</button>
+          </li>
+          <li>
+            <button (click)="switchLang('en')" class="w-full text-left px-3 py-1 hover:text-shadow-md duration-200">🇬🇧 EN</button>
+          </li>
+          <li>
+            <button (click)="switchLang('ua')" class="w-full text-left px-3 py-1 hover:text-shadow-md duration-200">🇺🇦 UA</button>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Бургер-кнопка -->
+    <button
+      #burgerBtn
+      (click)="isMenuOpen = !isMenuOpen"
+      aria-label="Меню"
+      class="relative w-8 h-8 flex flex-col items-center justify-center md:hidden z-50 group"
+    >
+      <span [ngClass]="{'rotate-45': isMenuOpen, '-translate-y-2': !isMenuOpen}"
+            class="absolute block h-[2px] w-6 bg-white rounded transition-transform duration-300 ease-in-out"></span>
+      <span [ngClass]="{'opacity-0': isMenuOpen}"
+            class="absolute block h-[2px] w-6 bg-white rounded transition-all duration-200 ease-in-out"></span>
+      <span [ngClass]="{'-rotate-45': isMenuOpen, 'translate-y-2': !isMenuOpen}"
+            class="absolute block h-[2px] w-6 bg-white rounded transition-transform duration-300 ease-in-out"></span>
+    </button>
+  </div>
+
+  <!-- Мобильное меню -->
+  <div #mobileMenu [ngClass]="{
+    'block animate-menu-open': isMenuOpen,
+    'hidden animate-menu-close': !isMenuOpen
+    }" class="fixed top-16 left-0 w-full bg-black/50 backdrop-blur-sm md:hidden z-40 origin-top transition-all  duration-300">
+
+    <ul class="flex flex-col gap-6 text-md font-pangolin text-white px-6 pt-6 pb-10 text-center">
+      <li>
+        <a (click)="isMenuOpen = false" href="#hero"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li><a (click)="isMenuOpen = false" href="#about"> {{ 'NAVBAR.ABOUT' | translate }}</a></li>
+      <li><a (click)="isMenuOpen = false" href="#projects">{{ 'NAVBAR.PORTFOLIO' | translate }}</a></li>
+      <li><a (click)="isMenuOpen = false" href="#skills">{{ 'NAVBAR.SKILLS' | translate }}</a></li>
+      <li><a (click)="isMenuOpen = false" href="#contacts">{{ 'NAVBAR.CONTACTS' | translate }}</a></li>
+
+      <li class="pt-4 border-t border-white/20">
+        <p class="mb-2 font-semibold text-base">Выбрать язык:</p>
+        <div class="flex justify-center gap-4">
+          <button (click)="switchLang('ru'); isMenuOpen = false" class="text-md hover:text-shadow-md transition">🇷🇺 RU</button>
+          <button (click)="switchLang('en'); isMenuOpen = false" class="text-md hover:text-shadow-md transition">🇬🇧 EN</button>
+          <button (click)="switchLang('ua'); isMenuOpen = false" class="text-md hover:text-shadow-md transition">🇺🇦 UA</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
