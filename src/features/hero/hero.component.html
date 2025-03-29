@@ -1,38 +1,54 @@
 <section #heroSection class="hero relative min-h-screen w-full overflow-hidden" id="hero">
   <!-- Фон -->
   <div class="hero__overlay absolute inset-0 bg-center bg-cover animate-zoom z-[-1]"
-       style="background-image: url('/bg/bg-hero.jpg');"></div>
+       style="background-image: url('/bg/bg-hero.jpg');">
+  </div>
 
   <!-- Контейнер -->
   <div class="hero__container w-full min-h-screen max-w-[1280px] mx-auto px-4 flex flex-col items-center justify-center">
     <div class="hero__content text-gray-300 text-center">
 
       <!-- Заголовок -->
-      <h1 class="hero__content-title text-3xl md:text-4xl lg:text-5xl mb-8">
-        <!-- Буквы -->
-        <span
-          *ngFor="let letter of letters; let i = index"
-          [ngClass]="letter.anim + ' inline-block invisible'"
-          [style.animationDelay]="(i * 0.05) + 's'">
-          {{ letter.char }}
+      <h1 class="hero__content-title text-3xl md:text-4xl lg:text-5xl mb-8 flex flex-wrap justify-center">
+        <span *ngFor="let word of letters" class="inline-flex">
+         <span *ngFor="let letter of word; let i = index"
+               [ngClass]="letter.anim + ' inline-block invisible'"
+               [style.animationDelay]="(i * 0.05) + 's'">
+            {{ letter.char }}
+          </span>
+          <span class="inline-block">&nbsp;</span>
         </span>
       </h1>
 
-      <!-- Описание -->
+      <!-- Описание (параграфы) -->
+      <div class="hero__content-description w-full max-w-[400px] md:max-w-[800px] mb-8 text-base md:text-lg lg:text-xl">
 
-      <div class="hero__content-description w-full  mb-8 text-base md:text-lg lg:text-xl">
-        <p *ngFor="let paragraph of paragraphs ">
-          <!-- Делаем цикл по буквам внутри каждого абзаца -->
-          <span
-            *ngFor="let letter of paragraph; let i = index"
-            [ngClass]="letter.anim + ' inline-block invisible'"
-            [style.animationDelay]="(i * 0.05) + 's'">
-          {{ letter.char }}
-        </span>
+        <!-- Перебираем каждый параграф -->
+        <p *ngFor="let paragraph of paragraphs" class="font-light mb-6 flex flex-wrap justify-center">
+          <!-- Перебираем каждое слово -->
+          <span *ngFor="let word of paragraph" class="flex">
+            <!-- Перебираем каждую букву -->
+            <ng-container *ngFor="let letter of word">
+              <span
+                [ngClass]="letter.anim + ' inline-block invisible'"
+                [style.animationDelay]="letter.delay + 's'">
+                {{ letter.char }}
+              </span>
+
+              <!-- Каретка. Показываем, если typedLetterIndex = letterIndexGlobal, а текст ещё не весь допечатан -->
+              <span
+                *ngIf="
+                  typedLetterIndex === letter.letterIndexGlobal
+                  && typedLetterIndex < totalLettersCount
+                "
+                class="caret">
+              </span>
+            </ng-container>
+          </span>
         </p>
       </div>
 
-
+      <!-- Кнопка в конце -->
       <div class="hero__content-actions">
         <a
           class="text-sm md:text-base lg:text-lg border rounded uppercase select-none cursor-pointer hover:shadow-light hover:bg-white/20 transition-all duration-200 py-2 px-4"

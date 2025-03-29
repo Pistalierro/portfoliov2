@@ -1,19 +1,28 @@
 import {AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import {NgClass, NgForOf} from '@angular/common';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FLY_ANIMATIONS} from '../../shared/constants/animations.const';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NgForOf, NgClass],
+  imports: [NgForOf, NgClass, NgIf],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrls: ['./hero.component.scss'],
 })
 export class HeroComponent implements OnInit, AfterViewInit {
 
-  letters: { char: string; anim: string }[] = [];
-  paragraphs: { char: string; anim: string }[][] = [];
+  letters: { char: string; anim: string }[][] = [];
+
+  paragraphs: {
+    char: string;
+    anim: string;
+    delay: number;
+    letterIndexGlobal: number;
+  }[][][] = [];
+
+  totalLettersCount = 0;
+  typedLetterIndex = -1;
 
   translateService = inject(TranslateService);
 
@@ -27,11 +36,14 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const observer = new IntersectionObserver(([entries]) => {
-      if (entries.isIntersecting) {
-        this.updateText();
-      }
-    }, {threshold: 0.5});
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.updateText();
+        }
+      },
+      {threshold: 0.5}
+    );
     observer.observe(this.heroRef.nativeElement);
   }
 
@@ -39,22 +51,89 @@ export class HeroComponent implements OnInit, AfterViewInit {
     const title = this.translateService.instant('HERO.TITLE');
     const desc = this.translateService.instant('HERO.DESCRIPTION');
 
-    this.letters = title.split('').map((char: any) => ({
-      char: char === ' ' ? '\u00A0' : char,
-      anim: this.flyAnimations[Math.floor(Math.random() * this.flyAnimations.length)]
-    }));
+    this.letters = this.buildTitleLetters(title);
 
     if (!Array.isArray(desc)) {
       console.warn('HERO.DESCRIPTION должен быть массивом, а не:', desc);
       return;
     }
+    this.paragraphs = this.buildParagraphs(desc);
+    this.startTypingObserver();
+  }
 
-
-    this.paragraphs = desc.map((paragraph: string) => {
-      return paragraph.split('').map((char, i) => ({
-        char: char === ' ' ? '\u00A0' : char, // если хотим не терять пробелы
+  private buildTitleLetters(title: string): { char: string; anim: string }[][] {
+    return title.split(' ').map(word =>
+      word.split('').map((char: string) => ({
+        char: char === ' ' ? '\u00A0' : char,
         anim: this.flyAnimations[Math.floor(Math.random() * this.flyAnimations.length)]
-      }));
+      }))
+    );
+  }
+
+
+  private buildParagraphs(descArray: string[]): any[][][] {
+    let globalIndex = 0; // счётчик всех букв
+    return descArray.map((paragraph: string, paragraphIndex: number) => {
+      const words = paragraph.split(' ');
+      const baseDelay = paragraphIndex * paragraph.length * 0.025;
+      let letterIndexInsideParagraph = 0;
+
+      return words.map((word: string) => {
+        const letters = word.split('').map((char: string) => {
+          const letter = {
+            char,
+            anim: 'animate-letter-typing',
+            delay: baseDelay + (letterIndexInsideParagraph * 0.02),
+            letterIndexGlobal: globalIndex
+          };
+          letterIndexInsideParagraph++;
+          globalIndex++;
+          return letter;
+        });
+
+        // Добавляем пробел (чтобы после него каретка тоже могла "мигать")
+        letters.push({
+          char: '\u00A0',
+          anim: '',
+          delay: baseDelay + (letterIndexInsideParagraph * 0.02),
+          letterIndexGlobal: globalIndex
+        });
+        letterIndexInsideParagraph++;
+        globalIndex++;
+
+        return letters;
+      });
     });
+  }
+
+  private startTypingObserver(): void {
+    const allLetters: { delay: number; letterIndexGlobal: number }[] = [];
+    this.paragraphs.forEach(par => {
+      par.forEach(word => {
+        word.forEach(letter => {
+          allLetters.push(letter);
+        });
+      });
+    });
+
+    allLetters.sort((a, b) => a.delay - b.delay);
+
+    this.totalLettersCount = allLetters.length;
+    this.typedLetterIndex = -1;
+
+    allLetters.forEach(letter => {
+      const timeMs = letter.delay * 1000 + 200; // +200мс – подстройка к анимации
+      setTimeout(() => {
+        this.typedLetterIndex = letter.letterIndexGlobal;
+      }, timeMs);
+    });
+
+    if (allLetters.length) {
+      const lastLetter = allLetters[allLetters.length - 1];
+      const finalTime = lastLetter.delay * 1000 + 500;
+      setTimeout(() => {
+        this.typedLetterIndex = this.totalLettersCount; // "за" последнюю букву
+      }, finalTime);
+    }
   }
 }

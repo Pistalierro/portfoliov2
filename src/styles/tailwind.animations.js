@@ -141,9 +141,15 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-  typewriter: {
-    '0%': {width: '0'},
-    '100%': {width: '100%'}
+  letterTyping: {
+    '0%': {
+      opacity: 0,
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      visibility: 'visible'
+    }
   }
 };
 
@@ -160,9 +166,8 @@ const animation = {
   'letter-fly-top-left': 'letterFlyTopLeft 0.4s ease-out forwards',
   'letter-fly-top-right': 'letterFlyTopRight 0.4s ease-out forwards',
   'letter-fly-bottom-left': 'letterFlyBottomLeft 0.4s ease-out forwards',
-  'letter-fly-bottom-right': 'letterFlyBottomRight 0.4s ease-out forwards'
-
-  // typewriter: 'typewriter 4s steps(80, end) forwards'
+  'letter-fly-bottom-right': 'letterFlyBottomRight 0.4s ease-out forwards',
+  'letter-typing': 'letterTyping 0.2s ease-out forwards'
 };
 
 module.exports = {keyframes, animation};
