@@ -1,3 +1,45 @@
-<section class="hero relative min-h-screen w-full overflow-hidden" id="hero">
-  <div class="absolute inset-0 bg-center bg-cover animate-zoom z-[-1]" style="background-image: url('/bg/bg-hero.jpg');"></div>
+<section #heroSection class="hero relative min-h-screen w-full overflow-hidden" id="hero">
+  <!-- Фон -->
+  <div class="hero__overlay absolute inset-0 bg-center bg-cover animate-zoom z-[-1]"
+       style="background-image: url('/bg/bg-hero.jpg');"></div>
+
+  <!-- Контейнер -->
+  <div class="hero__container w-full min-h-screen max-w-[1280px] mx-auto px-4 flex flex-col items-center justify-center">
+    <div class="hero__content text-gray-300 text-center">
+
+      <!-- Заголовок -->
+      <h1 class="hero__content-title text-3xl md:text-4xl lg:text-5xl mb-8">
+        <!-- Буквы -->
+        <span
+          *ngFor="let letter of letters; let i = index"
+          [ngClass]="letter.anim + ' inline-block invisible'"
+          [style.animationDelay]="(i * 0.05) + 's'">
+          {{ letter.char }}
+        </span>
+      </h1>
+
+      <!-- Описание -->
+
+      <div class="hero__content-description w-full  mb-8 text-base md:text-lg lg:text-xl">
+        <p *ngFor="let paragraph of paragraphs ">
+          <!-- Делаем цикл по буквам внутри каждого абзаца -->
+          <span
+            *ngFor="let letter of paragraph; let i = index"
+            [ngClass]="letter.anim + ' inline-block invisible'"
+            [style.animationDelay]="(i * 0.05) + 's'">
+          {{ letter.char }}
+        </span>
+        </p>
+      </div>
+
+
+      <div class="hero__content-actions">
+        <a
+          class="text-sm md:text-base lg:text-lg border rounded uppercase select-none cursor-pointer hover:shadow-light hover:bg-white/20 transition-all duration-200 py-2 px-4"
+          href="#about">
+          Узнать больше обо мне
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
