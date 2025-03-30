@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild} from '@
 import {TranslateService} from '@ngx-translate/core';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FLY_ANIMATIONS} from '../../shared/constants/animations.const';
+import {paragraphInterface, paragraphsInterface} from '../../types/text-animations.interface';
 
 @Component({
   selector: 'app-hero',
@@ -12,14 +13,8 @@ import {FLY_ANIMATIONS} from '../../shared/constants/animations.const';
 })
 export class HeroComponent implements OnInit, AfterViewInit {
 
-  letters: { char: string; anim: string }[][] = [];
-
-  paragraphs: {
-    char: string;
-    anim: string;
-    delay: number;
-    letterIndexGlobal: number;
-  }[][][] = [];
+  paragraph: paragraphInterface[][] = [];
+  paragraphs: paragraphsInterface[][][] = [];
 
   totalLettersCount = 0;
   typedLetterIndex = -1;
@@ -51,31 +46,34 @@ export class HeroComponent implements OnInit, AfterViewInit {
     const title = this.translateService.instant('HERO.TITLE');
     const desc = this.translateService.instant('HERO.DESCRIPTION');
 
-    this.letters = this.buildTitleLetters(title);
+    this.paragraph = this.buildTitleLetters(title);
 
-    if (!Array.isArray(desc)) {
-      console.warn('HERO.DESCRIPTION должен быть массивом, а не:', desc);
-      return;
-    }
+    if (!Array.isArray(desc)) return;
     this.paragraphs = this.buildParagraphs(desc);
     this.startTypingObserver();
   }
 
-  private buildTitleLetters(title: string): { char: string; anim: string }[][] {
+  private buildTitleLetters(title: string): paragraphInterface[][] {
+    let globalIndex = 0;
     return title.split(' ').map(word =>
-      word.split('').map((char: string) => ({
-        char: char === ' ' ? '\u00A0' : char,
-        anim: this.flyAnimations[Math.floor(Math.random() * this.flyAnimations.length)]
-      }))
+      word.split('').map((char: string) => {
+        const letter = {
+          char: char === ' ' ? '\u00A0' : char,
+          anim: this.flyAnimations[Math.floor(Math.random() * this.flyAnimations.length)],
+          delay: globalIndex * 0.08,
+        };
+        globalIndex++;
+        return letter;
+      })
     );
   }
 
 
   private buildParagraphs(descArray: string[]): any[][][] {
-    let globalIndex = 0; // счётчик всех букв
+    let globalIndex = 0;
     return descArray.map((paragraph: string, paragraphIndex: number) => {
       const words = paragraph.split(' ');
-      const baseDelay = paragraphIndex * paragraph.length * 0.025;
+      const baseDelay = paragraphIndex * paragraph.length * 0.02;
       let letterIndexInsideParagraph = 0;
 
       return words.map((word: string) => {
@@ -83,7 +81,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
           const letter = {
             char,
             anim: 'animate-letter-typing',
-            delay: baseDelay + (letterIndexInsideParagraph * 0.02),
+            delay: baseDelay + (letterIndexInsideParagraph * 0.01),
             letterIndexGlobal: globalIndex
           };
           letterIndexInsideParagraph++;

@@ -5,27 +5,36 @@
 
     <ul class="hidden md:flex items-center gap-6">
       <li>
-        <a class="text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200" href="#hero">
+        <a (click)="scrollToSection('hero')"
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
           <i class="fa-solid fa-house"></i>
         </a>
       </li>
       <li>
-        <a class="text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200" href="#about">
+        <a (click)="scrollToSection('about')"
+           [ngClass]="{'text-shadow-lgLight': activeSection() === 'about'}"
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
           {{ 'NAVBAR.ABOUT' | translate }}
         </a>
       </li>
       <li>
-        <a class="text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200" href="#projects">
+        <a (click)="scrollToSection('projects')"
+           [ngClass]="{'text-shadow-lgLight': activeSection() === 'projects'}"
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
           {{ 'NAVBAR.PORTFOLIO' | translate }}
         </a>
       </li>
       <li>
-        <a class="text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200" href="#skills">
+        <a (click)="scrollToSection('skills')"
+           [ngClass]="{'text-shadow-lgLight': activeSection() === 'skills'}"
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
           {{ 'NAVBAR.SKILLS' | translate }}
         </a>
       </li>
       <li>
-        <a class="text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200" href="#contacts">
+        <a (click)="scrollToSection('contacts')"
+           [ngClass]="{'text-shadow-lgLight': activeSection() === 'contacts'}"
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
           {{ 'NAVBAR.CONTACTS' | translate }}
         </a>
       </li>
@@ -82,25 +91,25 @@
 
     <ul class="flex flex-col gap-6 text-base font-pangolin text-white px-6 pt-6 pb-10 text-center">
       <li>
-        <a (click)="isMenuOpen = false" href="#hero"><i class="fa-solid fa-house"></i></a>
+        <a (click)="scrollToSection('hero')" href="#hero"><i class="fa-solid fa-house"></i></a>
       </li>
       <li>
-        <a (click)="isMenuOpen = false" class="hover:text-shadow-lgLight transition duration-200" href="#about">
+        <a (click)="scrollToSection('about')" class="hover:text-shadow-lgLight transition duration-200" href="#about">
           {{ 'NAVBAR.ABOUT' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="isMenuOpen = false" class="hover:text-shadow-lgLight transition duration-200" href="#projects">
+        <a (click)="scrollToSection('projects')" class="hover:text-shadow-lgLight transition duration-200" href="#projects">
           {{ 'NAVBAR.PORTFOLIO' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="isMenuOpen = false" class="hover:text-shadow-lgLight transition duration-200" href="#skills">
+        <a (click)="scrollToSection('skills')" class="hover:text-shadow-lgLight transition duration-200" href="#skills">
           {{ 'NAVBAR.SKILLS' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="isMenuOpen = false" class="hover:text-shadow-lgLight transition duration-200" href="#contacts">
+        <a (click)="scrollToSection('contacts')" class="hover:text-shadow-lgLight transition duration-200" href="#contacts">
           {{ 'NAVBAR.CONTACTS' | translate }}
         </a>
       </li>

@@ -1,6 +1,9 @@
-import {Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
+import {ScrollService} from '../../shared/services/scroll/scroll.service';
+import {ScrollTrackerService} from '../../shared/services/scroll/scroll-tracker.service';
+import {getLangFlag} from '../../shared/utils/lang-flag.helpers';
 
 @Component({
   selector: 'app-navbar',
@@ -8,52 +11,33 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
   imports: [NgClass, NgIf, TranslatePipe],
   templateUrl: './navbar.component.html'
 })
-export class NavbarComponent {
-  // ======================
-  // Состояние
-  // ======================
-  isMenuOpen = false;     // мобильное меню
-  showLangList = false;   // десктопный список языков
+export class NavbarComponent implements AfterViewInit {
 
-  // ======================
-  // Ссылки на DOM
-  // ======================
-  // мобильное меню
+  isMenuOpen = false;
+  showLangList = false;
+
   @ViewChild('mobileMenu') mobileMenuRef!: ElementRef;
-  // бургер-кнопка
   @ViewChild('burgerBtn') burgerBtnRef!: ElementRef;
-  // ======================
   translateService = inject(TranslateService);
+  scrollService = inject(ScrollService);
 
-  // ======================
-  // Сервис переводов
-  // ссылка на корневой элемент компонента
+  private scrollTrackerService = inject(ScrollTrackerService);
+  activeSection = this.scrollTrackerService.activeSection;
+
   private elRef = inject(ElementRef);
 
-  // ======================
-  // Геттеры
-
-  // ======================
   get currentLang(): string {
     return this.translateService.currentLang;
   }
 
   get langFlag(): string {
-    switch (this.currentLang) {
-      case 'ru':
-        return '🇷🇺';
-      case 'en':
-        return '🇬🇧';
-      case 'ua':
-        return '🇺🇦';
-      default:
-        return '🌐';
-    }
+    return getLangFlag(this.currentLang);
   }
 
-  // ======================
-  // Методы
-  // ======================
+  ngAfterViewInit(): void {
+    this.scrollTrackerService.observeSections(['hero', 'about', 'projects', 'skills', 'contacts']);
+  }
+
   toggleLangList(): void {
     this.showLangList = !this.showLangList;
   }
@@ -64,19 +48,14 @@ export class NavbarComponent {
     this.showLangList = false;
   }
 
-  // ======================
-  // Клик вне navbar => закрытие
-  // ======================
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent): void {
     const target = event.target as HTMLElement;
 
-    // Закрываем десктопное меню языков, если клик не внутри navbar
     if (!this.elRef.nativeElement.contains(target)) {
       this.showLangList = false;
     }
 
-    // Если мобильное меню открыто, и клик не внутри него, и клик не по бургеру → закрыть
     if (
       this.isMenuOpen &&
       this.mobileMenuRef &&
@@ -86,5 +65,10 @@ export class NavbarComponent {
     ) {
       this.isMenuOpen = false;
     }
+  }
+
+  scrollToSection(id: string): void {
+    this.scrollService.scrollToElement(id);
+    this.isMenuOpen = false;
   }
 }
