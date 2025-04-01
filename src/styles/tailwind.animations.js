@@ -43,20 +43,6 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-  // letterTyping: {
-  //   '0%': {
-  //     opacity: 0,
-  //     transform: 'translateY(10px) scale(1.8)',
-  //     filter: 'blur(6px)',
-  //     visibility: 'hidden'
-  //   },
-  //   '100%': {
-  //     opacity: 1,
-  //     transform: 'translateY(0) scale(1)',
-  //     filter: 'blur(0)',
-  //     visibility: 'visible'
-  //   }
-  // },
   letterFlyLeft: {
     '0%': {
       opacity: 0,
@@ -150,6 +136,91 @@ const keyframes = {
       opacity: 1,
       visibility: 'visible'
     }
+  },
+
+  blockFlyLeftTop: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-100px) translateY(-100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0) translateY(0)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyRightTop: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100px) translateY(-100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0) translateY(0) ',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyRight: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyLeft: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyRightBottom: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(-100px) translateY(100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0) translateY(0) ',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyLeftBottom: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100px) translateY(100px)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0) translateY(0) ',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
   }
 };
 
@@ -167,7 +238,14 @@ const animation = {
   'letter-fly-top-right': 'letterFlyTopRight 0.4s ease-out forwards',
   'letter-fly-bottom-left': 'letterFlyBottomLeft 0.4s ease-out forwards',
   'letter-fly-bottom-right': 'letterFlyBottomRight 0.4s ease-out forwards',
-  'letter-typing': 'letterTyping 0.2s ease-out forwards'
+  'letter-typing': 'letterTyping 0.2s ease-out forwards',
+
+  'block-fly-left-top': 'blockFlyLeftTop 1s ease-out forwards',
+  'block-fly-right-top': 'blockFlyRightTop 1s ease-out forwards',
+  'block-fly-right': 'blockFlyRight 1s ease-out forwards',
+  'block-fly-left': 'blockFlyLeft 1s ease-out forwards',
+  'block-fly-right-bottom': 'blockFlyRightBottom 1s ease-out forwards',
+  'block-fly-left-bottom': 'blockFlyLeftBottom 1s ease-out forwards'
 };
 
 module.exports = {keyframes, animation};

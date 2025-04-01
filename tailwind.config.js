@@ -17,7 +17,7 @@ module.exports = {
         open: ['Open Sans', 'sans-serif']
       },
       colors: {
-        accent: '#EE8824'
+        accent: '#d66926'
       },
       textShadow: {
         sm: '1px 1px 2px rgba(255, 255, 255, 0.3)',

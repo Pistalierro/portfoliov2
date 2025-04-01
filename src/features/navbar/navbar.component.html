@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 z-50 w-full h-16 bg-black/50 text-gray-200 shadow-md">
+<nav class="fixed top-0 left-0 z-50 w-full h-16 bg-black/50 backdrop-blur-lg text-gray-200 shadow-md">
   <div class="max-w-[1280px] w-full h-full mx-auto px-4 py-2 flex items-center justify-between">
 
     <img alt="logo" class="h-12" src="/logo/AG_logo_500x500_white.png">
@@ -87,7 +87,7 @@
   <div #mobileMenu [ngClass]="{
     'block animate-menu-open': isMenuOpen,
     'hidden animate-menu-close': !isMenuOpen
-    }" class="fixed top-16 left-0 w-full bg-black/50 backdrop-blur-md md:hidden z-40 origin-top transition-all  duration-300">
+    }" class="fixed top-16 left-0 w-full bg-gray-900/80  md:hidden z-40 origin-top transition-all  duration-300">
 
     <ul class="flex flex-col gap-6 text-base font-pangolin text-white px-6 pt-6 pb-10 text-center">
       <li>

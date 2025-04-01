@@ -35,6 +35,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
       ([entry]) => {
         if (entry.isIntersecting) {
           this.updateText();
+          observer.disconnect();
         }
       },
       {threshold: 0.5}

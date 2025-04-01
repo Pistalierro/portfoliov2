@@ -18,10 +18,11 @@ export class NavbarComponent implements AfterViewInit {
 
   @ViewChild('mobileMenu') mobileMenuRef!: ElementRef;
   @ViewChild('burgerBtn') burgerBtnRef!: ElementRef;
+
   translateService = inject(TranslateService);
   scrollService = inject(ScrollService);
-
   private scrollTrackerService = inject(ScrollTrackerService);
+
   activeSection = this.scrollTrackerService.activeSection;
 
   private elRef = inject(ElementRef);
