@@ -36,7 +36,7 @@ export class NavbarComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.scrollTrackerService.observeSections(['hero', 'about', 'projects', 'skills', 'contacts']);
+    this.scrollTrackerService.observeSections(['hero', 'about', 'portfolio', 'skills', 'contacts']);
   }
 
   toggleLangList(): void {

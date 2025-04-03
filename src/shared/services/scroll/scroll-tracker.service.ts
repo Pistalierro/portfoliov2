@@ -30,7 +30,6 @@ export class ScrollTrackerService {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        console.log(`ID= ${entry.target.id}, ratio= ${entry.intersectionRatio}, isIntersecting= ${entry.isIntersecting}`);
         if (entry.isIntersecting) {
           const sectionEl = entry.target as HTMLElement;
 
@@ -53,7 +52,7 @@ export class ScrollTrackerService {
       });
     }, {
       threshold: 0.3,
-      // rootMargin: '0px 0px -10% 0px',
+      rootMargin: '0px 0px -10% 0px',
     });
 
     sectionIds.forEach(id => {

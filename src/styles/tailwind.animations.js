@@ -141,13 +141,13 @@ const keyframes = {
   blockFlyLeftTop: {
     '0%': {
       opacity: 0,
-      transform: 'translateX(-100px) translateY(-100px)',
-      filter: 'blur(6px)',
+      transform: 'translateX(-100px) scale(0.75) translateY(-100px)',
+      filter: 'blur(8px)',
       visibility: 'hidden'
     },
     '100%': {
       opacity: 1,
-      transform: 'translateX(0) translateY(0)',
+      transform: 'translateX(0) scale(1) translateY(0)',
       filter: 'blur(0)',
       visibility: 'visible'
     }
@@ -155,18 +155,32 @@ const keyframes = {
   blockFlyRightTop: {
     '0%': {
       opacity: 0,
-      transform: 'translateX(100px) translateY(-100px)',
+      transform: 'translateX(100px) scale(0.75) translateY(-100px)',
       filter: 'blur(6px)',
       visibility: 'hidden'
     },
     '100%': {
       opacity: 1,
-      transform: 'translateX(0) translateY(0) ',
+      transform: 'translateX(0) scale(1) translateY(0) ',
       filter: 'blur(0)',
       visibility: 'visible'
     }
   },
   blockFlyRight: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100px) scale(0.75)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0) scale(1)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
+  blockFlyLeft: {
     '0%': {
       opacity: 0,
       transform: 'translateX(-100px)',
@@ -180,30 +194,16 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-  blockFlyLeft: {
-    '0%': {
-      opacity: 0,
-      transform: 'translateX(100px)',
-      filter: 'blur(6px)',
-      visibility: 'hidden'
-    },
-    '100%': {
-      opacity: 1,
-      transform: 'translateX(0)',
-      filter: 'blur(0)',
-      visibility: 'visible'
-    }
-  },
   blockFlyRightBottom: {
     '0%': {
       opacity: 0,
-      transform: 'translateX(-100px) translateY(100px)',
+      transform: 'translateX(-100px) translateY(100px) scale(0.75)',
       filter: 'blur(6px)',
       visibility: 'hidden'
     },
     '100%': {
       opacity: 1,
-      transform: 'translateX(0) translateY(0) ',
+      transform: 'translateX(0) translateY(0) scale(1)',
       filter: 'blur(0)',
       visibility: 'visible'
     }

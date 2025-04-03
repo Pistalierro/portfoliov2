@@ -1,1 +1,95 @@
-<p>portfolio works!</p>
+<section class="portfolio relative min-h-screen w-full overflow-hidden" id="portfolio">
+  <div class="absolute__overlay absolute bg-neutral-900 inset-0 z-[-2]"></div>
+  <div class="portfolio__background absolute inset-0 bg-center bg-cover z-[-1] filter blur-md"
+       style="background-image: url('/bg/bg-portfolio.jpg');"></div>
+
+
+  <div class="portfolio__container w-full max-w-screen-xl h-full mx-auto px-4 py-32">
+
+    <div class="portfolio__layout grid grid-cols-12 gap-4 items-stretch h-full">
+
+      <div class="portfolio__thumbnails col-span-2 bg-black/30 w-full h-full rounded-xl overflow-y-auto p-3">
+
+        <div (click)="setActiveSlide(i)"
+             *ngFor="let project of projects; let i = index"
+             [class.ring-2]="i === activeSlide"
+             [class.ring-accent]="i === activeSlide"
+             [class.ring-transparent]="i !== activeSlide"
+             class="portfolio__thumbnail flex mb-3 cursor-pointer flex-col items-center">
+          <div class="portfolio__thumbnail-image w-full mb-1">
+            <img [alt]="project.title" [src]="project.images.thumbnail">
+          </div>
+          <p class="text-start text-white">{{ project.title }}</p>
+        </div>
+
+      </div>
+
+      <!-- Центр: большая карусель -->
+      <div class="portfolio__viewer group col-span-7 w-full h-full relative flex items-center justify-center overflow-hidden rounded-xl">
+
+        <div class="relative w-full h-full">
+          <ng-container *ngFor="let project of projects; let i = index">
+            <img
+              *ngIf="project.images.large"
+              [alt]="project.title"
+              [ngClass]="{
+                          'z-10 opacity-100 translate-x-0': i === activeSlide,
+                          'z-0 opacity-0': i !== activeSlide,
+                         }"
+              [src]="project.images.large"
+              class="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out"
+            />
+          </ng-container>
+        </div>
+
+        <button
+          (click)="toggleCarousel()"
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 active:scale-95 hover:text-accent">
+
+          <svg *ngIf="!isPlaying"
+               class="w-12 h-12 drop-shadow-md transition"
+               fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <polygon fill="none" points="10,8 16,12 10,16" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+          <svg *ngIf="isPlaying"
+               class="w-12 h-12 drop-shadow-md transition"
+               fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <line stroke="currentColor" stroke-width="2" x1="10" x2="10" y1="8" y2="16"/>
+            <line stroke="currentColor" stroke-width="2" x1="14" x2="14" y1="8" y2="16"/>
+          </svg>
+        </button>
+
+
+        <button
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10
+         opacity-0 group-hover:opacity-100 transition-opacity duration-300
+         hover:scale-110 active:scale-95">
+          <svg class="w-8 h-8 text-white drop-shadow-md hover:text-accent transition" fill="none" stroke="currentColor"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+
+        <button
+          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:scale-110 active:scale-95">
+          <svg class="w-8 h-8 text-white drop-shadow-md hover:text-accent transition" fill="none" stroke="currentColor"
+               viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          </svg>
+        </button>
+
+      </div>
+
+
+      <!-- Правая колонка: описание -->
+      <div class="portfolio__info col-span-3 bg-purple-700/40 w-full h-full min-h-[500px] rounded-md">
+        <p class="text-white text-center py-4">Описание</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
