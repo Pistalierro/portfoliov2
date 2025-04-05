@@ -1,4 +1,7 @@
+// tailwind.animations.js (или как у тебя файл называется)
+
 const keyframes = {
+  // Твои старые кейфреймы (не трогаем, как есть):
   zoom: {
     '0%, 100%': {transform: 'scale(1)'},
     '50%': {transform: 'scale(1.1)'}
@@ -137,7 +140,6 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-
   blockFlyLeftTop: {
     '0%': {
       opacity: 0,
@@ -221,6 +223,69 @@ const keyframes = {
       filter: 'blur(0)',
       visibility: 'visible'
     }
+  },
+
+  // ---- НОВЫЕ 4 АНИМАЦИИ ДЛЯ СЛАЙДОВ ----
+  slideInLeft: {
+    '0%': {
+      transform: 'translateX(-100%)'
+    },
+    '100%': {
+      transform: 'translateX(0)'
+    }
+  },
+  slideInRight: {
+    '0%': {
+      transform: 'translateX(100%)'
+    },
+    '100%': {
+      transform: 'translateX(0)'
+    }
+  },
+  slideOutLeft: {
+    '0%': {
+      transform: 'translateX(0)'
+    },
+    '100%': {
+      transform: 'translateX(-100%)'
+    }
+  },
+  slideOutRight: {
+    '0%': {
+      transform: 'translateX(0)'
+    },
+    '100%': {
+      transform: 'translateX(100%)'
+    }
+  },
+  infoAppear: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateY(-20px) scale(0.95)',
+      filter: 'blur(4px)'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateY(0) scale(1)',
+      filter: 'blur(0)'
+    }
+  },
+
+  infoFadeUp: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateY(20px)',
+      filter: 'blur(4px)'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateY(0)',
+      filter: 'blur(0)'
+    }
+  },
+  blink: {
+    '0%, 49%': {opacity: '1'},
+    '50%, 100%': {opacity: '0'}
   }
 };
 
@@ -245,7 +310,17 @@ const animation = {
   'block-fly-right': 'blockFlyRight 1s ease-out forwards',
   'block-fly-left': 'blockFlyLeft 1s ease-out forwards',
   'block-fly-right-bottom': 'blockFlyRightBottom 1s ease-out forwards',
-  'block-fly-left-bottom': 'blockFlyLeftBottom 1s ease-out forwards'
+  'block-fly-left-bottom': 'blockFlyLeftBottom 1s ease-out forwards',
+
+  'slide-in-left': 'slideInLeft 0.7s ease-in-out forwards',
+  'slide-in-right': 'slideInRight 0.7s ease-in-out forwards',
+  'slide-out-left': 'slideOutLeft 0.7s ease-in-out forwards',
+  'slide-out-right': 'slideOutRight 0.7s ease-in-out forwards',
+
+  'info-appear': 'infoAppear 0.5s ease-out forwards',
+  'info-fade-up': 'infoFadeUp 0.6s ease-out forwards',
+
+  'cursor-blink': 'blink 1s step-end infinite'
 };
 
 module.exports = {keyframes, animation};

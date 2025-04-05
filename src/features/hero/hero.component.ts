@@ -3,6 +3,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FLY_ANIMATIONS} from '../../shared/constants/animations.const';
 import {paragraphInterface, paragraphsInterface} from '../../types/text-animations.interface';
+import {TypewriterService} from '../../shared/services/typewriter.service';
 
 @Component({
   selector: 'app-hero',
@@ -20,6 +21,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
   typedLetterIndex = -1;
 
   translateService = inject(TranslateService);
+  typewriterService = inject(TypewriterService);
 
   @ViewChild('heroSection') heroRef!: ElementRef;
 
@@ -90,7 +92,6 @@ export class HeroComponent implements OnInit, AfterViewInit {
           return letter;
         });
 
-        // Добавляем пробел (чтобы после него каретка тоже могла "мигать")
         letters.push({
           char: '\u00A0',
           anim: '',
@@ -107,6 +108,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
 
   private startTypingObserver(): void {
     const allLetters: { delay: number; letterIndexGlobal: number }[] = [];
+
     this.paragraphs.forEach(par => {
       par.forEach(word => {
         word.forEach(letter => {
@@ -115,24 +117,14 @@ export class HeroComponent implements OnInit, AfterViewInit {
       });
     });
 
-    allLetters.sort((a, b) => a.delay - b.delay);
-
     this.totalLettersCount = allLetters.length;
-    this.typedLetterIndex = -1;
 
-    allLetters.forEach(letter => {
-      const timeMs = letter.delay * 1000 + 200; // +200мс – подстройка к анимации
-      setTimeout(() => {
-        this.typedLetterIndex = letter.letterIndexGlobal;
-      }, timeMs);
-    });
-
-    if (allLetters.length) {
-      const lastLetter = allLetters[allLetters.length - 1];
-      const finalTime = lastLetter.delay * 1000 + 500;
-      setTimeout(() => {
-        this.typedLetterIndex = this.totalLettersCount; // "за" последнюю букву
-      }, finalTime);
-    }
+    this.typewriterService.observeTyping(
+      allLetters,
+      (currentIndex) => {
+        this.typedLetterIndex = currentIndex;
+      }
+    );
   }
+
 }

@@ -1,48 +1,100 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, inject, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ProjectPreviewInterface} from '../../types/projects.interface';
 import {PROJECTS} from '../../data/projects';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {RouterLink} from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
+import {TypewriterService} from '../../shared/services/typewriter.service';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [
-    NgForOf,
-    NgIf,
-    NgClass
-  ],
+  standalone: true,
+  imports: [NgForOf, NgIf, NgClass, RouterLink],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss'
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
-
   projects: ProjectPreviewInterface[] = PROJECTS;
-  activeSlide = 0;
   SLIDES_LENGTH = PROJECTS.length;
+
   isPlaying = true;
-  slideDirection: 'left' | 'right' = 'right';
+  activeSlide = 0;
+  previousSlide = 0;
+  slideDirection: '' | 'left' | 'right' = '';
+  isFirstLoad = true;
+  infoVisible = true;
+
+  typedLetterIndex = -1;
+  jsonLetters: { char: string; delay: number; letterIndexGlobal: number }[] = [];
+
+  @ViewChild('thumbsContainer', {static: true}) thumbsContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('jsonContainer') jsonContainer!: ElementRef<HTMLDivElement>;
+  @ViewChildren('thumb') thumbs!: QueryList<ElementRef<HTMLDivElement>>;
+
+  typewriterService = inject(TypewriterService);
+  sanitizer = inject(DomSanitizer);
+  private cdr: ChangeDetectorRef;
+
   private autoPlayIntervalId: ReturnType<typeof setInterval> | null = null;
-  private slideInterval: number = 2000;
+  private slideInterval = 7000;
+
+  constructor(cdr: ChangeDetectorRef) {
+    this.cdr = cdr;
+  }
+
+  get typedJson(): string {
+    return this.jsonLetters
+      .slice(0, this.typedLetterIndex + 1)
+      .map(l => l.char)
+      .join('');
+  }
 
   ngOnInit() {
+    this.previousSlide = this.activeSlide;
     this.playCarousel();
+
+    setTimeout(() => {
+      this.isFirstLoad = false;
+    }, 100);
+
+    setTimeout(() => this.scrollToActiveThumbnail(), 0);
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      this.initJsonTyping(this.projects[this.activeSlide]);
+    }, 0);
+  }
+
+  afterViewInit(): void {
+
   }
 
   ngOnDestroy() {
     this.pauseCarousel();
   }
 
-
   setActiveSlide(index: number) {
     this.pauseCarousel();
-    this.activeSlide = index;
+    const direction = index > this.activeSlide ? 'right' : 'left';
+    this.goToSlide(index, direction);
+    this.scrollToActiveThumbnail();
   }
 
-  playCarousel(): void {
+  nextSlide() {
+    const nextIndex = (this.activeSlide + 1) % this.SLIDES_LENGTH;
+    this.manualSlideTo(nextIndex, 'right');
+  }
+
+  prevSlide() {
+    const prevIndex = (this.activeSlide - 1 + this.SLIDES_LENGTH) % this.SLIDES_LENGTH;
+    this.manualSlideTo(prevIndex, 'left');
+  }
+
+  playCarousel() {
     if (this.autoPlayIntervalId) return;
 
     this.autoPlayIntervalId = setInterval(() => {
       const nextIndex = (this.activeSlide + 1) % this.SLIDES_LENGTH;
-      this.goToSlide(nextIndex);
+      this.autoSlideTo(nextIndex, 'right');
     }, this.slideInterval);
 
     this.isPlaying = true;
@@ -56,21 +108,81 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.isPlaying = false;
   }
 
-  toggleCarousel = () => this.isPlaying ? this.pauseCarousel() : this.playCarousel();
-
-  nextSlide() {
-    this.pauseCarousel();
-    const nextIndex = this.activeSlide = (this.activeSlide + 1) % this.SLIDES_LENGTH;
-    this.goToSlide(nextIndex);
+  toggleCarousel() {
+    this.isPlaying ? this.pauseCarousel() : this.playCarousel();
   }
 
-  prevSlide() {
+  manualSlideTo(index: number, direction: 'left' | 'right') {
     this.pauseCarousel();
-    const prevIndex = this.activeSlide = (this.activeSlide - 1 + this.SLIDES_LENGTH) % this.SLIDES_LENGTH;
-    this.goToSlide(prevIndex);
+    this.goToSlide(index, direction);
   }
 
-  private goToSlide(index: number) {
-    this.activeSlide = index;
+  private initJsonTyping(project: any): void {
+    const jsonStr = JSON.stringify(project, null, 2);
+    let index = 0;
+
+    this.jsonLetters = jsonStr.split('').map((char) => ({
+      char,
+      delay: index * 0.01,
+      letterIndexGlobal: index++
+    }));
+
+    this.typedLetterIndex = -1;
+
+    this.typewriterService.observeTyping(
+      this.jsonLetters,
+      (currentIndex) => {
+        this.typedLetterIndex = currentIndex;
+        this.cdr.detectChanges(); // Обязательно
+        this.scrollJsonToBottom();
+      }
+    );
+  }
+
+  private scrollToActiveThumbnail() {
+    const container = this.thumbsContainer?.nativeElement;
+    const activeThumb = this.thumbs?.get(this.activeSlide)?.nativeElement;
+
+    if (container && activeThumb) {
+      const containerTop = container.scrollTop;
+      const containerHeight = container.clientHeight;
+      const thumbOffsetTop = activeThumb.offsetTop;
+      const thumbHeight = activeThumb.clientHeight;
+
+      const scrollTo = thumbOffsetTop - containerHeight / 2 + thumbHeight / 2;
+
+      container.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth'
+      });
+    }
+  }
+
+  private autoSlideTo(index: number, direction: 'left' | 'right') {
+    this.goToSlide(index, direction);
+  }
+
+  private goToSlide(index: number, direction: 'left' | 'right') {
+    if (index === this.activeSlide) return;
+
+    this.infoVisible = false;
+
+    setTimeout(() => {
+      this.previousSlide = this.activeSlide;
+      this.activeSlide = index;
+      this.slideDirection = direction;
+
+      this.infoVisible = true;
+
+      this.scrollToActiveThumbnail();
+      this.initJsonTyping(this.projects[this.activeSlide]); // перезапуск печати
+    }, 10);
+  }
+
+  private scrollJsonToBottom() {
+    if (this.jsonContainer?.nativeElement) {
+      const el = this.jsonContainer.nativeElement;
+      el.scrollTop = el.scrollHeight;
+    }
   }
 }
