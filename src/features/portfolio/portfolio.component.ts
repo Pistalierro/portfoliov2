@@ -36,7 +36,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   private cdr: ChangeDetectorRef;
 
   private autoPlayIntervalId: ReturnType<typeof setInterval> | null = null;
-  private slideInterval = 7000;
+  private slideInterval = 10000;
 
   constructor(cdr: ChangeDetectorRef) {
     this.cdr = cdr;
@@ -62,10 +62,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.initJsonTyping(this.projects[this.activeSlide]);
     }, 0);
-  }
-
-  afterViewInit(): void {
-
   }
 
   ngOnDestroy() {
@@ -144,19 +140,38 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     const activeThumb = this.thumbs?.get(this.activeSlide)?.nativeElement;
 
     if (container && activeThumb) {
-      const containerTop = container.scrollTop;
-      const containerHeight = container.clientHeight;
-      const thumbOffsetTop = activeThumb.offsetTop;
-      const thumbHeight = activeThumb.clientHeight;
+      const isMobile = window.innerWidth < 1024; // до lg
 
-      const scrollTo = thumbOffsetTop - containerHeight / 2 + thumbHeight / 2;
+      if (isMobile) {
+        // Горизонтальное выравнивание
+        const containerLeft = container.scrollLeft;
+        const containerWidth = container.clientWidth;
+        const thumbOffsetLeft = activeThumb.offsetLeft;
+        const thumbWidth = activeThumb.clientWidth;
 
-      container.scrollTo({
-        top: scrollTo,
-        behavior: 'smooth'
-      });
+        const scrollTo = thumbOffsetLeft - containerWidth / 2 + thumbWidth / 2;
+
+        container.scrollTo({
+          left: scrollTo,
+          behavior: 'smooth'
+        });
+      } else {
+        // Вертикальное (десктоп)
+        const containerTop = container.scrollTop;
+        const containerHeight = container.clientHeight;
+        const thumbOffsetTop = activeThumb.offsetTop;
+        const thumbHeight = activeThumb.clientHeight;
+
+        const scrollTo = thumbOffsetTop - containerHeight / 2 + thumbHeight / 2;
+
+        container.scrollTo({
+          top: scrollTo,
+          behavior: 'smooth'
+        });
+      }
     }
   }
+
 
   private autoSlideTo(index: number, direction: 'left' | 'right') {
     this.goToSlide(index, direction);
