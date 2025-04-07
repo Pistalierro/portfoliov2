@@ -1,10 +1,10 @@
 import {ChangeDetectorRef, Component, ElementRef, inject, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {ProjectPreviewInterface} from '../../types/projects.interface';
-import {PROJECTS} from '../../data/projects';
+import {ProjectPreviewInterface} from '../../../../types/projects.interface';
+import {PROJECTS} from '../../../../data/projects';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
-import {TypewriterService} from '../../shared/services/typewriter.service';
+import {TypewriterService} from '../../../../shared/services/typewriter.service';
 import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({

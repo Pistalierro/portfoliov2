@@ -1,9 +1,10 @@
 import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
-import {NavbarComponent} from '../features/navbar/navbar.component';
-import {AboutComponent} from '../features/about/about.component';
-import {HeroComponent} from '../features/hero/hero.component';
+import {NavbarComponent} from '../layouts/main-layout/navbar/navbar.component';
+import {AboutComponent} from '../pages/home/sections/about/about.component';
+import {HeroComponent} from '../pages/home/sections/hero/hero.component';
 import {ScrollService} from '../shared/services/scroll/scroll.service';
-import {PortfolioComponent} from '../features/portfolio/portfolio.component';
+import {PortfolioComponent} from '../pages/home/sections/portfolio/portfolio.component';
+import {FooterComponent} from '../layouts/main-layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import {PortfolioComponent} from '../features/portfolio/portfolio.component';
     NavbarComponent,
     AboutComponent,
     HeroComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
-import {FLY_ANIMATIONS} from '../../shared/constants/animations.const';
-import {paragraphInterface, paragraphsInterface} from '../../types/text-animations.interface';
-import {TypewriterService} from '../../shared/services/typewriter.service';
+import {FLY_ANIMATIONS} from '../../../../shared/constants/animations.const';
+import {paragraphInterface, paragraphsInterface} from '../../../../types/text-animations.interface';
+import {TypewriterService} from '../../../../shared/services/typewriter.service';
 
 @Component({
   selector: 'app-hero',

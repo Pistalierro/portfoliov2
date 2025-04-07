@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, ElementRef, HostListener, inject, ViewChild} from '@angular/core';
 import {NgClass, NgIf} from '@angular/common';
 import {TranslatePipe, TranslateService} from '@ngx-translate/core';
-import {ScrollService} from '../../shared/services/scroll/scroll.service';
-import {ScrollTrackerService} from '../../shared/services/scroll/scroll-tracker.service';
-import {getLangFlag} from '../../shared/utils/lang-flag.helpers';
+import {ScrollService} from '../../../shared/services/scroll/scroll.service';
+import {ScrollTrackerService} from '../../../shared/services/scroll/scroll-tracker.service';
+import {getLangFlag} from '../../../shared/utils/lang-flag.helpers';
 
 @Component({
   selector: 'app-navbar',

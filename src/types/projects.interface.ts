@@ -1,5 +1,6 @@
 export interface ProjectPreviewInterface {
   id: number;
+  slug: string;
   title: string;
   description: string;
   techStack: string[];

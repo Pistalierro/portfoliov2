@@ -3,6 +3,7 @@ import {ProjectPreviewInterface} from '../types/projects.interface';
 export const PROJECTS: ProjectPreviewInterface[] = [
   {
     id: 1,
+    slug: 'wot-blitz-statistics',
     title: 'WoT Blitz Statistics',
     description: 'PROJECTS.WOT_BLITZ_STATISTICS.DESCRIPTION',
     techStack: [
@@ -22,6 +23,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 2,
+    slug: 'weather-forecast',
     title: 'Weather Forecast',
     description: 'PROJECTS.WEATHER_FORECAST.DESCRIPTION',
     techStack: [
@@ -39,6 +41,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 3,
+    slug: 'js-slider',
     title: 'JS Slider',
     description: 'PROJECTS.JS_SLIDER.DESCRIPTION',
     techStack: [
@@ -55,6 +58,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 4,
+    slug: 'grid-template',
     title: 'Grid Template',
     description: 'PROJECTS.GRID_TEMPLATE.DESCRIPTION',
     techStack: ['HTML5', 'SCSS', 'JavaScript', 'jQuery', 'CSS Grid', 'Responsive Design'],
@@ -65,6 +69,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 5,
+    slug: 'crud-with-material-ui',
     title: 'CRUD with Material UI',
     description: 'PROJECTS.CRUD_MATERIAL.DESCRIPTION',
     techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Angular Material', 'Reactive Forms', 'SCSS'],
@@ -75,6 +80,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 6,
+    slug: 'kinozal',
     title: 'Kinozal',
     description: 'PROJECTS.KINOZAL.DESCRIPTION',
     techStack: ['HTML', 'SCSS', 'Bootstrap 5', 'Flexbox'],
@@ -85,6 +91,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 7,
+    slug: 'movie-search',
     title: 'Movie Search',
     description: 'PROJECTS.MOVIE_SEARCH.DESCRIPTION',
     techStack: ['HTML', 'SCSS', 'JavaScript', 'Bootstrap 5', 'OMDb API'],
@@ -95,6 +102,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 8,
+    slug: 'crud-with-bootstrap',
     title: 'CRUD with Bootstrap',
     description: 'PROJECTS.CRUD_BOOTSTRAP.DESCRIPTION',
     techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Bootstrap 5', 'Firebase RTDB', 'Reactive Forms'],
@@ -105,6 +113,7 @@ export const PROJECTS: ProjectPreviewInterface[] = [
   },
   {
     id: 9,
+    slug: 'currency-converter',
     title: 'Currency Converter',
     description: 'PROJECTS.CURRENCY_CONVERTER.DESCRIPTION',
     techStack: ['Angular 18+', 'TypeScript', 'Tailwind CSS', 'REST API'],
