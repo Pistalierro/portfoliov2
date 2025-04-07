@@ -5,11 +5,12 @@ import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {DomSanitizer} from '@angular/platform-browser';
 import {TypewriterService} from '../../shared/services/typewriter.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [NgForOf, NgIf, NgClass, RouterLink],
+  imports: [NgForOf, NgIf, NgClass, RouterLink, TranslatePipe],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
@@ -140,7 +141,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     const activeThumb = this.thumbs?.get(this.activeSlide)?.nativeElement;
 
     if (container && activeThumb) {
-      const isMobile = window.innerWidth < 1024; // до lg
+      const isMobile = window.innerWidth < 1024;
 
       if (isMobile) {
         // Горизонтальное выравнивание
@@ -156,7 +157,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
           behavior: 'smooth'
         });
       } else {
-        // Вертикальное (десктоп)
         const containerTop = container.scrollTop;
         const containerHeight = container.clientHeight;
         const thumbOffsetTop = activeThumb.offsetTop;

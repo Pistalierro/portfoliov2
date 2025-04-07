@@ -8,10 +8,9 @@
         [attr.data-anim]="isMobile ? 'animate-block-fly-right' : 'animate-block-fly-left-top'"
         [attr.data-delay]="isMobile ? '0.3s' : '0s'"
         class="about__intro opacity-0 col-span-12 md:col-span-8 md:row-start-1 bg-black/40 backdrop-blur-md p-6 space-y-4 rounded-2xl shadow-md text-white text-base md:text-lg">
-        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">О себе</h3>
-        <p>Привет! Меня зовут Анатолий, я фронтенд-разработчик, создающий современные и отзывчивые веб-интерфейсы.</p>
-        <p>Мой стек включает HTML, SCSS, JS, TypeScript и Angular. Tailwind помогает быстро создавать стильные и адаптивные интерфейсы, а
-          RxJs — управлять реактивностью. Для хранения данных и деплоя задействую Firebase и GitHub.</p>
+        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">{{ 'ABOUT.TITLE' | translate }}</h3>
+        <p>{{ 'ABOUT.INTRO.PARAGRAPH1' | translate }}</p>
+        <p>{{ 'ABOUT.INTRO.PARAGRAPH2' | translate }}</p>
       </div>
 
       <div
@@ -23,21 +22,21 @@
           <a (click)="scrollToSection('contacts')"
              class="w-60 py-1 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 hover:scale-105 text-white uppercase flex justify-center transition all duration-200">
             <i class="fa-solid fa-phone mr-2 flex items-center"></i>
-            Мои контакты
+            {{ 'ABOUT.BUTTONS.CONTACTS' | translate }}
           </a>
           <a
             class="w-60 py-1 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 hover:scale-105 text-white uppercase flex justify-center  transition all duration-200"
             href="https://www.linkedin.com/in/anatoliy-sysoienko-5a2029252/overlay/1738928238040/single-media-viewer/?profileId=ACoAAD5LwgoB8NnV7Zr1Pdet1e4FRczZhm3KTQ8"
             target="_blank">
             <i class="fa-solid fa-file-lines mr-2 flex items-center"></i>
-            Полное резюме
+            {{ 'ABOUT.BUTTONS.RESUME' | translate }}
           </a>
           <a
             (click)="scrollToSection('portfolio')"
             class="w-60 py-1 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 hover:scale-105 text-white uppercase flex justify-center  transition all duration-200"
             target="_blank">
             <i class="fa-solid fa-file-lines mr-2 flex items-center"></i>
-            Мои работы
+            {{ 'ABOUT.BUTTONS.PORTFOLIO' | translate }}
           </a>
         </div>
       </div>
@@ -48,27 +47,26 @@
         class="about__facts  opacity-0 col-span-12 md:col-span-8 bg-black/40 backdrop-blur-md p-6 rounded-2xl shadow-md"
         data-anim="animate-block-fly-right"
         data-delay="0.6s">
-        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">Основные факты</h3>
+        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">{{ 'ABOUT.FACTS.TITLE' |translate }}</h3>
         <ul class="space-y-2 text-white text-base md:text-lg">
-          <li>🎨 Создаю удобные UI/UX интерфейсы, ориентированные на пользователя</li>
-          <li>📱 Адаптив под любые экраны — от мобильных до десктопов</li>
-          <li>⚡ Оптимизирую загрузку и производительность</li>
-          <li>📚 Пишу семантичный, масштабируемый и чистый код</li>
+          <li *ngFor="let i of [0, 1, 2, 3]">
+            {{ 'ABOUT.FACTS.LIST.' + i | translate }}
+          </li>
         </ul>
       </div>
 
       <div
         class="about__education opacity-0 col-span-12 md:col-span-6 bg-black/40 backdrop-blur-md p-6 rounded-2xl shadow-md text-white space-y-6"
         data-anim="animate-block-fly-right-bottom" data-delay="0.9s">
-        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">Образование</h3>
+        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">{{ 'ABOUT.EDUCATION.TITLE' |translate }}</h3>
 
         <!-- Курсы -->
         <div class="flex items-start gap-4">
           <div class="text-3xl">🎓</div>
           <div>
-            <h4 class="font-semibold text-lg mb-1">Frontend-разработчик</h4>
-            <p class="text-base text-gray-200">Онлайн-курс от SkillUp, 2021–2022</p>
-            <p class="text-base text-gray-200">HTML, CSS, JavaScript, Angular, UX</p>
+            <h4 class="font-semibold text-lg mb-1">{{ 'ABOUT.EDUCATION.COURSE.TITLE' |translate }}</h4>
+            <p class="text-base text-gray-200">{{ 'ABOUT.EDUCATION.COURSE.PLACE' |translate }}</p>
+            <p class="text-base text-gray-200">{{ 'ABOUT.EDUCATION.COURSE.DESCRIPTION' |translate }}</p>
           </div>
         </div>
 
@@ -76,9 +74,9 @@
         <div class="flex items-start gap-4">
           <div class="text-3xl">📘</div>
           <div>
-            <h4 class="font-semibold text-lg mb-1">Самообразование</h4>
-            <p class="text-base text-gray-200">Pet-проекты, документация, практика</p>
-            <p class="text-base text-gray-200">Регулярное развитие и чтение гайдов</p>
+            <h4 class="font-semibold text-lg mb-1">{{ 'ABOUT.EDUCATION.SELF.TITLE' |translate }}</h4>
+            <p class="text-base text-gray-200">{{ 'ABOUT.EDUCATION.SELF.DESCRIPTION1' |translate }}</p>
+            <p class="text-base text-gray-200">{{ 'ABOUT.EDUCATION.SELF.DESCRIPTION2' |translate }}</p>
           </div>
         </div>
       </div>

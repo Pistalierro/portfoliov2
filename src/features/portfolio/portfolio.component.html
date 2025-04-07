@@ -23,7 +23,7 @@
             <div class="w-full mb-1 h-[80px] md:h-[120px] overflow-hidden rounded">
               <img [alt]="project.title" [src]="project.images.thumbnail" class="w-full h-full object-cover"/>
             </div>
-            <p class="text-center text-white truncate w-full text-xs md:text-[10px]">
+            <p class="text-center text-white truncate w-full text-sm md:text-base">
               {{ project.title }}
             </p>
           </div>
@@ -124,7 +124,7 @@
                 {{ project.title }}
               </h3>
               <p class="text-neutral-300 animate-info-fade-up">
-                {{ project.description }}
+                {{ project.description | translate }}
               </p>
             </div>
 
@@ -144,7 +144,7 @@
             <!-- Кнопка -->
             <a
               [routerLink]="['/portfolio', project.id]"
-              class=" animate-info-fade-up mt-6 w-full text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase mb-3 py-2 px-4 rounded-lg flex justify-center transition transform duration-200 hover:scale-105 ">
+              class=" animate-info-fade-up mt-6 w-[200px] mx-auto md:w-full text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase mb-3 py-2 px-4 rounded-lg flex justify-center transition transform duration-200 hover:scale-105 ">
               Подробнее
             </a>
           </div>

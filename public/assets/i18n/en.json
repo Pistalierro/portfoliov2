@@ -3,7 +3,8 @@
     "ABOUT": "About Me",
     "PORTFOLIO": "Portfolio",
     "SKILLS": "Skills",
-    "CONTACTS": "Contacts"
+    "CONTACTS": "Contacts",
+    "LANGUAGE": "Select Language:"
   },
   "HERO": {
     "TITLE": "Hi, this is my portfolio website",
@@ -11,5 +12,76 @@
       "Frontend is more than just code. It's magic when design and technology work in unison.",
       "I help ideas come to life through modern, beautiful, and responsive interfaces."
     ]
+  },
+  "ABOUT": {
+    "TITLE": "About Me",
+    "INTRO": {
+      "TITLE": "About Me",
+      "PARAGRAPH1": "Hi! My name is Anatoliy, I'm a frontend developer creating modern and responsive web interfaces.",
+      "PARAGRAPH2": "My stack includes HTML, SCSS, JS, TypeScript, and Angular. Tailwind helps me build stylish and adaptive interfaces quickly, and RxJs lets me manage reactivity. I use Firebase and GitHub for data storage and deployment."
+    },
+    "BUTTONS": {
+      "CONTACTS": "Contact Me",
+      "RESUME": "Full Resume",
+      "PORTFOLIO": "My Projects"
+    },
+    "FACTS": {
+      "TITLE": "Key Facts",
+      "LIST": [
+        "🎨 I create user-friendly UI/UX interfaces focused on usability",
+        "📱 Responsive design for all devices — from phones to desktops",
+        "⚡ I optimize load speed and performance",
+        "📚 I write semantic, scalable, and clean code"
+      ]
+    },
+    "EDUCATION": {
+      "TITLE": "Education",
+      "COURSE": {
+        "ICON": "🎓",
+        "TITLE": "Frontend Developer",
+        "PLACE": "Online course at SkillUp, 2021–2022",
+        "DESCRIPTION": "HTML, CSS, JavaScript, Angular, UX"
+      },
+      "SELF": {
+        "ICON": "📘",
+        "TITLE": "Self-Education",
+        "DESCRIPTION1": "Pet projects, documentation, and practice",
+        "DESCRIPTION2": "Constant growth and reading guides"
+      }
+    },
+    "CERTIFICATE": {
+      "ALT": "SkillUp Certificate",
+      "ZOOMED_ALT": "SkillUp Certificate (Zoomed)",
+      "CLOSE_LABEL": "Close modal"
+    }
+  },
+  "PROJECTS": {
+    "WOT_BLITZ_STATISTICS": {
+      "DESCRIPTION": "An application for analyzing WoT Blitz statistics. Built using Angular, Firebase, and the Signals API. It features complex calculations based on players' battle stats."
+    },
+    "WEATHER_FORECAST": {
+      "DESCRIPTION": "A weather forecast app displaying current conditions, hourly updates, and a 5-day outlook. Supports geolocation and manual city input."
+    },
+    "JS_SLIDER": {
+      "DESCRIPTION": "A custom JavaScript slider with auto-scroll, button controls, indicators, keyboard and touch support. Dynamically builds the DOM and is easily configured. Supports both basic and mobile versions without jQuery."
+    },
+    "GRID_TEMPLATE": {
+      "DESCRIPTION": "A template showcasing CSS Grid Layout capabilities with a focus on responsive design. Supports desktop and mobile devices and includes basic interactive elements using jQuery."
+    },
+    "CRUD_MATERIAL": {
+      "DESCRIPTION": "An app for managing a product database using Angular Material. Includes functionality for adding, editing, and deleting records. Uses reactive forms, custom pipes, and a thoughtfully designed adaptive layout."
+    },
+    "KINOZAL": {
+      "DESCRIPTION": "A responsive cinema website template built with Bootstrap 5.3.3. Uses a flexible flexbox grid, authorization and search forms, and basic user interaction logic. Great as a starting point for movie-related projects."
+    },
+    "MOVIE_SEARCH": {
+      "DESCRIPTION": "A web application for searching movies via the OMDb API. Users can enter a movie title and get detailed information. Features dynamic DOM building, error handling, and responsive layout."
+    },
+    "CRUD_BOOTSTRAP": {
+      "DESCRIPTION": "A CRUD application for managing a customer database using Firebase Realtime Database. Features adding, editing, and deleting data via reactive forms with custom validation. The interface is built with Bootstrap and is fully responsive."
+    },
+    "CURRENCY_CONVERTER": {
+      "DESCRIPTION": "An app for currency conversion using up-to-date exchange rates. Allows users to quickly calculate exchange amounts. Features a responsive interface built with Tailwind CSS."
+    }
   }
 }
