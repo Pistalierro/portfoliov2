@@ -6,7 +6,7 @@ import {paragraphInterface, paragraphsInterface} from '../../../../types/text-an
 import {TypewriterService} from '../../../../shared/services/typewriter.service';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'section-hero',
   standalone: true,
   imports: [NgForOf, NgClass, NgIf],
   templateUrl: './hero.component.html',

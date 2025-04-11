@@ -3,19 +3,32 @@ import {ProjectPreviewInterface} from '../../../../types/projects.interface';
 import {PROJECTS} from '../../../../data/projects';
 import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
-import {DomSanitizer} from '@angular/platform-browser';
 import {TypewriterService} from '../../../../shared/services/typewriter.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {CarouselService} from '../../../../shared/services/carousel.service';
 
 @Component({
-  selector: 'app-portfolio',
+  selector: 'section-portfolio',
   standalone: true,
   imports: [NgForOf, NgIf, NgClass, RouterLink, TranslatePipe],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
-  projects: ProjectPreviewInterface[] = PROJECTS;
+  projectPreviews: ProjectPreviewInterface[] = PROJECTS.map(
+    ({id, slug, title, description, techStack, images}) => ({
+      id,
+      slug,
+      title,
+      description,
+      techStack,
+      images: {
+        thumbnail: images.thumbnail,
+        large: images.large
+      }
+    })
+  );
+
   SLIDES_LENGTH = PROJECTS.length;
 
   isPlaying = true;
@@ -33,7 +46,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   @ViewChildren('thumb') thumbs!: QueryList<ElementRef<HTMLDivElement>>;
 
   typewriterService = inject(TypewriterService);
-  sanitizer = inject(DomSanitizer);
+  carouselService = inject(CarouselService);
   private cdr: ChangeDetectorRef;
 
   private autoPlayIntervalId: ReturnType<typeof setInterval> | null = null;
@@ -61,7 +74,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     setTimeout(() => this.scrollToActiveThumbnail(), 0);
     this.cdr.detectChanges();
     setTimeout(() => {
-      this.initJsonTyping(this.projects[this.activeSlide]);
+      this.initJsonTyping(this.projectPreviews[this.activeSlide]);
     }, 0);
   }
 
@@ -113,6 +126,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     this.pauseCarousel();
     this.goToSlide(index, direction);
   }
+
 
   private initJsonTyping(project: any): void {
     const jsonStr = JSON.stringify(project, null, 2);
@@ -172,7 +186,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     }
   }
 
-
   private autoSlideTo(index: number, direction: 'left' | 'right') {
     this.goToSlide(index, direction);
   }
@@ -190,7 +203,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       this.infoVisible = true;
 
       this.scrollToActiveThumbnail();
-      this.initJsonTyping(this.projects[this.activeSlide]); // перезапуск печати
+      this.initJsonTyping(this.projectPreviews[this.activeSlide]); // перезапуск печати
     }, 10);
   }
 
@@ -200,4 +213,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       el.scrollTop = el.scrollHeight;
     }
   }
+
+  
 }

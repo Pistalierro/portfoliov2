@@ -69,7 +69,7 @@ export class NavbarComponent implements AfterViewInit {
   }
 
   scrollToSection(id: string): void {
-    this.scrollService.scrollToElement(id);
+    this.scrollService.scrollTo(id);
     this.isMenuOpen = false;
   }
 }

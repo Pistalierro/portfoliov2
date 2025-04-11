@@ -61,4 +61,7 @@ export class ScrollTrackerService {
     });
   }
 
+  setActiveSection(id: string): void {
+    this.activeSectionSignal.set(id);
+  }
 }

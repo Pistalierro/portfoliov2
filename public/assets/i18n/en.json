@@ -55,6 +55,135 @@
       "CLOSE_LABEL": "Close modal"
     }
   },
+  "PROJECT": {
+    "DEMO_LINK": "View Demo",
+    "GITHUB_LINK": "View code",
+    "BACK": "Back",
+    "TECH_STACK_TITLE": "Tech Stack:",
+    "TOOLS": "Tools:",
+    "STATUS_TITLE": "Status:",
+    "ABOUT": "About the Project",
+    "OVERVIEW": "Overview",
+    "SPECIAL": "Highlights",
+    "CHALLENGES": "Challenges",
+    "WOT_BLITZ_STATISTICS": {
+      "TITLE": "WoT Blitz Statistics",
+      "TYPE": "Project Type: WoT Blitz Statistics",
+      "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
+      "STATUS_CONDITION": "Completed",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A commercial web application for analyzing player statistics in the popular tank shooter WoT Blitz.",
+        "OVERVIEW_PROJECT": "The application is intended for WoT Blitz players aiming to improve their gameplay. It allows searching for players and clans, tracking game statistics, analyzing session results, ratings and progress, and provides quick access to the latest data.",
+        "SPECIAL": "An intuitive and responsive interface designed in a dark gaming style, focused on usability, fast navigation, and maximum readability of statistical data. The application supports multilingual functionality and is translated into 5 languages, making it accessible to a broad international audience.",
+        "CHALLENGES": "Data was processed and normalized not only from the official game API but also from third-party sources to obtain the most complete and accurate results. Complex mathematical formulas were used to calculate and analyze game metrics. The project was a serious challenge in terms of handling large data volumes, computational logic, and building complex application state.",
+        "STATUS": "Completed"
+      }
+    },
+    "WEATHER_FORECAST": {
+      "TITLE": "Weather Forecast",
+      "TYPE": "Project Type: SPA",
+      "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
+      "DESCRIPTION": "Forecast with details for several days and hours, with geolocation and manual city input.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A responsive web application for displaying weather forecasts using the OpenWeatherMap API. It provides detailed information about current weather conditions and forecasts for the coming hours and days.",
+        "OVERVIEW_PROJECT": "The application automatically detects the user's location through geolocation and displays the current weather. The user can also manually enter a city. It provides detailed forecasts with temperature, humidity, visual icons, and hourly breakdowns. The interface is adapted for various devices.",
+        "SPECIAL": "The responsive interface is built using Flexbox and Grid. Styled icons and graphic elements are used to visually represent the current weather conditions.",
+        "CHALLENGES": "Multiple APIs were used to obtain a complete picture: data had to be processed, normalized, and aggregated manually. Special attention was given to accurate hourly forecast display. The project served as practice for working with REST APIs, calculations, and interface adaptation for different screens.",
+        "STATUS": "Completed"
+      }
+    },
+    "JS_SLIDER": {
+      "TITLE": "JS Slider",
+      "TYPE": "Project Type: UI Component",
+      "TYPE_DESCRIPTION": "A reusable visual component (e.g., slider or card), designed for embedding in other projects.",
+      "DESCRIPTION": "Native JavaScript slider with swipe and autoplay support.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A custom slider implemented in pure JavaScript without using third-party libraries. It is a reusable UI component with flexible configuration.",
+        "OVERVIEW_PROJECT": "The slider includes keyboard control, swipe support, navigation buttons, and autoplay. It supports responsive layout and is easy to embed in any project. The core logic is split between a config file and a functional module.",
+        "SPECIAL": "The component is written from scratch in native JavaScript. Two versions were implemented: using constructor functions and classes. Both versions support centralized configuration for easy control. The advanced version includes swipe support. The interface is fully responsive and does not use any frameworks.",
+        "CHALLENGES": "The project provided solid practice in developing reusable components and building architecture without libraries. Advanced features such as swipes, autoplay, keyboard navigation, and responsiveness were implemented. It also included experience migrating from functions to classes and organizing configuration settings.",
+        "STATUS": "Completed"
+      }
+    },
+    "GRID_TEMPLATE": {
+      "TITLE": "Grid Template",
+      "TYPE": "Project Type: Landing Page",
+      "TYPE_DESCRIPTION": "A one-page site or promo page focused on visuals and presentation, usually without logic.",
+      "DESCRIPTION": "A demo of responsive grid-based layout with a hamburger menu.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A landing page template built using CSS Grid without frameworks. The project was created to demonstrate responsive layout and practice building complex grids from scratch.",
+        "OVERVIEW_PROJECT": "The landing consists of static blocks laid out with CSS Grid. It features responsive navigation, including a jQuery-powered hamburger menu for mobile. Otherwise, the site is fully static and contains no interactive elements.",
+        "SPECIAL": "The project was implemented without using frameworks. Modern CSS Grid features like grid-template-areas, auto-fit, and minmax were actively used. Responsiveness is achieved using media queries for four breakpoints. The project is bundled using a custom Gulp configuration.",
+        "CHALLENGES": "Although layout itself wasn’t difficult, the project served as practice in well-thought-out responsiveness and mastering all features of CSS Grid. Special attention was paid to cross-browser compatibility — vendor prefixes were added using Gulp.",
+        "STATUS": "Completed"
+      }
+    },
+    "CRUD_MATERIAL": {
+      "TITLE": "CRUD with Material UI",
+      "TYPE": "Project Type: CRUD",
+      "TYPE_DESCRIPTION": "An application with create, read, update, and delete operations.",
+      "DESCRIPTION": "CRUD with Angular Material and real-time Firestore integration.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A demo application with CRUD functionality for managing a list of products. Built with Angular using Angular Material and real-time Firestore integration.",
+        "OVERVIEW_PROJECT": "The application implements a full CRUD cycle: adding, editing, deleting, filtering, sorting, and paginating products. New items are added through a dialog box with a form that includes a `DatePicker` and validation. Data is stored in Firestore and synced in real-time.",
+        "SPECIAL": "The project is built with Angular using Angular Material and `Reactive Forms`. Library components are used in their default form without customization. The interface is responsive and designed for fast and intuitive interaction with the data table.",
+        "CHALLENGES": "The project provided solid practice with `Reactive Forms`, dialogs, and complex input forms. It was the first time using Firestore as the main state source, with data synchronization and reactive table display.",
+        "STATUS": "Completed"
+      }
+    },
+    "KINOZAL": {
+      "TITLE": "Kinozal",
+      "TYPE": "Project Type: Template",
+      "TYPE_DESCRIPTION": "A ready-made layout or educational template without active logic. Used to showcase layout skills.",
+      "DESCRIPTION": "Online cinema template using Bootstrap 5 with a poster gallery.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "An educational template for an online cinema, implemented as a two-page responsive website. The project was created to practice layout using Bootstrap 5 and SCSS.",
+        "OVERVIEW_PROJECT": "The template includes login pages, a news section, movie ratings, articles, and a poster gallery. All elements are styled using Bootstrap theming. The interface includes basic interactive elements: navigation and standard dropdown menus.",
+        "SPECIAL": "The project used Bootstrap 5 theming with enhancements via SCSS: custom variables, mixins, and flexible style management. The layout is built using Flexbox and media queries, enabling three completely different breakpoints with rearranged section order and sizes.",
+        "CHALLENGES": "The project was great practice for responsive layout and working with Bootstrap 5. During adaptation, tasks arose around section order and placement on different screens, which were solved using `order`, `flex`, and custom SCSS breakpoints.",
+        "STATUS": "Completed"
+      }
+    },
+    "MOVIE_SEARCH": {
+      "TITLE": "Movie Search",
+      "TYPE": "Project Type: SPA",
+      "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
+      "DESCRIPTION": "Movie search using OMDb API with a dynamic interface.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A SPA application for searching movies by title using the OMDb API. The interface is dynamically generated using JavaScript without HTML templates.",
+        "OVERVIEW_PROJECT": "The user enters a movie title, and the app sends a request to the OMDb API. Results are displayed as poster cards with the ability to load more results. Search is optimized using a debounce function. The interface is responsive and styled with pure SCSS, fully generated with JavaScript.",
+        "SPECIAL": "The entire DOM is generated with JavaScript, including structure, styles, and result cards. The project follows a modular approach: logic is split into functions, each responsible for a specific part of the app. There is no pre-written HTML — everything is built via script.",
+        "CHALLENGES": "The project was a practice in building SPAs without frameworks or templates. DOM manipulation was done from scratch, with implementation of debounce logic and basic architecture using JS modules. Pure SCSS was used for quick responsive styling of cards.",
+        "STATUS": "Completed"
+      }
+    },
+    "CRUD_BOOTSTRAP": {
+      "TITLE": "CRUD with Bootstrap",
+      "TYPE": "Project Type: CRUD",
+      "TYPE_DESCRIPTION": "An application with create, read, update, and delete operations.",
+      "DESCRIPTION": "CRUD with Bootstrap and real-time Firestore integration.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A demo application for managing a list of users with full CRUD operations. Built with Angular using Bootstrap 5 and Firebase Firestore as the data store.",
+        "OVERVIEW_PROJECT": "The application allows creating, editing, deleting, and viewing users. All data is synchronized with Firebase Firestore. Forms are implemented using `Reactive Forms` with built-in and custom validation. The interface is responsive and built with Bootstrap components.",
+        "SPECIAL": "The project uses Bootstrap 5 without customization. Special attention was paid to quality form validation: in addition to standard checks, custom pipes were implemented for dynamic value display. The interface is responsive and works well on all devices.",
+        "CHALLENGES": "This was the first project involving CRUD apps with Angular and Firebase. Custom pipes for data formatting were implemented, along with full use of `Reactive Forms`. Thanks to stable Firestore and Bootstrap integration, the project was developed without technical difficulties.",
+        "STATUS": "Completed"
+      }
+    },
+    "CURRENCY_CONVERTER": {
+      "TITLE": "Currency Converter",
+      "TYPE": "Project Type: SPA",
+      "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
+      "DESCRIPTION": "An app for converting currencies using NBU exchange rates.",
+      "DETAILS": {
+        "ABOUT_PROJECT": "An application for converting currencies using up-to-date rates from the National Bank of Ukraine. It allows quick conversion between selected currencies based on the official API.",
+        "OVERVIEW_PROJECT": "The user selects a base and target currency, enters an amount — and gets the result based on the current NBU rate. Rates are fetched dynamically through a REST API. The interface is minimalist and responsive, built with Tailwind CSS.",
+        "SPECIAL": "The project is built from scratch in Angular using `signals` for reactive state management. The interface is styled using Tailwind CSS, allowing fast and flexible styling without excess code.",
+        "CHALLENGES": "This project was the first experience using `signals` in Angular. It also provided practice integrating with an external API without relying on third-party libraries for data handling.",
+        "STATUS": "Completed"
+      }
+    }
+  },
   "PROJECTS": {
     "WOT_BLITZ_STATISTICS": {
       "DESCRIPTION": "An application for analyzing WoT Blitz statistics. Built using Angular, Firebase, and the Signals API. It features complex calculations based on players' battle stats."

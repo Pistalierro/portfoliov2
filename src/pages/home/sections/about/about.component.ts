@@ -5,7 +5,8 @@ import {ScrollTrackerService} from '../../../../shared/services/scroll/scroll-tr
 import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-about',
+  selector: 'section-about',
+  standalone: true,
   imports: [
     NgIf,
     TranslatePipe,

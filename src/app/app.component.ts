@@ -1,19 +1,11 @@
 import {AfterViewInit, Component, inject, OnInit} from '@angular/core';
-import {NavbarComponent} from '../layouts/main-layout/navbar/navbar.component';
-import {AboutComponent} from '../pages/home/sections/about/about.component';
-import {HeroComponent} from '../pages/home/sections/hero/hero.component';
 import {ScrollService} from '../shared/services/scroll/scroll.service';
-import {PortfolioComponent} from '../pages/home/sections/portfolio/portfolio.component';
-import {FooterComponent} from '../layouts/main-layout/footer/footer.component';
+import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   imports: [
-    NavbarComponent,
-    AboutComponent,
-    HeroComponent,
-    PortfolioComponent,
-    FooterComponent
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -28,7 +20,11 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     document.documentElement.style.scrollBehavior = 'auto';
-    this.scrollService.restoreScrollPosition();
+    const hasScrollTo = !!history.state?.scrollTo;
+
+    if (!hasScrollTo) {
+      this.scrollService.restoreScrollPosition();
+    }
 
     setTimeout(() => {
       document.documentElement.style.scrollBehavior = 'smooth';

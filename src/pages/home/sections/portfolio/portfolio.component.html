@@ -14,7 +14,7 @@
         <div
           class=" flex gap-2 md:flex-row lg:flex-col md:items-start lg:items-stretch md:space-x-3 lg:space-x-0 lg:space-y-3">
           <!-- Каждая миниатюра -->
-          <div #thumb (click)="setActiveSlide(i)" *ngFor="let project of projects; let i = index"
+          <div #thumb (click)="setActiveSlide(i)" *ngFor="let project of projectPreviews; let i = index"
                [ngClass]="{
               'outline-accent outline-2 z-10': i === activeSlide,
               'outline-0': i !== activeSlide
@@ -24,7 +24,7 @@
               <img [alt]="project.title" [src]="project.images.thumbnail" class="w-full h-full object-cover"/>
             </div>
             <p class="text-center text-white truncate w-full text-sm md:text-base">
-              {{ project.title }}
+              {{ project.title | translate }}
             </p>
           </div>
         </div>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="relative w-full h-full">
-          <ng-container *ngFor="let project of projects; let i = index">
+          <ng-container *ngFor="let project of projectPreviews; let i = index">
             <img
               [alt]="project.title"
               [ngClass]="{
@@ -113,7 +113,7 @@
 
       <div
         class=" portfolio__info col-span-12 row-span-1 md:col-span-3 md:row-span-3 md:order-2 lg:col-span-3 lg:row-span-1 lg:order-3 p-4 bg-black/30 w-full h-full min-h-0 overflow-y-auto rounded-md">
-        <ng-container *ngIf="projects[activeSlide] as project">
+        <ng-container *ngIf="projectPreviews[activeSlide] as project">
           <div
             *ngIf="infoVisible"
             class="portfolio__info-container flex flex-col justify-between h-full"
@@ -121,7 +121,7 @@
             <!-- Верхняя часть -->
             <div>
               <h3 class="text-center text-white text-xl mb-2 animate-info-appear">
-                {{ project.title }}
+                {{ project.title | translate }}
               </h3>
               <p class="text-neutral-300 animate-info-fade-up">
                 {{ project.description | translate }}
@@ -142,9 +142,8 @@
             </div>
 
             <!-- Кнопка -->
-            <a
-              [routerLink]="['/portfolio', project.slug]"
-              class=" animate-info-fade-up mt-6 w-[200px] mx-auto md:w-full text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase mb-3 py-2 px-4 rounded-lg flex justify-center transition transform duration-200 hover:scale-105 ">
+            <a [routerLink]="['/portfolio', project.slug]"
+               class=" animate-info-fade-up mt-6  mx-auto md:w-full text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase mb-3 py-2 px-4 rounded-full flex justify-center transition transform duration-200 hover:scale-105 ">
               Подробнее
             </a>
           </div>

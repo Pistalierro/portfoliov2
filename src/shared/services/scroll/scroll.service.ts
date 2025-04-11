@@ -1,13 +1,26 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScrollService {
 
-  scrollToElement(id: string): void {
+  private router = inject(Router);
+
+  scrollTo(id: string): void {
+    const currentUrl = this.router.url.split('?')[0];
+    if (currentUrl === '/' || currentUrl === '/home') {
+      this.scrollToElement(id);
+    } else {
+      void this.router.navigate(['/'], {state: {scrollTo: id}});
+    }
+
+  } ;
+
+  scrollToElement(id: string, behavior: ScrollBehavior = 'smooth'): void {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({behavior: 'smooth'});
+    if (el) el.scrollIntoView({behavior});
   }
 
   saveScrollPosition(): void {

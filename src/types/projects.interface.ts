@@ -11,10 +11,16 @@ export interface ProjectPreviewInterface {
 }
 
 export interface ProjectDetailedInterface extends ProjectPreviewInterface {
-  features: string[];
-  screenshots: string[];
+  type: string;
+  typeDescription: string;
+  tools: string[];
+  url: string;
   repositoryUrl?: string;
-  liveDemoUrl?: string;
-  date: string;
-  role: string;
+  details: {
+    what: string;
+    overview: string;
+    special: string;
+    challenges: string;
+  };
+  status: string;
 }
