@@ -6,3 +6,15 @@
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Chrome, Safari и остальная шайка */
 }
+
+.portfolio__viewer {
+  &.keyboard-active {
+    .portfolio__viewer-overlay {
+      @apply opacity-100;
+    }
+  }
+
+  .carousel-controls {
+    @apply opacity-100 scale-105;
+  }
+}
