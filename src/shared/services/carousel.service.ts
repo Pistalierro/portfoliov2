@@ -11,10 +11,12 @@ export class CarouselService {
   activeSlide = 0;
   previousSlide = 0;
   slideDirection: '' | 'left' | 'right' = '';
-  SLIDES_LENGTH = 0; // зададим позже через init
+  SLIDES_LENGTH = 0;
   onSlideChange: ((index: number, direction: 'left' | 'right') => void) | null = null;
 
   keyboardActive = signal<boolean>(false);
+  swipeActive = signal<boolean>(false);
+  mouseActive = signal<boolean>(false);
   lastKeyPressed = signal<'left' | 'right' | 'space' | null>(null);
 
   private slideInterval = 10000;
@@ -22,6 +24,8 @@ export class CarouselService {
 
   private touchStartX = 0;
   private touchEndX = 0;
+  private mouseDownX = 0;
+  private mouseUpX = 0;
 
   init(slidesLength: number, onSlideChange: (index: number, direction: 'left' | 'right') => void) {
     this.SLIDES_LENGTH = slidesLength;
@@ -93,11 +97,15 @@ export class CarouselService {
   listenToSwipe(el: HTMLElement): void {
     el.addEventListener('touchstart', this.onTouchStart);
     el.addEventListener('touchend', this.onTouchEnd);
+    el.addEventListener('mousedown', this.onMouseDown);
+    el.addEventListener('mouseup', this.onMouseUp);
   }
 
   removeSwipe(el: HTMLElement): void {
     el.removeEventListener('touchstart', this.onTouchStart);
     el.removeEventListener('touchend', this.onTouchEnd);
+    el.removeEventListener('mousedown', this.onMouseDown);
+    el.removeEventListener('mouseup', this.onMouseUp);
   }
 
   private handleSwipeGesture(): void {
@@ -106,9 +114,10 @@ export class CarouselService {
 
     if (Math.abs(difference) < threshold) return;
 
-    if (difference < 0) {
-      this.nextSlide();
-    } else this.prevSlide();
+    this.swipeActive.set(true);
+    setTimeout(() => this.swipeActive.set(false), 2000);
+
+    difference < 0 ? this.nextSlide() : this.prevSlide();
   }
 
   private pressKey = (event: KeyboardEvent): void => {
@@ -169,4 +178,25 @@ export class CarouselService {
     this.touchEndX = event.changedTouches[0].clientX;
     this.handleSwipeGesture();
   };
+
+  private onMouseDown = (event: MouseEvent): void => {
+    this.mouseDownX = event.clientX;
+  };
+
+  private onMouseUp = (event: MouseEvent): void => {
+    this.mouseUpX = event.clientX;
+    this.handleMouseSwipeGesture();
+  };
+
+  private handleMouseSwipeGesture(): void {
+    const difference = this.mouseUpX - this.mouseDownX;
+    const threshold = 50;
+
+    if (Math.abs(difference) < threshold) return;
+
+    this.mouseActive.set(true);
+    setTimeout(() => this.mouseActive.set(false), 2000);
+
+    difference < 0 ? this.nextSlide() : this.prevSlide();
+  }
 }

@@ -37,7 +37,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'weather-forecast',
     type: 'PROJECT.WEATHER_FORECAST.TYPE',
     typeDescription: 'PROJECT.WEATHER_FORECAST.TYPE_DESCRIPTION',
-    description: 'PROJECT.WEATHER_FORECAST.DESCRIPTION',
+    description: 'PROJECTS.WEATHER_FORECAST.DESCRIPTION',
     techStack: [
       'Angular 18+',
       'RxJs',
@@ -67,7 +67,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'js-slider',
     type: 'PROJECT.JS_SLIDER.TYPE',
     typeDescription: 'PROJECT.JS_SLIDER.TYPE_DESCRIPTION',
-    description: 'PROJECT.JS_SLIDER.DESCRIPTION',
+    description: 'PROJECTS.JS_SLIDER.DESCRIPTION',
     techStack: ['HTML5', 'SCSS', 'JavaScript (Vanilla)', 'BEM', 'Responsive Design'],
     tools: ['Web Storm', 'GitHub'],
     images: {
@@ -90,7 +90,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'grid-template',
     type: 'PROJECT.GRID_TEMPLATE.TYPE',
     typeDescription: 'PROJECT.GRID_TEMPLATE.TYPE_DESCRIPTION',
-    description: 'PROJECT.GRID_TEMPLATE.DESCRIPTION',
+    description: 'PROJECTS.GRID_TEMPLATE.DESCRIPTION',
     techStack: ['HTML5', 'SCSS', 'JavaScript', 'jQuery', 'CSS Grid', 'Responsive Design'],
     tools: ['Web Storm', 'GitHub', 'Gulp'],
     images: {
@@ -113,7 +113,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'crud-with-material-ui',
     type: 'PROJECT.CRUD_MATERIAL.TYPE',
     typeDescription: 'PROJECT.CRUD_MATERIAL.TYPE_DESCRIPTION',
-    description: 'PROJECT.CRUD_MATERIAL.DESCRIPTION',
+    description: 'PROJECTS.CRUD_MATERIAL.DESCRIPTION',
     techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Angular Material', 'Reactive Forms', 'SCSS'],
     tools: ['WebStorm', 'GitHub'],
     images: {
@@ -136,7 +136,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'kinozal',
     type: 'PROJECT.KINOZAL.TYPE',
     typeDescription: 'PROJECT.KINOZAL.TYPE_DESCRIPTION',
-    description: 'PROJECT.KINOZAL.DESCRIPTION',
+    description: 'PROJECTS.KINOZAL.DESCRIPTION',
     techStack: ['HTML', 'SCSS', 'Bootstrap 5', 'Flexbox'],
     tools: ['WebStorm', 'GitHub'],
     images: {
@@ -159,7 +159,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'movie-search',
     type: 'PROJECT.MOVIE_SEARCH.TYPE',
     typeDescription: 'PROJECT.MOVIE_SEARCH.TYPE_DESCRIPTION',
-    description: 'PROJECT.MOVIE_SEARCH.DESCRIPTION',
+    description: 'PROJECTS.MOVIE_SEARCH.DESCRIPTION',
     techStack: ['HTML', 'SCSS', 'JavaScript', 'OMDb API'],
     tools: ['WebStorm', 'Gulp', 'GitHub'],
     images: {
@@ -182,7 +182,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'crud-with-bootstrap',
     type: 'PROJECT.CRUD_BOOTSTRAP.TYPE',
     typeDescription: 'PROJECT.CRUD_BOOTSTRAP.TYPE_DESCRIPTION',
-    description: 'PROJECT.CRUD_BOOTSTRAP.DESCRIPTION',
+    description: 'PROJECTS.CRUD_BOOTSTRAP.DESCRIPTION',
     techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Bootstrap 5', 'Firebase RTDB', 'Reactive Forms'],
     tools: ['WebStorm', 'GitHub'],
     images: {
@@ -205,7 +205,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     slug: 'currency-converter',
     type: 'PROJECT.CURRENCY_CONVERTER.TYPE',
     typeDescription: 'PROJECT.CURRENCY_CONVERTER.TYPE_DESCRIPTION',
-    description: 'PROJECT.CURRENCY_CONVERTER.DESCRIPTION',
+    description: 'PROJECTS.CURRENCY_CONVERTER.DESCRIPTION',
     techStack: ['Angular 18+', 'TypeScript', 'Tailwind CSS', 'REST API'],
     tools: ['WebStorm', 'GitHub'],
     images: {

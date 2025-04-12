@@ -185,6 +185,7 @@
     }
   },
   "PROJECTS": {
+    "TECH_STACK": "Технології:",
     "WOT_BLITZ_STATISTICS": {
       "DESCRIPTION": "Додаток для аналізу статистики WoT Blitz. Реалізовано з використанням Angular, Firebase та Signals API. Містить складні обчислення на основі бойової статистики гравців."
     },

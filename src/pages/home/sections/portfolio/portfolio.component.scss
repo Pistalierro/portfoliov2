@@ -8,13 +8,15 @@
 }
 
 .portfolio__viewer {
-  &.keyboard-active {
+  &.keyboard-active,
+  &.swipe-active,
+  &.mouse-active {
     .portfolio__viewer-overlay {
       @apply opacity-100;
     }
-  }
 
-  .carousel-controls {
-    @apply opacity-100 scale-105;
+    .carousel-controls {
+      @apply opacity-100 scale-105;
+    }
   }
 }

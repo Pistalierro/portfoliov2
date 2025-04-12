@@ -185,6 +185,7 @@
     }
   },
   "PROJECTS": {
+    "TECH_STACK": "Tech stack:",
     "WOT_BLITZ_STATISTICS": {
       "DESCRIPTION": "An application for analyzing WoT Blitz statistics. Built using Angular, Firebase, and the Signals API. It features complex calculations based on players' battle stats."
     },

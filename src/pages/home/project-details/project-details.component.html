@@ -7,9 +7,9 @@
 
   <div class="project__container mx-auto w-full max-w-screen-xl px-4 py-24">
 
-    <h2 class="text-center text-accent  text-4xl mb-5">{{ project.title | translate }}</h2>
+    <h2 class="text-center text-accent text-4xl mb-5" data-anim="animate-block-fly-top">{{ project.title | translate }}</h2>
 
-    <div class="project__image-container group relative flex items-center justify-center w-full">
+    <div class="project__image-container group relative flex items-center justify-center w-full mt-5" data-anim="animate-flip-unmirror">
       <img [src]="project.images.large" alt="project image" class="rounded-lg overflow-hidden shadow-xl"/>
     </div>
 
@@ -17,7 +17,9 @@
 
       <div class="project__info-container grid md:grid-cols-12 gap-3">
 
-        <div class="project__facts md:col-span-4 p-5 bg-black/30 rounded-lg tracking-wide flex flex-col justify-between gap-5">
+        <div
+          class="project__facts md:col-span-4 p-5 bg-black/30 rounded-lg tracking-wide flex flex-col justify-between gap-5 pre-animate"
+          data-anim="animate-block-fly-left-top">
 
           <div class="project__facts-list space-y-6">
             <div class="project__facts-item space-y-4 text-lg">
@@ -82,7 +84,8 @@
 
         </div>
 
-        <div class="project__details md:col-span-8 p-5 bg-black/30 rounded-lg space-y-6 tracking-wide">
+        <div class="project__details md:col-span-8 p-5 bg-black/30 rounded-lg space-y-6 tracking-wide pre-animate"
+             data-anim="animate-block-fly-right-top">
 
           <div class="project__details-item ">
             <h3 class="text-white text-2xl text-center">{{ 'PROJECT.ABOUT' | translate }}</h3>

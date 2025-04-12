@@ -6,6 +6,18 @@ const keyframes = {
     '0%, 100%': {transform: 'scale(1)'},
     '50%': {transform: 'scale(1.1)'}
   },
+  flipUnMirror: {
+    '0%': {
+      opacity: 0,
+      transform: 'scaleY(0.75) scaleX(-1)',
+      transformOrigin: 'top'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'scaleY(1) scaleX(1)',
+      transformOrigin: 'top left'
+    }
+  },
   fadeIn: {
     '0%': {opacity: 0, transform: 'translateY(-10px)'},
     '100%': {opacity: 1, transform: 'translateY(0)'}
@@ -154,6 +166,20 @@ const keyframes = {
       visibility: 'visible'
     }
   },
+  blockFlyTop: {
+    '0%': {
+      opacity: 0,
+      transform: 'scale(0.75) translateY(-100px)',
+      filter: 'blur(8px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'scale(1) translateY(0)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
   blockFlyRightTop: {
     '0%': {
       opacity: 0,
@@ -291,6 +317,9 @@ const keyframes = {
 
 const animation = {
   zoom: 'zoom 15s ease-in-out infinite',
+
+  'flip-unmirror': 'flipUnMirror 0.75s ease-out forwards',
+
   'fade-in': 'fadeIn 0.3s ease-out forwards',
   'menu-open': 'menuOpen 0.2s ease-out forwards',
   'menu-close': 'menuClose 0.2s ease-in forwards',
@@ -306,6 +335,7 @@ const animation = {
   'letter-typing': 'letterTyping 0.2s ease-out forwards',
 
   'block-fly-left-top': 'blockFlyLeftTop 1s ease-out forwards',
+  'block-fly-top': 'blockFlyTop 0.5s ease-out forwards',
   'block-fly-right-top': 'blockFlyRightTop 1s ease-out forwards',
   'block-fly-right': 'blockFlyRight 1s ease-out forwards',
   'block-fly-left': 'blockFlyLeft 1s ease-out forwards',

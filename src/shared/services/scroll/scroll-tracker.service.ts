@@ -61,7 +61,42 @@ export class ScrollTrackerService {
     });
   }
 
+
   setActiveSection(id: string): void {
     this.activeSectionSignal.set(id);
   }
+
+  observeAnimatedElements(threshold = 0.2): void {
+    const animatedElements = new Set<HTMLElement>();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const el = entry.target as HTMLElement;
+
+        if (entry.isIntersecting && !animatedElements.has(el)) {
+          animatedElements.add(el);
+
+          const animClass = el.dataset['anim'];
+          const delay = el.dataset['delay'];
+
+          if (delay) {
+            el.style.animationDelay = delay;
+          }
+
+          el.classList.add(animClass!);
+          el.classList.remove('pre-animate');
+
+          observer.unobserve(el); // отключаем, чтобы не повторялось
+        }
+      });
+    }, {
+      threshold,
+      rootMargin: '0px 0px -10% 0px'
+    });
+
+    const allAnimElements = document.querySelectorAll('[data-anim]') as NodeListOf<HTMLElement>;
+    allAnimElements.forEach(el => observer.observe(el));
+  }
+
+
 }
