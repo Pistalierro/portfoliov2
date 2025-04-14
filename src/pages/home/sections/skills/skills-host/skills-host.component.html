@@ -1,0 +1,62 @@
+<section class="skills min-h-screen w-full overflow-hidden relative" id="skills-host">
+  <div class="skills__overlay absolute bg-neutral-900 inset-0 z-[-2]"></div>
+  <div
+    class="skills__background absolute inset-0 bg-center bg-cover z-[-1] filter blur-sm"
+    style="background-image: url('/bg/bg-skills.jpg');">
+  </div>
+
+  <div class="skills__container w-full max-w-screen-xl mx-auto h-full py-32 px-4">
+
+    <div class="skills__cards grid grid-cols-12 items-center justify-between gap-4">
+      <div (click)="onSelectedTab('tech')"
+           class="skills__tech col-span-12 sm:col-span-6 md:col-span-3 cursor-pointer p-3 group bg-black/40 rounded-lg hover:scale-105 text-white shadow-md hover:shadow-xl transition duration-300 ease-out text-center">
+        <div class="text-3xl mb-2">📦</div>
+        <h3 class="text-lg font-semibold">Технологии</h3>
+        <p class="text-base mt-2">Фреймворки, языки, библиотеки</p>
+      </div>
+
+      <div (click)="onSelectedTab('tools')"
+           class="skills__tools col-span-12 sm:col-span-6 md:col-span-3 cursor-pointer p-3 group bg-black/40 rounded-lg hover:scale-105 text-white shadow-md hover:shadow-xl transition duration-300 ease-out text-center">
+        <div class="text-3xl mb-2">🛠️</div>
+        <h3 class="text-lg font-semibold">Инструменты</h3>
+        <p class="text-base mt-2">Сборщики, IDE, хостинг</p>
+      </div>
+
+      <div (click)="onSelectedTab('methods')"
+           class="skills__methods col-span-12 sm:col-span-6 md:col-span-3 cursor-pointer p-3 group bg-black/40 rounded-lg hover:scale-105 text-white shadow-md hover:shadow-xl transition duration-300 ease-out text-center">
+        <div class="text-3xl mb-2">🧠</div>
+        <h3 class="text-lg font-semibold">Методологии</h3>
+        <p class="text-base mt-2">Подходы к разработке</p>
+      </div>
+
+      <div (click)="onSelectedTab('other')"
+           class="skills__other col-span-12 sm:col-span-6 md:col-span-3 cursor-pointer p-3 group bg-black/40 rounded-lg hover:scale-105 text-white shadow-md hover:shadow-xl transition duration-300 ease-out text-center">
+        <div class="text-3xl mb-2">✨</div>
+        <h3 class="text-lg font-semibold">Прочее</h3>
+        <p class="text-base mt-2">REST, адаптив, UX</p>
+      </div>
+    </div>
+
+    <div class="skills__content mt-5">
+
+      <div *ngIf="isActiveTab('tech')">
+        <block-skills-tech></block-skills-tech>
+      </div>
+
+      <div *ngIf="isActiveTab('tools')">
+        <block-skills-tools></block-skills-tools>
+      </div>
+
+      <div *ngIf="isActiveTab('methods')">
+        <block-skills-methods></block-skills-methods>
+      </div>
+
+      <div *ngIf="isActiveTab('other')">
+        <block-skills-other></block-skills-other>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

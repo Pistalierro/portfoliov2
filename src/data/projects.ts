@@ -193,7 +193,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     repositoryUrl: 'https://github.com/Pistalierro/CRUD-with-bootstrap',
     details: {
       what: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.ABOUT_PROJECT',
-      overview: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.OVERVIEW_PROJECT',
+      overview: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.OVERVIEW_PROJECT',         
       special: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.SPECIAL',
       challenges: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.CHALLENGES'
     },

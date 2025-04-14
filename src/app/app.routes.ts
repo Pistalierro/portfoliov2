@@ -19,7 +19,7 @@ export const routes: Routes = [
         resolve: {
           project: projectDetailsResolver
         }
-      }
+      },
     ]
   },
   {path: '**', redirectTo: ''},
