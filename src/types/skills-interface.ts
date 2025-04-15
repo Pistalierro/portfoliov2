@@ -4,8 +4,10 @@ export type SkillCategoryType =
   | 'Technologies'
   | 'Frameworks'
   | 'Libraries'
-  | 'Methodologies'
-  | 'Version Control';
+  | 'UI Frameworks'
+  | 'Version Control'
+  | 'Tools'
+  | 'Other';
 
 export interface SkillInterface {
   name: string;

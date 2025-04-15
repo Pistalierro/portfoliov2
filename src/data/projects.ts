@@ -9,11 +9,14 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     typeDescription: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE_DESCRIPTION',
     description: 'PROJECTS.WOT_BLITZ_STATISTICS.DESCRIPTION',
     techStack: [
+      'HTML5',
+      'SCSS',
       'Angular 18+',
       'RxJS',
       'Signals API',
       'TypeScript',
       'REST API',
+      'Responsive Design',
       'Firebase (Auth, Firestore, Hosting)',
       'Cloud Functions'
     ],
@@ -39,12 +42,15 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     typeDescription: 'PROJECT.WEATHER_FORECAST.TYPE_DESCRIPTION',
     description: 'PROJECTS.WEATHER_FORECAST.DESCRIPTION',
     techStack: [
+      'HTML5',
+      'SCSS',
       'Angular 18+',
       'RxJs',
       'TypeScript',
       'REST API',
+      'Responsive Design',
       'OpenWeatherMap',
-      'Responsive UI'
+      'SCSS',
     ],
     tools: ['WebStorm', 'Tailwind CSS', 'GitHub', 'OpenWeatherMap API'],
     images: {
@@ -68,7 +74,12 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.JS_SLIDER.TYPE',
     typeDescription: 'PROJECT.JS_SLIDER.TYPE_DESCRIPTION',
     description: 'PROJECTS.JS_SLIDER.DESCRIPTION',
-    techStack: ['HTML5', 'SCSS', 'JavaScript (Vanilla)', 'BEM', 'Responsive Design'],
+    techStack: [
+      'HTML5',
+      'SCSS',
+      'JavaScript (Vanilla)',
+      'Responsive Design',
+    ],
     tools: ['Web Storm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/js_slider_thumbnail.webp',
@@ -91,7 +102,14 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.GRID_TEMPLATE.TYPE',
     typeDescription: 'PROJECT.GRID_TEMPLATE.TYPE_DESCRIPTION',
     description: 'PROJECTS.GRID_TEMPLATE.DESCRIPTION',
-    techStack: ['HTML5', 'SCSS', 'JavaScript', 'jQuery', 'CSS Grid', 'Responsive Design'],
+    techStack: [
+      'HTML5',
+      'SCSS',
+      'JavaScript',
+      'jQuery',
+      'CSS Grid',
+      'Responsive Design'
+    ],
     tools: ['Web Storm', 'GitHub', 'Gulp'],
     images: {
       thumbnail: '/img/projects/grid_template_thumbnail.webp',
@@ -114,7 +132,17 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CRUD_MATERIAL.TYPE',
     typeDescription: 'PROJECT.CRUD_MATERIAL.TYPE_DESCRIPTION',
     description: 'PROJECTS.CRUD_MATERIAL.DESCRIPTION',
-    techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Angular Material', 'Reactive Forms', 'SCSS'],
+    techStack: [
+      'HTML5',
+      'SCSS',
+      'Angular 18+',
+      'RxJs',
+      'TypeScript',
+      'Angular Material',
+      'Reactive Forms',
+      'Responsive Design',
+      'SCSS'
+    ],
     tools: ['WebStorm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/crud_material_thumbnail.webp',
@@ -160,7 +188,13 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.MOVIE_SEARCH.TYPE',
     typeDescription: 'PROJECT.MOVIE_SEARCH.TYPE_DESCRIPTION',
     description: 'PROJECTS.MOVIE_SEARCH.DESCRIPTION',
-    techStack: ['HTML', 'SCSS', 'JavaScript', 'OMDb API'],
+    techStack: [
+      'HTML',
+      'SCSS',
+      'JavaScript',
+      'Responsive Design',
+      'OMDb API'
+    ],
     tools: ['WebStorm', 'Gulp', 'GitHub'],
     images: {
       thumbnail: '/img/projects/movie_search_thumbnail.webp',
@@ -183,7 +217,14 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CRUD_BOOTSTRAP.TYPE',
     typeDescription: 'PROJECT.CRUD_BOOTSTRAP.TYPE_DESCRIPTION',
     description: 'PROJECTS.CRUD_BOOTSTRAP.DESCRIPTION',
-    techStack: ['Angular 18+', 'RxJs', 'TypeScript', 'Bootstrap 5', 'Firebase RTDB', 'Reactive Forms'],
+    techStack: [
+      'Angular 18+',
+      'RxJs',
+      'TypeScript',
+      'Bootstrap 5',
+      'Firebase',
+      'Reactive Forms'
+    ],
     tools: ['WebStorm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/crud_bootstrap_thumbnail.webp',
@@ -193,7 +234,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     repositoryUrl: 'https://github.com/Pistalierro/CRUD-with-bootstrap',
     details: {
       what: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.ABOUT_PROJECT',
-      overview: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.OVERVIEW_PROJECT',         
+      overview: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.OVERVIEW_PROJECT',
       special: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.SPECIAL',
       challenges: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.CHALLENGES'
     },
@@ -206,7 +247,12 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CURRENCY_CONVERTER.TYPE',
     typeDescription: 'PROJECT.CURRENCY_CONVERTER.TYPE_DESCRIPTION',
     description: 'PROJECTS.CURRENCY_CONVERTER.DESCRIPTION',
-    techStack: ['Angular 18+', 'TypeScript', 'Tailwind CSS', 'REST API'],
+    techStack: [
+      'Angular 18+',
+      'TypeScript',
+      'Tailwind CSS',
+      'REST API'
+    ],
     tools: ['WebStorm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/currancy_converter_thumbnail.webp',

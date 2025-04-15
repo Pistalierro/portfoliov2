@@ -1,32 +1,23 @@
-import {SkillCategoryType, SkillInterface} from '../types/skills';
+import {SkillCategoryType, SkillInterface} from '../types/skills-interface';
 
 export const SKILLS: SkillInterface[] = [
   {name: 'JavaScript', category: 'Languages'},
   {name: 'TypeScript', category: 'Languages'},
-
   {name: 'HTML5', category: 'Markup'},
   {name: 'CSS', category: 'Markup'},
-  {name: 'SASS', category: 'Markup'},
-  {name: 'Responsive Design', category: 'Markup'},
-  {name: 'Cross-browser', category: 'Markup'},
-
-  {name: 'Gulp', category: 'Technologies'},
-  {name: 'Webpack', category: 'Technologies'},
-  {name: 'Node js', category: 'Technologies'},
-
-  {name: 'Bootstrap', category: 'Frameworks'},
-  {name: 'Tailwind', category: 'Frameworks'},
-
-  {name: 'Material UI', category: 'Libraries'},
+  {name: 'SCSS', category: 'Markup'},
+  {name: 'Responsive Design', category: 'Technologies'},
+  {name: 'REST API', category: 'Technologies'},
+  {name: 'Reactive Forms', category: 'Technologies'},
+  {name: 'Cloud Functions', category: 'Technologies'},
+  {name: 'Angular 18+', category: 'Frameworks'},
+  {name: 'Tailwind CSS', category: 'UI Frameworks'},
+  {name: 'Bootstrap 5', category: 'UI Frameworks'},
+  {name: 'RxJS', category: 'Libraries'},
   {name: 'jQuery', category: 'Libraries'},
-  {name: 'RxJs', category: 'Libraries'},
-
-  {name: 'BEM', category: 'Methodologies'},
-  {name: 'DRY', category: 'Methodologies'},
-  {name: 'SOLID', category: 'Methodologies'},
-
+  {name: 'Angular Material', category: 'Libraries'},
   {name: 'GitHub', category: 'Version Control'},
-  {name: 'Firebase', category: 'Version Control'}
+  {name: 'Firebase', category: 'Version Control'},
 ];
 
 export const SKILL_CATEGORIES: SkillCategoryType[] = [
@@ -34,8 +25,8 @@ export const SKILL_CATEGORIES: SkillCategoryType[] = [
   'Markup',
   'Technologies',
   'Frameworks',
+  'UI Frameworks',
   'Libraries',
-  'Methodologies',
   'Version Control'
 ];
 
