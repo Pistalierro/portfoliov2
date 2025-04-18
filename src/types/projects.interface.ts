@@ -3,11 +3,13 @@ export interface ProjectPreviewInterface {
   slug: string;
   title: string;
   description: string;
+  descriptionShort?: string;
   techStack: string[];
   images: {
     thumbnail: string;
     large: string;
   };
+  detailsUrl?: string;
 }
 
 export interface ProjectDetailedInterface extends ProjectPreviewInterface {

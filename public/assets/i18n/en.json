@@ -70,6 +70,7 @@
       "TITLE": "WoT Blitz Statistics",
       "TYPE": "Project Type: WoT Blitz Statistics",
       "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
+      "DESCRIPTION_SHORT": "A WoT Blitz stats tracker with advanced metrics, session analysis, ratings, and multilingual support.",
       "STATUS_CONDITION": "Completed",
       "DETAILS": {
         "ABOUT_PROJECT": "A commercial web application for analyzing player statistics in the popular tank shooter WoT Blitz.",
@@ -83,7 +84,7 @@
       "TITLE": "Weather Forecast",
       "TYPE": "Project Type: SPA",
       "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
-      "DESCRIPTION": "Forecast with details for several days and hours, with geolocation and manual city input.",
+      "DESCRIPTION_SHORT": "Interactive weather app with geolocation, hourly breakdown, and a responsive interface.",
       "DETAILS": {
         "ABOUT_PROJECT": "A responsive web application for displaying weather forecasts using the OpenWeatherMap API. It provides detailed information about current weather conditions and forecasts for the coming hours and days.",
         "OVERVIEW_PROJECT": "The application automatically detects the user's location through geolocation and displays the current weather. The user can also manually enter a city. It provides detailed forecasts with temperature, humidity, visual icons, and hourly breakdowns. The interface is adapted for various devices.",
@@ -96,7 +97,7 @@
       "TITLE": "JS Slider",
       "TYPE": "Project Type: UI Component",
       "TYPE_DESCRIPTION": "A reusable visual component (e.g., slider or card), designed for embedding in other projects.",
-      "DESCRIPTION": "Native JavaScript slider with swipe and autoplay support.",
+      "DESCRIPTION_SHORT": "Custom responsive slider in vanilla JavaScript with swipe, autoplay, and navigation support.",
       "DETAILS": {
         "ABOUT_PROJECT": "A custom slider implemented in pure JavaScript without using third-party libraries. It is a reusable UI component with flexible configuration.",
         "OVERVIEW_PROJECT": "The slider includes keyboard control, swipe support, navigation buttons, and autoplay. It supports responsive layout and is easy to embed in any project. The core logic is split between a config file and a functional module.",
@@ -109,7 +110,7 @@
       "TITLE": "Grid Template",
       "TYPE": "Project Type: Landing Page",
       "TYPE_DESCRIPTION": "A one-page site or promo page focused on visuals and presentation, usually without logic.",
-      "DESCRIPTION": "A demo of responsive grid-based layout with a hamburger menu.",
+      "DESCRIPTION_SHORT": "Landing page template with responsive CSS Grid layout and mobile hamburger menu.",
       "DETAILS": {
         "ABOUT_PROJECT": "A landing page template built using CSS Grid without frameworks. The project was created to demonstrate responsive layout and practice building complex grids from scratch.",
         "OVERVIEW_PROJECT": "The landing consists of static blocks laid out with CSS Grid. It features responsive navigation, including a jQuery-powered hamburger menu for mobile. Otherwise, the site is fully static and contains no interactive elements.",
@@ -122,7 +123,7 @@
       "TITLE": "CRUD with Material UI",
       "TYPE": "Project Type: CRUD",
       "TYPE_DESCRIPTION": "An application with create, read, update, and delete operations.",
-      "DESCRIPTION": "CRUD with Angular Material and real-time Firestore integration.",
+      "DESCRIPTION_SHORT": "Angular CRUD app with product table, Angular Material components, and real-time Firestore sync.",
       "DETAILS": {
         "ABOUT_PROJECT": "A demo application with CRUD functionality for managing a list of products. Built with Angular using Angular Material and real-time Firestore integration.",
         "OVERVIEW_PROJECT": "The application implements a full CRUD cycle: adding, editing, deleting, filtering, sorting, and paginating products. New items are added through a dialog box with a form that includes a `DatePicker` and validation. Data is stored in Firestore and synced in real-time.",
@@ -135,7 +136,7 @@
       "TITLE": "Kinozal",
       "TYPE": "Project Type: Template",
       "TYPE_DESCRIPTION": "A ready-made layout or educational template without active logic. Used to showcase layout skills.",
-      "DESCRIPTION": "Online cinema template using Bootstrap 5 with a poster gallery.",
+      "DESCRIPTION_SHORT": "Educational cinema site template built with Bootstrap 5, responsive layout, and SCSS theming.",
       "DETAILS": {
         "ABOUT_PROJECT": "An educational template for an online cinema, implemented as a two-page responsive website. The project was created to practice layout using Bootstrap 5 and SCSS.",
         "OVERVIEW_PROJECT": "The template includes login pages, a news section, movie ratings, articles, and a poster gallery. All elements are styled using Bootstrap theming. The interface includes basic interactive elements: navigation and standard dropdown menus.",
@@ -148,7 +149,7 @@
       "TITLE": "Movie Search",
       "TYPE": "Project Type: SPA",
       "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
-      "DESCRIPTION": "Movie search using OMDb API with a dynamic interface.",
+      "DESCRIPTION_SHORT": "Movie search SPA using OMDb API, dynamic DOM rendering, and responsive SCSS styling.",
       "DETAILS": {
         "ABOUT_PROJECT": "A SPA application for searching movies by title using the OMDb API. The interface is dynamically generated using JavaScript without HTML templates.",
         "OVERVIEW_PROJECT": "The user enters a movie title, and the app sends a request to the OMDb API. Results are displayed as poster cards with the ability to load more results. Search is optimized using a debounce function. The interface is responsive and styled with pure SCSS, fully generated with JavaScript.",
@@ -161,7 +162,7 @@
       "TITLE": "CRUD with Bootstrap",
       "TYPE": "Project Type: CRUD",
       "TYPE_DESCRIPTION": "An application with create, read, update, and delete operations.",
-      "DESCRIPTION": "CRUD with Bootstrap and real-time Firestore integration.",
+      "DESCRIPTION_SHORT": "Angular CRUD app for user management with Bootstrap 5, Reactive Forms, and Firestore integration.",
       "DETAILS": {
         "ABOUT_PROJECT": "A demo application for managing a list of users with full CRUD operations. Built with Angular using Bootstrap 5 and Firebase Firestore as the data store.",
         "OVERVIEW_PROJECT": "The application allows creating, editing, deleting, and viewing users. All data is synchronized with Firebase Firestore. Forms are implemented using `Reactive Forms` with built-in and custom validation. The interface is responsive and built with Bootstrap components.",
@@ -174,7 +175,7 @@
       "TITLE": "Currency Converter",
       "TYPE": "Project Type: SPA",
       "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reloads.",
-      "DESCRIPTION": "An app for converting currencies using NBU exchange rates.",
+      "DESCRIPTION_SHORT": "Minimalist Angular currency converter with Tailwind CSS, signals, and real-time NBU exchange rates.",
       "DETAILS": {
         "ABOUT_PROJECT": "An application for converting currencies using up-to-date rates from the National Bank of Ukraine. It allows quick conversion between selected currencies based on the official API.",
         "OVERVIEW_PROJECT": "The user selects a base and target currency, enters an amount — and gets the result based on the current NBU rate. Rates are fetched dynamically through a REST API. The interface is minimalist and responsive, built with Tailwind CSS.",

@@ -1,20 +1,44 @@
-<div class="flex flex-wrap gap-3 justify-center items-center">
-  <button
-    (click)="onSelectCategory(category)"
-    *ngFor="let category of categories"
-    [ngClass]="{
-                 'bg-accent text-white border-white shadow-lg': selectedCategory === category,
-                 'bg-accent/30 text-accent border-accent/50': selectedCategory !== category
-               }"
-    class="px-4 py-2 rounded-full font-medium text-sm sm:text-base shadow-md transition duration-200 hover:bg-accent hover:text-white hover:scale-105">
-    {{ category }}
-  </button>
+<div class="tech w-full min-h-full">
 
-  <div *ngIf="selectedCategory" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-    <div *ngFor="let skill of filteredSkills" class="bg-white/10 p-4 rounded-xl text-center shadow">
-      {{ skill.name }}
+  <div class="tech__categories mb-10">
+    <div class="tech__categories-container flex flex-wrap gap-4 justify-center items-center">
+      <button (click)="onSelectCategory(category)" *ngFor="let category of categories"
+              [ngClass]="{'bg-black/50 !text-black': selectedCategory === category, }"
+              class="text-white px-4 py-2 bg-black/30 rounded-full hover:bg-black/40 transition hover:scale-105 duration-200">
+        {{ category }}
+      </button>
+    </div>
+  </div>
+  <div class="tech__skills mb-6">
+    <div *ngIf="selectedCategory" class="flex flex-wrap gap-4 items-center justify-center">
+      <button (click)="onSelectedSkill(skill.name)" *ngFor="let skill of filteredSkills"
+              class="text-white px-4 py-2 bg-black/30 rounded-full hover:bg-black/40 transition hover:scale-105 duration-200">
+        {{ skill.name }}
+      </button>
     </div>
   </div>
 
+  <div *ngIf="selectedSkill && projects.length > 0">
+    <div class="grid grid-cols-12 gap-5">
+      <div *ngFor="let project of filteredProjects; trackBy: trackById"
+           class="col-span-1 md:col-span-6 lg:col-span-3 justify-center p-4 bg-black/50 rounded-lg relative space-y-5 text-white transition hover:scale-105 duration-500 drop-shadow-card">
+        <h3 class="text-center text-orange-500 text-xl uppercase tracking-wide">{{ project.title | translate }}</h3>
+        <img [src]="project.images.thumbnail" alt="image" class="rounded-lg">
+        <p *ngIf="project.descriptionShort" class="text-neutral-300">{{ project.descriptionShort | translate }}</p>
+        <ul class="flex flex-wrap gap-3 justify-center">
+          <li *ngFor="let tech of project.techStack"
+              [ngClass]="{
+                         'bg-accent/20 shadow-accentGlow text-orange-500 font-bold border border-accent/80 scale-110':
+                           tech === selectedSkill,
+                         'bg-white/10 text-white font-semibold':
+                           tech !== selectedSkill
+                       }"
+              class="text-sm px-3 py-1 rounded-full transition transform duration-200">
+            {{ tech }}
+          </li>
+        </ul>
+        <a [href]="project.detailsUrl" class="absolute inset-0 z-10" target="_blank"></a>
+      </div>
+    </div>
+  </div>
 </div>
-

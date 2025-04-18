@@ -25,20 +25,9 @@ import {CarouselService} from '../../../../shared/services/carousel.service';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements AfterViewInit, OnDestroy {
-  projectPreviews: ProjectPreviewInterface[] = PROJECTS.map(
-    ({id, slug, title, description, techStack, images}) => ({
-      id,
-      slug,
-      title,
-      description,
-      techStack,
-      images: {
-        thumbnail: images.thumbnail,
-        large: images.large
-      }
-    })
-  );
 
+  projectPreviews = PROJECTS.map(project => ({...project} as ProjectPreviewInterface));
+  
   readonly SLIDES_LENGTH = PROJECTS.length;
 
   isFirstLoad = true;

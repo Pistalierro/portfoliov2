@@ -8,6 +8,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE',
     typeDescription: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE_DESCRIPTION',
     description: 'PROJECTS.WOT_BLITZ_STATISTICS.DESCRIPTION',
+    descriptionShort: 'PROJECT.WOT_BLITZ_STATISTICS.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
       'SCSS',
@@ -17,7 +18,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       'TypeScript',
       'REST API',
       'Responsive Design',
-      'Firebase (Auth, Firestore, Hosting)',
+      'Firebase',
       'Cloud Functions'
     ],
     tools: ['WebStorm', 'Material UI', 'GitHub'],
@@ -26,11 +27,12 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/wot_blitz_statistics_large.webp',
     },
     url: 'https://wot-blitz-statistics.web.app/home',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/wot-blitz-statistics',
     details: {
       what: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.ABOUT_PROJECT',
       overview: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.OVERVIEW_PROJECT',
       special: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
-      challenges: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL'
+      challenges: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
     },
     status: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.STATUS'
   },
@@ -41,6 +43,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.WEATHER_FORECAST.TYPE',
     typeDescription: 'PROJECT.WEATHER_FORECAST.TYPE_DESCRIPTION',
     description: 'PROJECTS.WEATHER_FORECAST.DESCRIPTION',
+    descriptionShort: 'PROJECT.WEATHER_FORECAST.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
       'SCSS',
@@ -50,7 +53,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       'REST API',
       'Responsive Design',
       'OpenWeatherMap',
-      'SCSS',
     ],
     tools: ['WebStorm', 'Tailwind CSS', 'GitHub', 'OpenWeatherMap API'],
     images: {
@@ -58,6 +60,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/weather_forecast_large.webp'
     },
     url: 'https://weather-application-e4426.web.app',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/weather-forecast',
     repositoryUrl: 'https://github.com/Pistalierro/app-weather',
     details: {
       what: 'PROJECT.WEATHER_FORECAST.DETAILS.ABOUT_PROJECT',
@@ -74,19 +77,20 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.JS_SLIDER.TYPE',
     typeDescription: 'PROJECT.JS_SLIDER.TYPE_DESCRIPTION',
     description: 'PROJECTS.JS_SLIDER.DESCRIPTION',
+    descriptionShort: 'PROJECT.JS_SLIDER.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
       'SCSS',
       'JavaScript (Vanilla)',
       'Responsive Design',
     ],
-    tools: ['Web Storm', 'GitHub'],
+    tools: ['WebStorm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/js_slider_thumbnail.webp',
       large: '/img/projects/js_slider_large.webp',
     },
     url: 'https://pistalierro.github.io/js-native-slider',
-    repositoryUrl: '',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/js-slider',
     details: {
       what: 'PROJECT.JS_SLIDER.DETAILS.ABOUT_PROJECT',
       overview: 'PROJECT.JS_SLIDER.DETAILS.OVERVIEW_PROJECT',
@@ -102,6 +106,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.GRID_TEMPLATE.TYPE',
     typeDescription: 'PROJECT.GRID_TEMPLATE.TYPE_DESCRIPTION',
     description: 'PROJECTS.GRID_TEMPLATE.DESCRIPTION',
+    descriptionShort: 'PROJECT.GRID_TEMPLATE.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
       'SCSS',
@@ -110,12 +115,13 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       'CSS Grid',
       'Responsive Design'
     ],
-    tools: ['Web Storm', 'GitHub', 'Gulp'],
+    tools: ['WebStorm', 'GitHub', 'Gulp'],
     images: {
       thumbnail: '/img/projects/grid_template_thumbnail.webp',
       large: '/img/projects/grid_template_large.webp'
     },
     url: 'https://pistalierro.github.io/grid-template-project',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/grid-template',
     repositoryUrl: 'https://github.com/Pistalierro/grid-template-project',
     details: {
       what: 'PROJECT.GRID_TEMPLATE.DETAILS.ABOUT_PROJECT',
@@ -132,6 +138,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CRUD_MATERIAL.TYPE',
     typeDescription: 'PROJECT.CRUD_MATERIAL.TYPE_DESCRIPTION',
     description: 'PROJECTS.CRUD_MATERIAL.DESCRIPTION',
+    descriptionShort: 'PROJECT.CRUD_MATERIAL.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
       'SCSS',
@@ -141,7 +148,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       'Angular Material',
       'Reactive Forms',
       'Responsive Design',
-      'SCSS'
     ],
     tools: ['WebStorm', 'GitHub'],
     images: {
@@ -149,6 +155,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/crud_material_large.webp'
     },
     url: 'https://crud-with-materialui-9a269.web.app',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/crud-with-material-ui',
     repositoryUrl: 'https://github.com/Pistalierro/crud-with-material',
     details: {
       what: 'PROJECT.CRUD_MATERIAL.DETAILS.ABOUT_PROJECT',
@@ -165,13 +172,20 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.KINOZAL.TYPE',
     typeDescription: 'PROJECT.KINOZAL.TYPE_DESCRIPTION',
     description: 'PROJECTS.KINOZAL.DESCRIPTION',
-    techStack: ['HTML', 'SCSS', 'Bootstrap 5', 'Flexbox'],
+    descriptionShort: 'PROJECT.KINOZAL.DESCRIPTION_SHORT',
+    techStack: [
+      'HTML',
+      'SCSS',
+      'Bootstrap 5',
+      'Flexbox'
+    ],
     tools: ['WebStorm', 'GitHub'],
     images: {
       thumbnail: '/img/projects/kinozal_thumbnail.webp',
       large: '/img/projects/kinozal_large.webp'
     },
     url: 'https://pistalierro.github.io/kinozal_template_bootstrap5.3',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/kinozal',
     repositoryUrl: 'https://github.com/Pistalierro/kinozal_template_bootstrap5.3',
     details: {
       what: 'PROJECT.KINOZAL.DETAILS.ABOUT_PROJECT',
@@ -188,6 +202,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.MOVIE_SEARCH.TYPE',
     typeDescription: 'PROJECT.MOVIE_SEARCH.TYPE_DESCRIPTION',
     description: 'PROJECTS.MOVIE_SEARCH.DESCRIPTION',
+    descriptionShort: 'PROJECT.MOVIE_SEARCH.DESCRIPTION_SHORT',
     techStack: [
       'HTML',
       'SCSS',
@@ -201,6 +216,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/movie_search_large.webp'
     },
     url: 'https://pistalierro.github.io/app_movies_to_search',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/movie-search',
     repositoryUrl: 'https://github.com/Pistalierro/app_movies_to_search',
     details: {
       what: 'PROJECT.MOVIE_SEARCH.DETAILS.ABOUT_PROJECT',
@@ -217,6 +233,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CRUD_BOOTSTRAP.TYPE',
     typeDescription: 'PROJECT.CRUD_BOOTSTRAP.TYPE_DESCRIPTION',
     description: 'PROJECTS.CRUD_BOOTSTRAP.DESCRIPTION',
+    descriptionShort: 'PROJECT.CRUD_BOOTSTRAP.DESCRIPTION_SHORT',
     techStack: [
       'Angular 18+',
       'RxJs',
@@ -231,6 +248,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/crud_bootstrap_large.webp'
     },
     url: 'https://crud-with-bootstrap-21290.web.app',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/crud-with-bootstrap',
     repositoryUrl: 'https://github.com/Pistalierro/CRUD-with-bootstrap',
     details: {
       what: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.ABOUT_PROJECT',
@@ -247,6 +265,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     type: 'PROJECT.CURRENCY_CONVERTER.TYPE',
     typeDescription: 'PROJECT.CURRENCY_CONVERTER.TYPE_DESCRIPTION',
     description: 'PROJECTS.CURRENCY_CONVERTER.DESCRIPTION',
+    descriptionShort: 'PROJECT.CURRENCY_CONVERTER.DESCRIPTION_SHORT',
     techStack: [
       'Angular 18+',
       'TypeScript',
@@ -259,6 +278,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/currancy_converter_large.webp'
     },
     url: 'https://currancy-calculator.web.app/',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/currency-converter',
     repositoryUrl: 'https://github.com/Pistalierro/currency-calculator',
     details: {
       what: 'PROJECT.CURRENCY_CONVERTER.DETAILS.ABOUT_PROJECT',
