@@ -58,7 +58,8 @@ module.exports = {
       },
 
       transitionProperty: {
-        'text-shadow': 'text-shadow'
+        'text-shadow': 'text-shadow',
+        'transform-opacity': 'transform, opacity'
       }
     }
   },

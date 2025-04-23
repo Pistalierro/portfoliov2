@@ -1,10 +1,9 @@
-import {Component} from '@angular/core';
-import {SKILL_CATEGORIES, SKILLS} from '../../../../../data/skills';
-import {SkillCategoryType, SkillInterface} from '../../../../../types/skills-interface';
-import {NgClass, NgForOf, NgIf} from '@angular/common';
+import {Component, Input, OnChanges} from '@angular/core';
+import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {ProjectDetailedInterface, ProjectPreviewInterface} from '../../../../../types/projects.interface';
 import {PROJECTS} from '../../../../../data/projects';
 import {TranslatePipe} from '@ngx-translate/core';
+import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 
 @Component({
   selector: 'block-skills-tech',
@@ -13,22 +12,20 @@ import {TranslatePipe} from '@ngx-translate/core';
     NgClass,
     NgIf,
     TranslatePipe,
+    SkillsRadialComponent,
+    NgStyle,
   ],
   templateUrl: './skills-tech.component.html',
   styleUrl: './skills-tech.component.scss'
 })
-export class SkillsTechComponent {
+export class SkillsTechComponent implements OnChanges {
 
-  categories: SkillCategoryType[] = SKILL_CATEGORIES;
-  skills: SkillInterface[] = SKILLS;
   projects: ProjectDetailedInterface[] = PROJECTS;
-
-  selectedCategory!: SkillCategoryType;
   selectedSkill!: string;
+  opacityClass: string = 'opacity-100';
+  radialReset = 0;
 
-  get filteredSkills(): SkillInterface[] {
-    return this.selectedCategory ? this.skills.filter(skill => skill.category === this.selectedCategory) : [];
-  };
+  @Input() isSliding = false;
 
   get filteredProjects(): ProjectPreviewInterface[] {
     if (!this.selectedSkill) return [];
@@ -37,15 +34,19 @@ export class SkillsTechComponent {
       .map(project => ({...project} as ProjectPreviewInterface));
   }
 
-  onSelectCategory(category: SkillCategoryType) {
-    this.selectedCategory = category;
-  }
-
-  onSelectedSkill(skill: string) {
-    this.selectedSkill = skill;
+  ngOnChanges(): void {
+    if (this.isSliding) {
+      this.opacityClass = 'opacity-50 blur-sm';
+      setTimeout(() => this.opacityClass = 'opacity-100 blur-0', 300);
+    }
   }
 
   trackById(index: number, project: ProjectPreviewInterface): number {
     return project.id;
+  }
+
+  onSkillSelected(skill: string) {
+    this.selectedSkill = skill;
+    this.radialReset++;
   }
 }

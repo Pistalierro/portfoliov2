@@ -1,5 +1,3 @@
-// tailwind.animations.js (или как у тебя файл называется)
-
 const keyframes = {
   // Твои старые кейфреймы (не трогаем, как есть):
   zoom: {
@@ -312,6 +310,16 @@ const keyframes = {
   blink: {
     '0%, 49%': {opacity: '1'},
     '50%, 100%': {opacity: '0'}
+  },
+  scaleIn: {
+    '0%': {
+      opacity: 0,
+      '--scale': '0.5'
+    },
+    '100%': {
+      opacity: 1,
+      '--scale': '1'
+    }
   }
 };
 
@@ -350,7 +358,8 @@ const animation = {
   'info-appear': 'infoAppear 0.5s ease-out forwards',
   'info-fade-up': 'infoFadeUp 0.6s ease-out forwards',
 
-  'cursor-blink': 'blink 1s step-end infinite'
+  'cursor-blink': 'blink 1s step-end infinite',
+  'skill-scale-in': 'scaleIn 0.6s ease-out forwards'
 };
 
 module.exports = {keyframes, animation};

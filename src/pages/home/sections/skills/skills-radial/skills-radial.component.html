@@ -1,0 +1,60 @@
+<div class="flex flex-wrap gap-4 justify-center">
+  <button
+    (click)="onSelectCategory(category)"
+    *ngFor="let category of categories"
+    [ngClass]="{ '!bg-accent !text-black': selectedCategory === category }"
+    class="px-4 py-2 rounded-full text-white bg-black/30 font-semibold hover:bg-black/50 transition-all hover:scale-105 duration-200">
+    {{ category }}
+  </button>
+</div>
+
+<!-- Радиальная сетка -->
+<div *ngIf="selectedCategory" class="relative w-full h-[400px] flex items-center justify-center">
+
+  <!-- SVG для линий -->
+  <svg class="absolute inset-0 w-full h-full pointer-events-none z-[1]">
+    <ng-container *ngFor="let pos of radialLines">
+      <line
+        [attr.x1]="center.x"
+        [attr.x2]="pos.x"
+        [attr.y1]="center.y"
+        [attr.y2]="pos.y"
+        class="text-neutral-500" stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+      />
+    </ng-container>
+  </svg>
+
+  <!-- Центральная категория -->
+  <div
+    #centerCircle
+    [ngClass]="justRendered ? 'animate-skill-scale-in' : ''"
+    class="absolute px-6 py-4 bg-accent text-white flex text-sm items-center justify-center text-center z-10 uppercase font-bold tracking-wide whitespace-normal break-words rounded-full aspect-square w-[8rem] shadow-lg">
+    {{ selectedCategory }}
+  </div>
+
+  <!-- Скиллы вокруг -->
+  <ng-container *ngFor="let skill of filteredSkills; let i = index">
+    <div
+      #skillCircle
+      (click)="onSelectedSkill(skill.name)"
+      (mouseenter)="hovered[i] = true"
+      (mouseleave)="hovered[i] = false"
+      [ngStyle]="{
+                   '--x': getPositionStyle(i)['--x'],
+                   '--y': getPositionStyle(i)['--y'],
+                   transform: 'translate(' + getPositionStyle(i)['--x'] + ', ' + getPositionStyle(i)['--y'] + ') scale(' + getScale(i) + ')'
+                 }"
+      [style.transform]="'translate(var(--x), var(--y)) ' + (hovered[i] ? 'scale(1.10)' : 'scale(1)')"
+      class="absolute bg-neutral-500 text-white text-xs font-semibold text-center leading-tight
+         w-20 h-20 rounded-full flex items-center justify-center
+         duration-300 transition-all drop-shadow-darkXl cursor-pointer z-10
+         shadow-md select-none p-2"
+    >
+      {{ skill.name }}
+    </div>
+
+
+  </ng-container>
+</div>
