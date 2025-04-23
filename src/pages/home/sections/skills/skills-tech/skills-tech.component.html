@@ -10,23 +10,23 @@
 
         <div
           class="group p-4 bg-black/50 rounded-lg relative text-white
-               transition-transform hover:scale-105 duration-500 ease-in-out
-               drop-shadow-card hover:shadow-accentGlow/30">
+               transition-transform hover:-translate-y-1 hover:shadow-lg duration-500 ease-in-out
+               drop-shadow-card hover:shadow-accentGlow/50">
 
           <!-- Основная сетка: 4/8 -->
           <div class="grid grid-cols-12 gap-5 items-start">
 
             <!-- 🖼 Картинка -->
-            <div class="col-span-4 flex justify-center items-center">
+            <div class="col-span-3 flex justify-center items-center">
               <img [src]="project.images.thumbnail" alt="image"
                    class="rounded-lg max-w-full max-h-full"/>
             </div>
 
             <!-- 📦 Контент -->
-            <div class="col-span-8 space-y-4">
+            <div class="col-span-9 space-y-4">
 
               <!-- Заголовок -->
-              <h3 class="text-orange-500 text-xl text-center uppercase tracking-wide">
+              <h3 class="text-orange-500 text-xl text-center uppercase tracking-wide mb-5">
                 {{ project.title | translate }}
               </h3>
 

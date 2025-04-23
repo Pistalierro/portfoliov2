@@ -1,9 +1,13 @@
-<div class="flex flex-wrap gap-4 justify-center">
+<div class="flex flex-wrap justify-center">
   <button
     (click)="onSelectCategory(category)"
-    *ngFor="let category of categories"
-    [ngClass]="{ '!bg-accent !text-black': selectedCategory === category }"
-    class="px-4 py-2 rounded-full text-white bg-black/30 font-semibold hover:bg-black/50 transition-all hover:scale-105 duration-200">
+    *ngFor="let category of categories; let i = index"
+    [ngClass]="[
+    selectedCategory === category ? activeClass : baseClass,
+    i === 0 ? 'rounded-l-full' : '',
+    i === categories.length - 1 ? 'rounded-r-full' : ''
+    ]"
+    class="px-4 py-2 font-semibold min-w-[150px] border border-white/50 transition-all duration-300">
     {{ category }}
   </button>
 </div>
@@ -30,7 +34,7 @@
   <div
     #centerCircle
     [ngClass]="justRendered ? 'animate-skill-scale-in' : ''"
-    class="absolute px-6 py-4 bg-accent text-white flex text-sm items-center justify-center text-center z-10 uppercase font-bold tracking-wide whitespace-normal break-words rounded-full aspect-square w-[8rem] shadow-lg">
+    class="absolute px-6 py-4 bg-gradient-to-br from-orange-400 to-orange-600 text-white flex text-sm items-center justify-center text-center z-10 uppercase font-bold tracking-wide whitespace-normal break-words rounded-full aspect-square w-[8rem] shadow-lg">
     {{ selectedCategory }}
   </div>
 

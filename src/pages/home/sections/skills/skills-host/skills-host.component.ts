@@ -19,10 +19,11 @@ import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
 })
 export class SkillsHostComponent {
 
-  activeTab: 'skills' | 'tools' | 'methodologies' = 'skills';
-  previousTab: 'skills' | 'tools' | 'methodologies' = this.activeTab;
+  activeTab: 'skills' | 'approach' = 'skills';
+  previousTab: 'skills' | 'approach' = this.activeTab;
 
-  activeClass = 'bg-black/60';
+  activeClass = 'bg-gradient-to-br from-orange-400 to-orange-600 scale-105 shadow-accentGlow border border-white/30';
+  baseClass = 'text-white bg-black/30 border-black/30 hover:bg-black/50 text-white ';
 
   skills: SkillInterface[] = SKILLS;
   projects: ProjectDetailedInterface[] = PROJECTS;
@@ -30,11 +31,10 @@ export class SkillsHostComponent {
 
   slideClassMap: Record<string, string> = {
     skills: '',
-    tools: '',
-    methodologies: ''
+    approach: '',
   };
 
-  setActiveTab(tab: 'skills' | 'tools' | 'methodologies' = 'skills') {
+  setActiveTab(tab: 'skills' | 'approach' = 'skills') {
     if (tab === this.activeTab) return;
 
     this.previousTab = this.activeTab;
@@ -66,10 +66,8 @@ export class SkillsHostComponent {
     switch (this.activeTab) {
       case 'skills':
         return 'translateX(0%)';
-      case 'tools':
+      case 'approach':
         return 'translateX(-100%)';
-      case 'methodologies':
-        return 'translateX(-200%)';
       default:
         return 'translateX(0%)';
     }

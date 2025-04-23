@@ -142,11 +142,14 @@
       </div>
 
       <div
-        class=" portfolio__info col-span-12 row-span-1 md:col-span-3 md:row-span-3 md:order-2 lg:col-span-3 lg:row-span-1 lg:order-3 p-4 bg-black/30 w-full h-full min-h-0 overflow-y-auto rounded-md">
+        class="portfolio__info col-span-12 row-span-1 md:col-span-3 md:row-span-3 md:order-2
+         lg:col-span-3 lg:row-span-1 lg:order-3 p-4 bg-black/30 w-full h-full min-h-0
+         overflow-y-auto rounded-md"
+      >
         <ng-container *ngIf="projectPreviews[activeSlide] as project">
           <div
             *ngIf="infoVisible"
-            class="portfolio__info-container flex flex-col justify-between h-full"
+            class="portfolio__info-container flex flex-col h-auto min-h-full gap-6"
           >
             <!-- Верхняя часть -->
             <div>
@@ -160,25 +163,36 @@
 
             <!-- Технологии -->
             <div class="animate-info-fade-up">
-              <h4 class="text-white text-lg mb-2 text-center">{{ 'PROJECTS.TECH_STACK' | translate }}</h4>
+              <h4 class="text-white text-lg mb-2 text-center">
+                {{ 'PROJECTS.TECH_STACK' | translate }}
+              </h4>
               <ul class="flex flex-wrap gap-2 justify-center">
                 <li
                   *ngFor="let tech of project.techStack"
-                  class="bg-accent/10 border text-accent font-semibold border-accent/50 text-sm px-3 py-1 rounded-full"
+                  class="bg-accent/10 border text-accent font-semibold border-accent/50
+                   text-sm px-3 py-1 rounded-full"
                 >
                   {{ tech }}
                 </li>
               </ul>
             </div>
 
-            <!-- Кнопка -->
-            <a [routerLink]="['/portfolio', project.slug]"
-               class=" animate-info-fade-up mt-6  mx-auto md:w-full text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase mb-3 py-2 px-4 rounded-full flex justify-center transition transform duration-200 hover:scale-105 ">
-              Подробнее
-            </a>
+            <!-- Пушим кнопку вниз, но не абсолютом -->
+            <div class="mt-auto">
+              <a
+                [routerLink]="['/portfolio', project.slug]"
+                class="animate-info-fade-up mx-auto md:w-full text-sm text-center bg-white/20
+                 hover:bg-white/30 border border-white/30 text-white uppercase py-2 px-4
+                 rounded-full flex justify-center transition transform duration-200
+                 hover:scale-105"
+              >
+                Подробнее
+              </a>
+            </div>
           </div>
         </ng-container>
       </div>
+
     </div>
 
     <div #jsonContainer class="bg-black/70 rounded-lg p-4 mt-6 h-[25vh] overflow-auto shadow-inner relative">

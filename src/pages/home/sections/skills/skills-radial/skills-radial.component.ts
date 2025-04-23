@@ -30,6 +30,9 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
   selectedCategory!: SkillCategoryType;
   selectedSkill!: string;
 
+  activeClass = 'bg-gradient-to-br from-orange-400 to-orange-600 text-black';
+  baseClass = 'bg-black/30 text-white hover:bg-black/50';
+
   center = {x: 0, y: 0};
   radialLines: { x: number; y: number }[] = [];
   justRendered = false;
