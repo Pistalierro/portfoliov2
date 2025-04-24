@@ -2,7 +2,7 @@
   <div class="skills__overlay absolute inset-0 bg-top bg-repeat-y z-[-1] filter blur-sm"
        style="background-image: url('/bg/bg-skills.jpg')"></div>
 
-  <div class="skills__container h-full w-full max-w-screen-xl mx-auto px-4 py-24">
+  <div class="skills__container h-full w-full max-w-screen-xl mx-auto py-24">
 
     <div class="skills__navbar flex items-center justify-center gap-10 mb-10">
 
@@ -27,7 +27,7 @@
         <!-- Skills -->
         <div
           [ngClass]="{ 'opacity-100': activeTab === 'skills', 'opacity-0': activeTab !== 'skills', 'pointer-events-none': activeTab !== 'skills' }"
-          class="min-w-full px-4 transition-opacity duration-500 ease-in-out">
+          class="min-w-full transition-opacity duration-500 ease-in-out">
           <p class="text-center text-lg mb-5 text-shadow-lg">Выберите категорию навыка:</p>
           <block-skills-tech [isSliding]="isSliding"></block-skills-tech>
         </div>
