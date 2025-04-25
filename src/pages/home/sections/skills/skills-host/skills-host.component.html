@@ -28,8 +28,18 @@
         <div
           [ngClass]="{ 'opacity-100': activeTab === 'skills', 'opacity-0': activeTab !== 'skills', 'pointer-events-none': activeTab !== 'skills' }"
           class="min-w-full transition-opacity duration-500 ease-in-out">
-          <p class="text-center text-lg mb-5 text-shadow-lg">Выберите категорию навыка:</p>
-          <block-skills-tech [isSliding]="isSliding"></block-skills-tech>
+          <p class="text-center text-2xl text-black mb-5 text-shadow-lg uppercase font-pangolin">Мои навыки:</p>
+
+          <block-skills-radial
+            (skillSelected)="onSkillSelected($event)"
+            [resetTrigger]="radialReset"></block-skills-radial>
+
+          <!-- Потом карточки проектов -->
+          <block-skills-tech
+            [isSliding]="isSliding"
+            [selectedSkill]="selectedSkill">
+          </block-skills-tech>
+
         </div>
 
         <!-- Tools -->
@@ -37,7 +47,8 @@
           [ngClass]="{ 'opacity-100': activeTab === 'approach', 'opacity-0': activeTab !== 'approach', 'pointer-events-none': activeTab !==
           'approach' }"
           class="min-w-full px-4 transition-opacity duration-500 ease-in-out">
-          <p class="text-center text-lg mb-5 text-shadow-lg">Инструменты:</p>
+          <p class="text-center text-2xl text-black mb-5 text-shadow-lg uppercase font-pangolin">Инструменты:</p>
+          <block-skill-approach></block-skill-approach>
         </div>
 
       </div>

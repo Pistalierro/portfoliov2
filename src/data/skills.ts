@@ -1,4 +1,4 @@
-import {SkillCategoryType, SkillInterface} from '../types/skills-interface';
+import {ApproachItemInterface, SkillCategoryType, SkillInterface} from '../types/skills-interface';
 
 export const SKILLS: SkillInterface[] = [
   {name: 'JavaScript', category: 'Languages'},
@@ -29,4 +29,15 @@ export const SKILL_CATEGORIES: SkillCategoryType[] = [
   'Libraries',
   'Version Control'
 ];
+
+export const APPROACH_ITEMS: ApproachItemInterface[] = [
+  {
+    name: 'GitHub',
+    type: 'tools',
+    description: 'GitHub — мой основной инструмент для контроля версий. Использую фиче-ветки, пишу осмысленные коммиты и документирую изменения. Помогает держать проекты в порядке.\n',
+    icon: '/img/svg/tools/github.svg'
+  }
+];
+
+
 

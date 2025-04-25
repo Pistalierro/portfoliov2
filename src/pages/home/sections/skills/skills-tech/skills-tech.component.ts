@@ -3,7 +3,6 @@ import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {ProjectDetailedInterface, ProjectPreviewInterface} from '../../../../../types/projects.interface';
 import {PROJECTS} from '../../../../../data/projects';
 import {TranslatePipe} from '@ngx-translate/core';
-import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 
 @Component({
   selector: 'block-skills-tech',
@@ -12,7 +11,6 @@ import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
     NgClass,
     NgIf,
     TranslatePipe,
-    SkillsRadialComponent,
     NgStyle,
   ],
   templateUrl: './skills-tech.component.html',
@@ -21,10 +19,9 @@ import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 export class SkillsTechComponent implements OnChanges {
 
   projects: ProjectDetailedInterface[] = PROJECTS;
-  selectedSkill!: string;
   opacityClass: string = 'opacity-100';
-  radialReset = 0;
 
+  @Input() selectedSkill!: string;
   @Input() isSliding = false;
 
   get filteredProjects(): ProjectPreviewInterface[] {
@@ -45,8 +42,4 @@ export class SkillsTechComponent implements OnChanges {
     return project.id;
   }
 
-  onSkillSelected(skill: string) {
-    this.selectedSkill = skill;
-    this.radialReset++;
-  }
 }

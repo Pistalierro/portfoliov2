@@ -11,9 +11,9 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
+import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {SkillCategoryType, SkillInterface} from '../../../../../types/skills-interface';
 import {SKILL_CATEGORIES, SKILLS} from '../../../../../data/skills';
-import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 
 @Component({
   selector: 'block-skills-radial',
@@ -23,45 +23,41 @@ import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
   styleUrl: './skills-radial.component.scss',
 })
 export class SkillsRadialComponent implements AfterViewInit, OnChanges {
-
   categories: SkillCategoryType[] = SKILL_CATEGORIES;
   skills: SkillInterface[] = SKILLS;
 
-  selectedCategory!: SkillCategoryType;
+  selectedCategory: SkillCategoryType = 'Languages';
   selectedSkill!: string;
-
-  activeClass = 'bg-gradient-to-br from-orange-400 to-orange-600 text-black';
-  baseClass = 'bg-black/30 text-white hover:bg-black/50';
 
   center = {x: 0, y: 0};
   radialLines: { x: number; y: number }[] = [];
-  justRendered = false;
   animatedSkillIndexes: number[] = [];
-
   hovered: boolean[] = [];
-  @Input() isSliding = false;
+
   @Input() resetTrigger = 0;
+  @Output() skillSelected = new EventEmitter<string>();
 
   @ViewChild('centerCircle') centerCircleRef!: ElementRef<HTMLDivElement>;
   @ViewChildren('skillCircle') skillCircleRefs!: QueryList<ElementRef<HTMLDivElement>>;
 
-  @Output() skillSelected = new EventEmitter<string>();
-
-  private generatedLayouts: Record<string, { x: number, y: number }[]> = {};
+  private generatedLayouts: Record<string, { x: number; y: number }[]> = {};
 
   get filteredSkills(): SkillInterface[] {
-    return this.selectedCategory
-      ? this.skills.filter(skill => skill.category === this.selectedCategory)
-      : [];
+    return this.skills.filter(s => s.category === this.selectedCategory);
   }
 
   ngAfterViewInit(): void {
-    setTimeout(() => this.calculateLines(), 0);
+    // показываем первый выбранный набор
+    this.onSelectCategory(this.selectedCategory);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['resetTrigger']) {
-      this.forceRecalculate();
+      // ресет анимации кружков и линий
+      setTimeout(() => {
+        this.animatedSkillIndexes = this.filteredSkills.map((_, i) => i);
+        this.calculateLines();
+      });
     }
   }
 
@@ -69,19 +65,27 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
     this.selectedCategory = category;
     this.selectedSkill = '';
 
+    // сброс
+    this.radialLines = [];
+
+    // готовим layout
+    const skills = this.filteredSkills;
     if (!this.generatedLayouts[category]) {
-      this.generatedLayouts[category] = this.generateRandomLayout(this.filteredSkills.length);
+      this.generatedLayouts[category] = this.generateRandomLayout(skills.length);
     }
 
+    // первый скилл по-умолчанию
+    if (skills.length) {
+      this.selectedSkill = skills[0].name;
+      this.skillSelected.emit(this.selectedSkill);
+    }
+
+    // анимация кружков
     this.animatedSkillIndexes = [];
+    setTimeout(() => (this.animatedSkillIndexes = skills.map((_, i) => i)), 20);
 
-    setTimeout(() => {
-      this.animatedSkillIndexes = this.filteredSkills.map((_, i) => i);
-    }, 20);
-
-    setTimeout(() => {
-      this.calculateLines();
-    }, 0);
+    // отрисовать линии после того, как кружки начнут выезжать
+    setTimeout(() => this.calculateLines(), 50);
   }
 
   onSelectedSkill(skill: string) {
@@ -91,78 +95,57 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
 
   getPositionStyle(index: number): { [key: string]: string } {
     const pos = this.generatedLayouts[this.selectedCategory]?.[index];
-
+    if (!pos) {
+      return {'--x': '0px', '--y': '0px', transform: 'translate(0,0) scale(0.5)'};
+    }
     return {
       '--x': `${pos.x}px`,
       '--y': `${pos.y}px`,
-      '--scale': '1',
-      transform: 'translate(var(--x), var(--y)) scale(var(--scale))'
+      transform: `translate(${pos.x}px,${pos.y}px) scale(1)`
     };
   }
 
   getScale(index: number): number {
-    if (!this.animatedSkillIndexes.includes(index)) return 0.5;
-    return this.hovered[index] ? 1.1 : 1;
-  }
-
-  private forceRecalculate(): void {
-    setTimeout(() => {
-      if (!this.selectedCategory) return;
-
-      this.animatedSkillIndexes = this.filteredSkills.map((_, i) => i);
-      this.calculateLines();
-    });
+    return this.animatedSkillIndexes.includes(index)
+      ? this.hovered[index]
+        ? 1.1
+        : 1
+      : 0.5;
   }
 
   private generateRandomLayout(count: number): { x: number; y: number }[] {
     const result: { x: number; y: number }[] = [];
-    const maxAttempts = 200;
-    const minDistance = 100;
-    const minFromCenter = 120; // отступ от центральной категории
     const radiusX = 220;
     const radiusY = 130;
+    const minCenter = 120;
+    const minDistance = 100;
 
-    let attempts = 0;
-
-    while (result.length < count && attempts < maxAttempts) {
+    while (result.length < count) {
       const angle = Math.random() * 2 * Math.PI;
-      const distanceX = Math.random() * radiusX;
-      const distanceY = Math.random() * radiusY;
-      const x = Math.round(Math.cos(angle) * distanceX);
-      const y = Math.round(Math.sin(angle) * distanceY);
+      const x = Math.round(Math.cos(angle) * (Math.random() * radiusX));
+      const y = Math.round(Math.sin(angle) * (Math.random() * radiusY));
 
-      const isFarFromOthers = result.every(p => {
-        const dx = p.x - x;
-        const dy = p.y - y;
-        return Math.sqrt(dx * dx + dy * dy) >= minDistance;
-      });
-
-      const isFarFromCenter = Math.sqrt(x * x + y * y) >= minFromCenter;
-
-      if (isFarFromOthers && isFarFromCenter) {
+      if (Math.hypot(x, y) < minCenter) continue;
+      if (result.every(p => Math.hypot(p.x - x, p.y - y) >= minDistance)) {
         result.push({x, y});
       }
-
-      attempts++;
     }
-
     return result;
   }
 
   private calculateLines(): void {
     if (!this.centerCircleRef) return;
-
-    const containerRect = this.centerCircleRef.nativeElement.offsetParent!.getBoundingClientRect();
+    const parentRect = this.centerCircleRef.nativeElement.offsetParent!.getBoundingClientRect();
     const centerRect = this.centerCircleRef.nativeElement.getBoundingClientRect();
 
     this.center = {
-      x: centerRect.left + centerRect.width / 2 - containerRect.left,
-      y: centerRect.top + centerRect.height / 2 - containerRect.top,
+      x: centerRect.left + centerRect.width / 2 - parentRect.left,
+      y: centerRect.top + centerRect.height / 2 - parentRect.top
     };
 
-    this.radialLines = (this.generatedLayouts[this.selectedCategory] || []).map(pos => ({
-      x: this.center.x + pos.x,
-      y: this.center.y + pos.y,
+    this.radialLines = this.generatedLayouts[this.selectedCategory].map(p => ({
+      x: this.center.x + p.x,
+      y: this.center.y + p.y
     }));
   }
 }

@@ -64,6 +64,19 @@ module.exports = {
     }
   },
   plugins: [
-    require('tailwindcss-textshadow')
+    require('tailwindcss-textshadow'),
+    function ({addUtilities}) {
+      addUtilities({
+        '.backface-hidden': {
+          'backface-visibility': 'hidden'
+        },
+        '.rotate-y-180': {
+          transform: 'rotateY(180deg)'
+        },
+        '.transform-style-preserve-3d': {
+          'transform-style': 'preserve-3d'
+        }
+      })
+    }
   ]
 }

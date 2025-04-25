@@ -320,6 +320,10 @@ const keyframes = {
       opacity: 1,
       '--scale': '1'
     }
+  },
+  'draw-line': {
+    '0%': {'stroke-dasharray': '0, 200', 'stroke-dashoffset': '200'},
+    '100%': {'stroke-dasharray': '200, 200', 'stroke-dashoffset': '0'}
   }
 };
 
@@ -359,7 +363,8 @@ const animation = {
   'info-fade-up': 'infoFadeUp 0.6s ease-out forwards',
 
   'cursor-blink': 'blink 1s step-end infinite',
-  'skill-scale-in': 'scaleIn 0.6s ease-out forwards'
+  'skill-scale-in': 'scaleIn 0.6s ease-out forwards',
+  'draw-line': 'draw-line 0.7s ease forwards'
 };
 
 module.exports = {keyframes, animation};

@@ -5,6 +5,8 @@ import {SKILLS} from '../../../../../data/skills';
 import {SkillInterface} from '../../../../../types/skills-interface';
 import {ProjectDetailedInterface} from '../../../../../types/projects.interface';
 import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
+import {SkillApproachComponent} from '../skill-approach/skill-approach.component';
+import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 
 @Component({
   selector: 'section-skills-host',
@@ -13,6 +15,8 @@ import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
     NgClass,
     SkillsTechComponent,
     NgStyle,
+    SkillApproachComponent,
+    SkillsRadialComponent,
   ],
   templateUrl: './skills-host.component.html',
   styleUrl: './skills-host.component.scss'
@@ -21,6 +25,8 @@ export class SkillsHostComponent {
 
   activeTab: 'skills' | 'approach' = 'skills';
   previousTab: 'skills' | 'approach' = this.activeTab;
+  selectedSkill!: string;
+  radialReset = 0;
 
   activeClass = 'bg-gradient-to-br from-orange-400 to-orange-600 scale-105 shadow-accentGlow border border-white/30';
   baseClass = 'text-white bg-black/30 border-black/30 hover:bg-black/50 text-white ';
@@ -58,7 +64,7 @@ export class SkillsHostComponent {
 
 
   getAnimationDirection(): 'left' | 'right' {
-    const order = ['skills', 'tools', 'methodologies'];
+    const order = ['skills', 'approach'];
     return order.indexOf(this.activeTab) > order.indexOf(this.previousTab) ? 'left' : 'right';
   }
 
@@ -71,5 +77,10 @@ export class SkillsHostComponent {
       default:
         return 'translateX(0%)';
     }
+  }
+
+  onSkillSelected(skill: string) {
+    this.selectedSkill = skill;
+    this.radialReset++;
   }
 }

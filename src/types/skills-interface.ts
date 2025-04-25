@@ -13,3 +13,10 @@ export interface SkillInterface {
   name: string;
   category: SkillCategoryType;
 }
+
+export interface ApproachItemInterface {
+  name: string;
+  type: string;
+  description: string;
+  icon: string;
+}
