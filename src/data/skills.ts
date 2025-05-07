@@ -1,113 +1,113 @@
 import {ApproachItemInterface, SkillCategoryType, SkillInterface} from '../types/skills-interface';
 
 export const SKILLS: SkillInterface[] = [
-  {name: 'JavaScript', category: 'Base'},
-  {name: 'TypeScript', category: 'Base'},
-  {name: 'HTML5', category: 'Base'},
-  {name: 'SCSS', category: 'Base'},
+  {name: 'JavaScript', category: 'TECH.TABS.BASE'},
+  {name: 'TypeScript', category: 'TECH.TABS.BASE'},
+  {name: 'HTML5', category: 'TECH.TABS.BASE'},
+  {name: 'SCSS', category: 'TECH.TABS.BASE'},
 
-  {name: 'Responsive Design', category: 'Core'},
-  {name: 'REST API', category: 'Core'},
-  {name: 'SPA', category: 'Core'},
+  {name: 'Responsive Design', category: 'TECH.TABS.CORE'},
+  {name: 'REST API', category: 'TECH.TABS.CORE'},
+  {name: 'SPA', category: 'TECH.TABS.CORE'},
 
-  {name: 'Signals API', category: 'Advanced'},
-  {name: 'Local Storage', category: 'Advanced'},
-  {name: 'IndexedDB', category: 'Advanced'},
-  {name: 'Reactive Forms', category: 'Advanced'},
+  {name: 'Signals API', category: 'TECH.TABS.ADVANCED'},
+  {name: 'Local Storage', category: 'TECH.TABS.ADVANCED'},
+  {name: 'IndexedDB', category: 'TECH.TABS.ADVANCED'},
+  {name: 'Reactive Forms', category: 'TECH.TABS.ADVANCED'},
 
-  {name: 'Angular 18+', category: 'Frameworks'},
+  {name: 'Angular 18+', category: 'TECH.TABS.FRAMEWORKS'},
 
-  {name: 'Tailwind CSS', category: 'UI'},
-  {name: 'Bootstrap 5', category: 'UI'},
-  {name: 'Angular Material', category: 'UI'},
-  {name: 'Animations', category: 'UI'},
+  {name: 'Tailwind CSS', category: 'TECH.TABS.UI'},
+  {name: 'Bootstrap 5', category: 'TECH.TABS.UI'},
+  {name: 'Angular Material', category: 'TECH.TABS.UI'},
+  {name: 'Animations', category: 'TECH.TABS.UI'},
 
-  {name: 'RxJS', category: 'Libraries'},
-  {name: 'jQuery', category: 'Libraries'},
-  {name: 'ngx-translate', category: 'Libraries'},
+  {name: 'RxJS', category: 'TECH.TABS.LIBRARIES'},
+  {name: 'jQuery', category: 'TECH.TABS.LIBRARIES'},
+  {name: 'ngx-translate', category: 'TECH.TABS.LIBRARIES'},
 ];
 
 
 export const SKILL_CATEGORIES: SkillCategoryType[] = [
-  'Base',
-  'Core',
-  'Advanced',
-  'Frameworks',
-  'UI',
-  'Libraries',
+  'TECH.TABS.BASE',
+  'TECH.TABS.CORE',
+  'TECH.TABS.ADVANCED',
+  'TECH.TABS.FRAMEWORKS',
+  'TECH.TABS.UI',
+  'TECH.TABS.LIBRARIES',
 ];
 
 export const APPROACH_ITEMS: ApproachItemInterface[] = [
   {
-    name: 'GitHub',
+    name: 'APPROACH.CARDS.GITHUB.TITLE',
     type: 'tools',
-    description: 'GitHub — мой основной инструмент для контроля версий. Работаю через фиче-ветки, пишу осмысленные коммиты и поддерживаю порядок в истории проекта.\n',
+    description: 'APPROACH.CARDS.GITHUB.DESCRIPTION',
     icon: '/img/svg/tools/github.svg'
   },
   {
-    name: 'Firebase',
+    name: 'APPROACH.CARDS.FIREBASE.TITLE',
     type: 'tools',
-    description: 'Firebase — использую для хостинга, базы данных и аутентификации. Идеально подходит для быстрого запуска полноценных проектов.\n',
+    description: 'APPROACH.CARDS.FIREBASE.DESCRIPTION',
     icon: '/img/svg/tools/firebase.svg'
   },
   {
-    name: 'Gulp',
+    name: 'APPROACH.CARDS.GULP.TITLE',
     type: 'tools',
-    description: 'Gulp — применяю для автоматизации сборки проектов: минификация, компиляция SCSS, оптимизация изображений и другие задачи.\n',
+    description: 'APPROACH.CARDS.GULP.DESCRIPTION',
     icon: '/img/svg/tools/gulp.svg'
   },
   {
-    name: 'Material UI',
+    name: 'APPROACH.CARDS.MATERIAL_UI.TITLE',
     type: 'tools',
-    description: 'Material UI — использую готовые компоненты для создания понятного и структурированного UI в проектах на Angular.\n',
+    description: 'APPROACH.CARDS.MATERIAL_UI.DESCRIPTION',
     icon: '/img/svg/tools/material.svg'
   },
   {
-    name: 'BEM',
+    name: 'APPROACH.CARDS.BEM.TITLE',
     type: 'methodology',
-    description: 'BEM (Block, Element, Modifier) — придерживаюсь этой методологии при написании стилей для удобной поддержки и масштабирования CSS-структуры.\n',
+    description: 'APPROACH.CARDS.BEM.DESCRIPTION',
     icon: '/img/svg/methodologies/bem.svg'
   },
   {
-    name: 'Node.js',
+    name: 'APPROACH.CARDS.NODE_JS.TITLE',
     type: 'tools',
-    description: 'Node.js — использую как основу фронтенд-разработки. Через Node запускаю dev-серверы, управляю сборкой проектов и установкой зависимостей.\n',
+    description: 'APPROACH.CARDS.NODE_JS.DESCRIPTION',
     icon: '/img/svg/tools/node_js.svg'
   },
   {
-    name: 'Webpack',
+    name: 'APPROACH.CARDS.WEBPACK.TITLE',
     type: 'tools',
-    description: 'Webpack — применяю для сборки фронтенд-проектов. Настраивал сборку модулей, минификацию и оптимизацию ресурсов.\n',
+    description: 'APPROACH.CARDS.WEBPACK.DESCRIPTION',
     icon: '/img/svg/tools/webpack.svg'
   },
   {
-    name: 'WebStorm',
+    name: 'APPROACH.CARDS.WEBSTORM.TITLE',
     type: 'tools',
-    description: 'WebStorm — моя основная IDE для фронтенд-разработки. Использую встроенные инструменты для работы с Git, дебаггинга и рефакторинга кода.\n',
+    description: 'APPROACH.CARDS.WEBSTORM.DESCRIPTION',
     icon: '/img/svg/tools/webstorm.svg'
   },
   {
-    name: 'DRY',
+    name: 'APPROACH.CARDS.DRY.TITLE',
     type: 'methodology',
-    description: 'DRY (Don’t Repeat Yourself) — всегда стремлюсь избегать дублирования кода. Выношу повторяющиеся части в отдельные функции и компоненты.\n',
+    description: 'APPROACH.CARDS.DRY.DESCRIPTION',
     icon: '/img/svg/methodologies/dry.svg'
   },
   {
-    name: 'KISS',
+    name: 'APPROACH.CARDS.KISS.TITLE',
     type: 'methodology',
-    description: 'KISS (Keep It Simple, Stupid) — стараюсь писать максимально понятный и простой код, без ненужных усложнений и абстракций.\n',
+    description: 'APPROACH.CARDS.KISS.DESCRIPTION',
     icon: '/img/svg/methodologies/kiss.svg'
   },
   {
-    name: 'SOLID',
+    name: 'APPROACH.CARDS.SOLID.TITLE',
     type: 'methodology',
-    description: 'SOLID — применяю принципы для проектирования расширяемого и поддерживаемого кода, особенно в компонентах и сервисах Angular.\n',
+    description: 'APPROACH.CARDS.SOLID.DESCRIPTION',
     icon: '/img/svg/methodologies/solid.svg'
   },
   {
-    name: 'YAGNI',
+    name: 'APPROACH.CARDS.YAGNI.TITLE',
     type: 'methodology',
-    description: 'YAGNI (You Aren\'t Gonna Need It) — избегаю ненужной функциональности в коде. Реализую только те фичи, которые действительно требуются проекту.\n',
+    description: 'APPROACH.CARDS.YAGNI.DESCRIPTION',
     icon: '/img/svg/methodologies/yagni.svg'
   }
 ];

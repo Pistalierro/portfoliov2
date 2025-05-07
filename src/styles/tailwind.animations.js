@@ -222,7 +222,7 @@ const keyframes = {
   blockFlyRightBottom: {
     '0%': {
       opacity: 0,
-      transform: 'translateX(-100px) translateY(100px) scale(0.75)',
+      transform: 'translateX(100px) translateY(100px) scale(0.75)',
       filter: 'blur(6px)',
       visibility: 'hidden'
     },
@@ -233,10 +233,24 @@ const keyframes = {
       visibility: 'visible'
     }
   },
+  blockFlyBottom: {
+    '0%': {
+      opacity: 0,
+      transform: 'translateY(100px) scale(0.75)',
+      filter: 'blur(6px)',
+      visibility: 'hidden'
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateY(0) scale(1)',
+      filter: 'blur(0)',
+      visibility: 'visible'
+    }
+  },
   blockFlyLeftBottom: {
     '0%': {
       opacity: 0,
-      transform: 'translateX(100px) translateY(100px)',
+      transform: 'translateX(-100px) translateY(100px)',
       filter: 'blur(6px)',
       visibility: 'hidden'
     },
@@ -246,6 +260,10 @@ const keyframes = {
       filter: 'blur(0)',
       visibility: 'visible'
     }
+  },
+  blockZoom: {
+    '0%': {opacity: 0, transform: 'scale(0.75)'},
+    '100%': {opacity: 1, transform: 'scale(1)'}
   },
   slideInLeft: {
     '0%': {transform: 'translateX(-100%)'},
@@ -340,7 +358,9 @@ const animation = {
   'block-fly-right': 'blockFlyRight 0.7s ease-out forwards',
   'block-fly-left': 'blockFlyLeft 0.7s ease-out forwards',
   'block-fly-right-bottom': 'blockFlyRightBottom 0.7s ease-out forwards',
+  'block-fly-bottom': 'blockFlyBottom 0.75s ease-out forwards',
   'block-fly-left-bottom': 'blockFlyLeftBottom 0.7s ease-out forwards',
+  'block-zoom': 'blockZoom 0.75s ease-out forwards',
 
   'slide-in-left': 'slideInLeft 0.7s ease-in-out forwards',
   'slide-in-right': 'slideInRight 0.7s ease-in-out forwards',

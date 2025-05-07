@@ -7,7 +7,7 @@
 
   <div class="portfolio__container w-full max-w-screen-xl mx-auto px-4 py-32">
 
-    <h2 class="text-4xl text-accent text-center mb-10">Портфолио</h2>
+    <h2 class="text-4xl text-accent text-center mb-10">{{ 'PROJECT.TITLE' | translate }}</h2>
     <div
       class="portfolio__layout grid grid-cols-12 grid-rows-[auto_auto_1fr] gap-2 items-start h-auto md:grid-rows-3 md:h-[55vh] lg:grid-rows-1">
 
@@ -181,13 +181,8 @@
             <div class="mt-auto">
               <a
                 [routerLink]="['/portfolio', project.slug]"
-                class="animate-info-fade-up mx-auto md:w-full text-sm text-center bg-white/20
-                 hover:bg-white/30 border border-white/30 text-white uppercase py-2 px-4
-                 rounded-full flex justify-center transition transform duration-200
-                 hover:scale-105"
-              >
-                Подробнее
-              </a>
+                class="flex justify-center items-center w-4/5 min-w-[160px] mx-auto text-sm text-center bg-white/20 hover:bg-white/30 border border-white/30 text-white uppercase py-2 px-4 rounded-full transition transform duration-200 hover:scale-105 tracking-wide"
+              >{{ 'PROJECT.DETAILS' | translate }}</a>
             </div>
           </div>
         </ng-container>

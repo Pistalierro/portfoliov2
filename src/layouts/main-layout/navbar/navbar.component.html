@@ -3,51 +3,47 @@
 
     <img alt="logo" class="h-12" src="/logo/AG_logo_500x500_white.png">
 
-    <ul class="hidden md:flex items-center gap-6">
+    <ul class="hidden md:flex items-center gap-8">
       <li>
         <a (click)="scrollToSection('hero')"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200 hover:scale-110">
           <i class="fa-solid fa-house"></i>
         </a>
       </li>
       <li>
         <a (click)="scrollToSection('about')"
            [ngClass]="{'text-shadow-lgLight': activeSection() === 'about'}"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all hover:scale-105 duration-200">
           {{ 'NAVBAR.ABOUT' | translate }}
         </a>
       </li>
       <li>
         <a (click)="scrollToSection('portfolio')"
            [ngClass]="{'text-shadow-lgLight': activeSection() === 'portfolio'}"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200">
           {{ 'NAVBAR.PORTFOLIO' | translate }}
         </a>
       </li>
       <li>
         <a (click)="scrollToSection('skills-host')"
            [ngClass]="{'text-shadow-lgLight': activeSection() === 'skills-host'}"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200">
           {{ 'NAVBAR.SKILLS' | translate }}
         </a>
       </li>
       <li>
         <a (click)="scrollToSection('contacts')"
            [ngClass]="{'text-shadow-lgLight': activeSection() === 'contacts'}"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-text-shadow duration-200">
+           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200">
           {{ 'NAVBAR.CONTACTS' | translate }}
         </a>
       </li>
 
       <!-- Селектор языка -->
       <li class="relative">
-        <button
-          (click)="toggleLangList()"
-          class="flex items-center gap-1 text-base font-pangolin hover:text-shadow-lgLight transition uppercase"
-        >
-          {{ langFlag }} {{ currentLang }}
-          <i class="fa-solid fa-chevron-down text-sm"></i>
-        </button>
+        <button (click)="toggleLangList()"
+                class="flex items-center gap-1 text-base font-pangolin hover:text-shadow-lgLight transition-all uppercase duration-200"
+        >{{ langFlag }} {{ currentLang }}<i class="fa-solid fa-chevron-down text-sm"></i></button>
 
         <!-- Выпадающее меню языков -->
         <ul
@@ -61,7 +57,7 @@
             <button (click)="switchLang('en')" class="w-full text-left px-3 py-1 hover:text-shadow-lgLight duration-200">🇬🇧 EN</button>
           </li>
           <li>
-            <button (click)="switchLang('ua')" class="w-full text-left px-3 py-1 hover:text-text-shadow-lgLight duration-200">🇺🇦 UA</button>
+            <button (click)="switchLang('ua')" class="w-full text-left px-3 py-1 hover:text-shadow-lgLight duration-200">🇺🇦 UA</button>
           </li>
         </ul>
       </li>
@@ -91,25 +87,25 @@
 
     <ul class="flex flex-col gap-6 text-base font-pangolin text-white px-6 pt-6 pb-10 text-center">
       <li>
-        <a (click)="scrollToSection('hero')" href="#hero"><i class="fa-solid fa-house"></i></a>
+        <a (click)="scrollToSection('hero')"><i class="fa-solid fa-house"></i></a>
       </li>
       <li>
-        <a (click)="scrollToSection('about')" class="hover:text-shadow-lgLight transition duration-200" href="#about">
+        <a (click)="scrollToSection('about')" class="hover:text-shadow-lgLight transition duration-200">
           {{ 'NAVBAR.ABOUT' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('projects')" class="hover:text-shadow-lgLight transition duration-200" href="#projects">
+        <a (click)="scrollToSection('portfolio')" class="hover:text-shadow-lgLight transition duration-200">
           {{ 'NAVBAR.PORTFOLIO' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('skills-host')" class="hover:text-shadow-lgLight transition duration-200" href="#skills">
+        <a (click)="scrollToSection('skills-host')" class="hover:text-shadow-lgLight transition duration-200">
           {{ 'NAVBAR.SKILLS' | translate }}
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('contacts')" class="hover:text-shadow-lgLight transition duration-200" href="#contacts">
+        <a (click)="scrollToSection('contacts')" class="hover:text-shadow-lgLight transition duration-200">
           {{ 'NAVBAR.CONTACTS' | translate }}
         </a>
       </li>

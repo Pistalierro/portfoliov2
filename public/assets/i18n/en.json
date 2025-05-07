@@ -11,7 +11,8 @@
     "DESCRIPTION": [
       "Frontend is more than just code. It's magic when design and technology work in unison.",
       "I help ideas come to life through modern, beautiful, and responsive interfaces."
-    ]
+    ],
+    "ABOUT_LINK": "Learn more about me"
   },
   "ABOUT": {
     "TITLE": "About Me",
@@ -56,6 +57,7 @@
     }
   },
   "PROJECT": {
+    "TITLE": "Portfolio",
     "DEMO_LINK": "View Demo",
     "GITHUB_LINK": "View code",
     "BACK": "Back",
@@ -66,6 +68,7 @@
     "OVERVIEW": "Overview",
     "SPECIAL": "Highlights",
     "CHALLENGES": "Challenges",
+    "DETAILS": "Details",
     "PORTFOLIO": {
       "TITLE": "Personal Portfolio",
       "TYPE": "Project type: SPA",
@@ -230,6 +233,77 @@
     },
     "CURRENCY_CONVERTER": {
       "DESCRIPTION": "An app for currency conversion using up-to-date exchange rates. Allows users to quickly calculate exchange amounts. Features a responsive interface built with Tailwind CSS."
+    }
+  },
+  "SKILLS": {
+    "TITLE": "My stack and approaches",
+    "BUTTONS": {
+      "SKILLS": "Skills",
+      "APPROACH": "My approach"
+    },
+    "SKILLS_BLOCK.TITLE": "Skills and projects where I applied them:",
+    "APPROACH_BLOCK.TITLE": "Tools:"
+  },
+  "TECH": {
+    "TABS": {
+      "BASE": "Base",
+      "CORE": "Core",
+      "ADVANCED": "Advanced",
+      "FRAMEWORKS": "Frameworks",
+      "UI": "UI",
+      "LIBRARIES": "Libraries"
+    }
+  },
+  "APPROACH": {
+    "CARDS": {
+      "GITHUB": {
+        "TITLE": "GitHub",
+        "DESCRIPTION": "GitHub is my main tool for version control. I work with feature branches, write meaningful commits, and keep the project history clean."
+      },
+      "FIREBASE": {
+        "TITLE": "Firebase",
+        "DESCRIPTION": "I use Firebase for hosting, database, and authentication. It’s perfect for quickly launching full-fledged projects."
+      },
+      "GULP": {
+        "TITLE": "Gulp",
+        "DESCRIPTION": "I use Gulp to automate project builds: minification, SCSS compilation, image optimization, and other tasks."
+      },
+      "MATERIAL_UI": {
+        "TITLE": "Material UI",
+        "DESCRIPTION": "I use ready-made Material UI components to build clear and structured interfaces in Angular projects."
+      },
+      "BEM": {
+        "TITLE": "BEM",
+        "DESCRIPTION": "BEM (Block, Element, Modifier) is the methodology I follow when writing styles to ensure maintainability and scalability of CSS."
+      },
+      "NODE_JS": {
+        "TITLE": "Node.js",
+        "DESCRIPTION": "Node.js is the foundation of my frontend development workflow. I use it to run dev servers, manage project builds, and install dependencies."
+      },
+      "WEBPACK": {
+        "TITLE": "Webpack",
+        "DESCRIPTION": "I use Webpack to bundle frontend projects. I configure module bundling, minification, and resource optimization."
+      },
+      "WEBSTORM": {
+        "TITLE": "WebStorm",
+        "DESCRIPTION": "WebStorm is my primary IDE for frontend development. I use its built-in tools for working with Git, debugging, and code refactoring."
+      },
+      "DRY": {
+        "TITLE": "DRY",
+        "DESCRIPTION": "DRY (Don’t Repeat Yourself) — I always strive to avoid code duplication by extracting reusable parts into separate functions and components."
+      },
+      "KISS": {
+        "TITLE": "KISS",
+        "DESCRIPTION": "KISS (Keep It Simple, Stupid) — I aim to write code that’s as simple and clear as possible, avoiding unnecessary complexity and abstractions."
+      },
+      "SOLID": {
+        "TITLE": "SOLID",
+        "DESCRIPTION": "I apply SOLID principles to design scalable and maintainable code, especially in Angular components and services."
+      },
+      "YAGNI": {
+        "TITLE": "YAGNI",
+        "DESCRIPTION": "YAGNI (You Aren't Gonna Need It) — I avoid unnecessary functionality and implement only the features the project truly needs."
+      }
     }
   }
 }

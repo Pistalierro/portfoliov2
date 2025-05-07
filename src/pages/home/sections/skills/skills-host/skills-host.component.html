@@ -2,7 +2,10 @@
   <div class="skills__overlay absolute inset-0 bg-top bg-repeat-y z-[-1] filter blur-sm"
        style="background-image: url('/bg/bg-skills.jpg')"></div>
 
-  <div class="skills__container w-full max-w-screen-xl mx-auto pt-32 pb-24">
+  <div class="skills__container w-full max-w-screen-xl mx-auto py-24">
+
+    <h2 class="text-4xl text-neutral-700 text-center mb-10 opacity-0"
+        data-anim="animate-block-fly-top">{{ 'SKILLS.TITLE' | translate }}</h2>
 
     <!-- Навигация -->
     <div class="skills__navbar flex items-center justify-center gap-10 mb-10">
@@ -11,8 +14,9 @@
         (click)="setActiveTab('skills')"
         [ngClass]="activeTab === 'skills' ? activeClass : baseClass"
         class="opacity-0 px-4 py-2 rounded-full font-bold transition duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl"
-        data-anim="animate-block-fly-left-top">
-        Навыки
+        data-anim="animate-block-fly-left-top"
+        data-delay="0.5s">
+        {{ 'SKILLS.BUTTONS.SKILLS' | translate }}
       </button>
 
       <button
@@ -20,37 +24,25 @@
         [ngClass]="activeTab === 'approach' ? activeClass : baseClass"
         class="opacity-0 px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl"
         data-anim="animate-block-fly-right-top"
-        data-delay="0.2s">
-        Мой подход
+        data-delay="0.5s">
+        {{ 'SKILLS.BUTTONS.APPROACH' | translate }}
       </button>
 
     </div>
 
 
     <!-- Контент -->
-    <div class="relative isolate overflow-hidden">
+    <div class="relative isolate ">
 
       <div [ngSwitch]="activeTab" class="w-full">
 
         <!-- Skills -->
         <div *ngSwitchCase="'skills'">
-          <h3
-            [attr.data-delay]="firstRenderer ? '0.6s' : null"
-            class="text-center text-2xl text-black mb-5 text-shadow-xl opacity-0"
-            data-anim="animate-info-appear"
-            data-repeat
-          >Навыки и проекты, где я их применял:</h3>
           <section-skills-radial (skillSelected)="onSkillSelected($event)"></section-skills-radial>
           <section-skills-tech [selectedSkill]="selectedSkill"></section-skills-tech>
         </div>
 
-        <!-- Мой подход -->
         <div *ngSwitchCase="'approach'" class="px-4">
-          <h3 [attr.data-delay]="firstRenderer ? '0.6s' : null"
-              class="text-center text-2xl text-black mb-5 text-shadow-lg opacity-0"
-              data-anim="animate-info-appear"
-              data-repeat
-          >Инструменты:</h3>
           <block-skill-approach></block-skill-approach>
         </div>
 

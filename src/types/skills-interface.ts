@@ -1,11 +1,10 @@
 export type SkillCategoryType =
-  | 'Base'
-  | 'Core'
-  | 'Advanced'
-  | 'Technologies'
-  | 'Frameworks'
-  | 'UI'
-  | 'Libraries'
+  | 'TECH.TABS.BASE'
+  | 'TECH.TABS.CORE'
+  | 'TECH.TABS.ADVANCED'
+  | 'TECH.TABS.FRAMEWORKS'
+  | 'TECH.TABS.UI'
+  | 'TECH.TABS.LIBRARIES'
 
 export interface SkillInterface {
   name: string;

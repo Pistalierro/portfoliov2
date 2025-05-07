@@ -8,11 +8,12 @@ import {SkillApproachComponent} from '../skill-approach/skill-approach.component
 import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
 import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'section-skills-host',
   standalone: true,
-  imports: [NgClass, SkillApproachComponent, SkillsTechComponent, SkillsRadialComponent, NgSwitch, NgSwitchCase],
+  imports: [NgClass, SkillApproachComponent, SkillsTechComponent, SkillsRadialComponent, NgSwitch, NgSwitchCase, TranslatePipe],
   templateUrl: './skills-host.component.html',
   styleUrl: './skills-host.component.scss'
 })

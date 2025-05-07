@@ -15,11 +15,12 @@ import {SkillCategoryType, SkillInterface} from '../../../../../types/skills-int
 import {SKILL_CATEGORIES, SKILLS} from '../../../../../data/skills';
 import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
 import {drawLineAnimation, skillPopTrigger} from '../../../../../shared/animations/angular.animations';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'section-skills-radial',
   standalone: true,
-  imports: [NgForOf, NgClass, NgIf, NgStyle],
+  imports: [NgForOf, NgClass, NgIf, NgStyle, TranslatePipe],
   templateUrl: './skills-radial.component.html',
   styleUrl: './skills-radial.component.scss',
   animations: [drawLineAnimation, skillPopTrigger]
@@ -28,7 +29,7 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
   categories: SkillCategoryType[] = SKILL_CATEGORIES;
   skills: SkillInterface[] = SKILLS;
 
-  selectedCategory: SkillCategoryType = 'Base';
+  selectedCategory: SkillCategoryType = 'TECH.TABS.BASE';
   selectedSkill!: string;
 
   center = {x: 0, y: 0};
@@ -125,6 +126,27 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
       : 0.5;
   }
 
+  getCornerRadius(index: number): string {
+    const width = window.innerWidth;
+    const total = this.categories.length;
+
+    if (width >= 768) {
+      // md: 3 в строку
+      if (index === 0) return 'rounded-tl-md';
+      if (index === 2) return 'rounded-tr-md';
+      if (index === total - 3) return 'rounded-bl-md';
+      if (index === total - 1) return 'rounded-br-md';
+    } else {
+      // sm: 2 в строку
+      if (index === 0) return 'rounded-tl-md';
+      if (index === 1) return 'rounded-tr-md';
+      if (index === total - 2) return 'rounded-bl-md';
+      if (index === total - 1) return 'rounded-br-md';
+    }
+
+    return '';
+  }
+
   private generateRandomLayout(count: number): { x: number; y: number }[] {
     const result: { x: number; y: number }[] = [];
     const radiusX = 220, radiusY = 130, minCenter = 120, minDist = 120; // чуть мягче сделал
@@ -156,4 +178,5 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
     this.radialLines = this.generatedLayouts[this.selectedCategory]
       .map(p => ({x: this.center.x + p.x, y: this.center.y + p.y}));
   }
+
 }
