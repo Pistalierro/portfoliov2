@@ -1,5 +1,4 @@
 const keyframes = {
-  // Твои старые кейфреймы (не трогаем, как есть):
   zoom: {
     '0%, 100%': {transform: 'scale(1)'},
     '50%': {transform: 'scale(1.1)'}
@@ -17,7 +16,7 @@ const keyframes = {
     }
   },
   fadeIn: {
-    '0%': {opacity: 0, transform: 'translateY(-10px)'},
+    '0%': {opacity: 0, transform: 'translateY(-20px)'},
     '100%': {opacity: 1, transform: 'translateY(0)'}
   },
   menuOpen: {
@@ -248,44 +247,26 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-
-  // ---- НОВЫЕ 4 АНИМАЦИИ ДЛЯ СЛАЙДОВ ----
   slideInLeft: {
-    '0%': {
-      transform: 'translateX(-100%)'
-    },
-    '100%': {
-      transform: 'translateX(0)'
-    }
+    '0%': {transform: 'translateX(-100%)'},
+    '100%': {transform: 'translateX(0)'}
   },
   slideInRight: {
-    '0%': {
-      transform: 'translateX(100%)'
-    },
-    '100%': {
-      transform: 'translateX(0)'
-    }
+    '0%': {transform: 'translateX(100%)'},
+    '100%': {transform: 'translateX(0)'}
   },
   slideOutLeft: {
-    '0%': {
-      transform: 'translateX(0)'
-    },
-    '100%': {
-      transform: 'translateX(-100%)'
-    }
+    '0%': {transform: 'translateX(0)'},
+    '100%': {transform: 'translateX(-100%)'}
   },
   slideOutRight: {
-    '0%': {
-      transform: 'translateX(0)'
-    },
-    '100%': {
-      transform: 'translateX(100%)'
-    }
+    '0%': {transform: 'translateX(0)'},
+    '100%': {transform: 'translateX(100%)'}
   },
   infoAppear: {
     '0%': {
       opacity: 0,
-      transform: 'translateY(-20px) scale(0.95)',
+      transform: 'translateY(-30px) scale(0.95)',
       filter: 'blur(4px)'
     },
     '100%': {
@@ -296,34 +277,41 @@ const keyframes = {
   },
 
   infoFadeUp: {
-    '0%': {
-      opacity: 0,
-      transform: 'translateY(20px)',
-      filter: 'blur(4px)'
-    },
-    '100%': {
-      opacity: 1,
-      transform: 'translateY(0)',
-      filter: 'blur(0)'
-    }
+    '0%': {opacity: 0, transform: 'translateY(20px)', filter: 'blur(4px)'},
+    '100%': {opacity: 1, transform: 'translateY(0)', filter: 'blur(0)'}
   },
   blink: {
     '0%, 49%': {opacity: '1'},
     '50%, 100%': {opacity: '0'}
   },
   scaleIn: {
-    '0%': {
-      opacity: 0,
-      '--scale': '0.5'
-    },
-    '100%': {
-      opacity: 1,
-      '--scale': '1'
-    }
+    '0%': {opacity: 0, '--scale': '0.5'},
+    '100%': {opacity: 1, '--scale': '1'}
   },
   'draw-line': {
     '0%': {'stroke-dasharray': '0, 200', 'stroke-dashoffset': '200'},
     '100%': {'stroke-dasharray': '200, 200', 'stroke-dashoffset': '0'}
+  },
+  skillPop: {
+    '0%': {transform: 'translate(0, 0) scale(0)', opacity: '0'},
+    '70%': {opacity: '1'},
+    '100%': {transform: 'translate(var(--x), var(--y)) scale(1)', opacity: '1'}
+  },
+  slideInLeftTab: {
+    '0%': {transform: 'translateX(-100%)', opacity: 0},
+    '100%': {transform: 'translateX(0)', opacity: 1}
+  },
+  slideInRightTab: {
+    '0%': {transform: 'translateX(100%)', opacity: 0},
+    '100%': {transform: 'translateX(0)', opacity: 1}
+  },
+  slideOutLeftTab: {
+    '0%': {transform: 'translateX(0)', opacity: 1},
+    '100%': {transform: 'translateX(-100%)', opacity: 0}
+  },
+  slideOutRightTab: {
+    '0%': {transform: 'translateX(0)', opacity: 1},
+    '100%': {transform: 'translateX(100%)', opacity: 0}
   }
 };
 
@@ -346,13 +334,13 @@ const animation = {
   'letter-fly-bottom-right': 'letterFlyBottomRight 0.4s ease-out forwards',
   'letter-typing': 'letterTyping 0.2s ease-out forwards',
 
-  'block-fly-left-top': 'blockFlyLeftTop 1s ease-out forwards',
+  'block-fly-left-top': 'blockFlyLeftTop 0.7s ease-out forwards',
   'block-fly-top': 'blockFlyTop 0.5s ease-out forwards',
-  'block-fly-right-top': 'blockFlyRightTop 1s ease-out forwards',
-  'block-fly-right': 'blockFlyRight 1s ease-out forwards',
-  'block-fly-left': 'blockFlyLeft 1s ease-out forwards',
-  'block-fly-right-bottom': 'blockFlyRightBottom 1s ease-out forwards',
-  'block-fly-left-bottom': 'blockFlyLeftBottom 1s ease-out forwards',
+  'block-fly-right-top': 'blockFlyRightTop 0.7s ease-out forwards',
+  'block-fly-right': 'blockFlyRight 0.7s ease-out forwards',
+  'block-fly-left': 'blockFlyLeft 0.7s ease-out forwards',
+  'block-fly-right-bottom': 'blockFlyRightBottom 0.7s ease-out forwards',
+  'block-fly-left-bottom': 'blockFlyLeftBottom 0.7s ease-out forwards',
 
   'slide-in-left': 'slideInLeft 0.7s ease-in-out forwards',
   'slide-in-right': 'slideInRight 0.7s ease-in-out forwards',
@@ -364,7 +352,14 @@ const animation = {
 
   'cursor-blink': 'blink 1s step-end infinite',
   'skill-scale-in': 'scaleIn 0.6s ease-out forwards',
-  'draw-line': 'draw-line 0.7s ease forwards'
+  'draw-line': 'draw-line 0.7s ease forwards',
+  'skill-pop': 'skillPop 0.5s ease-out forwards',
+
+  'slide-in-left-tab': 'slideInLeftTab 0.5s ease-in-out forwards',
+  'slide-in-right-tab': 'slideInRightTab 0.5s ease-in-out forwards',
+  'slide-out-left-tab': 'slideOutLeftTab 0.5s ease-in-out forwards',
+  'slide-out-right-tab': 'slideOutRightTab 0.5s ease-in-out forwards'
+
 };
 
 module.exports = {keyframes, animation};

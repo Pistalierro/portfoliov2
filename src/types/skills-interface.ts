@@ -1,13 +1,11 @@
 export type SkillCategoryType =
-  | 'Languages'
-  | 'Markup'
+  | 'Base'
+  | 'Core'
+  | 'Advanced'
   | 'Technologies'
   | 'Frameworks'
+  | 'UI'
   | 'Libraries'
-  | 'UI Frameworks'
-  | 'Version Control'
-  | 'Tools'
-  | 'Other';
 
 export interface SkillInterface {
   name: string;

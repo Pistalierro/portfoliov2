@@ -66,6 +66,20 @@
     "OVERVIEW": "Overview",
     "SPECIAL": "Highlights",
     "CHALLENGES": "Challenges",
+    "PORTFOLIO": {
+      "TITLE": "Personal Portfolio",
+      "TYPE": "Project type: SPA",
+      "TYPE_DESCRIPTION": "A single-page application where all content is loaded without page reload.",
+      "DESCRIPTION_SHORT": "Multilingual SPA portfolio with advanced animations, filtering, and synchronized content. Built with a focus on UI/UX, custom features, and skill visualization.",
+      "STATUS_CONDITION": "Completed",
+      "DETAILS": {
+        "ABOUT_PROJECT": "A single-page application (SPA) built as an interactive portfolio focused on showcasing UI/UX skills, animations, component synchronization, and Angular architecture. All pages are interconnected through Angular Router, with structured, dynamically rendered data for translations, skills, and projects.",
+        "OVERVIEW_PROJECT": "The portfolio includes 'About', 'Skills', and 'Projects' sections linked via Angular Router. Each section features custom animations: from staged element transitions to synchronized interactions. It includes a custom slider with autoplay, swipe gestures, keyboard navigation, skill-based project filtering, and dynamic JSON output. The interface is adaptive, multilingual, and built with Angular, Tailwind CSS, and ngx-translate.",
+        "SPECIAL": "The site showcases both visual and technical skills: custom animations, interactive cards, section transitions, SVG graphics, Angular signals, and skill/project filtering. Content is organized in TypeScript structures and translation files, allowing for easy scalability.",
+        "CHALLENGES": "Performance and visual polish were key focuses: section tracking, sequential animations, and optimized deferred rendering were implemented. Managing a large number of custom animations required precise synchronization between components and styles.",
+        "STATUS": "Completed"
+      }
+    },
     "WOT_BLITZ_STATISTICS": {
       "TITLE": "WoT Blitz Statistics",
       "TYPE": "Project Type: WoT Blitz Statistics",
@@ -187,6 +201,9 @@
   },
   "PROJECTS": {
     "TECH_STACK": "Tech stack:",
+    "PORTFOLIO": {
+      "DESCRIPTION": "Animated SPA portfolio focused on UI/UX skills. Includes synchronized slider, navigation and description blocks, custom animations, JSON typing effect, responsive layout, and multilingual support via ngx-translate."
+    },
     "WOT_BLITZ_STATISTICS": {
       "DESCRIPTION": "An application for analyzing WoT Blitz statistics. Built using Angular, Firebase, and the Signals API. It features complex calculations based on players' battle stats."
     },

@@ -3,38 +3,41 @@ import {ProjectDetailedInterface} from '../types/projects.interface';
 export const PROJECTS: ProjectDetailedInterface[] = [
   {
     id: 1,
-    title: 'PROJECT.WOT_BLITZ_STATISTICS.TITLE',
-    slug: 'wot-blitz-statistics',
-    type: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE',
-    typeDescription: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE_DESCRIPTION',
-    description: 'PROJECTS.WOT_BLITZ_STATISTICS.DESCRIPTION',
-    descriptionShort: 'PROJECT.WOT_BLITZ_STATISTICS.DESCRIPTION_SHORT',
+    title: 'PROJECT.PORTFOLIO.TITLE',
+    slug: 'portfolio',
+    type: 'PROJECT.PORTFOLIO.TYPE',
+    typeDescription: 'PROJECT.PORTFOLIO.TYPE_DESCRIPTION',
+    description: 'PROJECTS.PORTFOLIO.DESCRIPTION',
+    descriptionShort: 'PROJECT.PORTFOLIO.DESCRIPTION_SHORT',
     techStack: [
       'HTML5',
-      'SCSS',
+      'Tailwind CSS',
       'Angular 18+',
       'RxJS',
       'Signals API',
       'TypeScript',
-      'REST API',
       'Responsive Design',
+      'Animations',
+      'ngx-translate',
+      'Local Storage',
       'Firebase',
-      'Cloud Functions'
+      'Firestore',
+      'Angular Animations'
     ],
-    tools: ['WebStorm', 'Material UI', 'GitHub'],
+    tools: ['WebStorm', 'GitHub', 'GIMP'],
     images: {
-      thumbnail: '/img/projects/wot_blitz_statistics_thumbnail.webp',
-      large: '/img/projects/wot_blitz_statistics_large.webp',
+      thumbnail: '/img/projects/portfolio_thumbnail.webp',
+      large: '/img/projects/portfolio_large.webp',
     },
-    url: 'https://wot-blitz-statistics.web.app/home',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/wot-blitz-statistics',
+    url: 'https://portfolio-abe24.web.app',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/portfolio',
     details: {
-      what: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.ABOUT_PROJECT',
-      overview: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.OVERVIEW_PROJECT',
-      special: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
-      challenges: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
+      what: 'PROJECT.PORTFOLIO.DETAILS.ABOUT_PROJECT',
+      overview: 'PROJECT.PORTFOLIO.DETAILS.OVERVIEW_PROJECT',
+      special: 'PROJECT.PORTFOLIO.DETAILS.SPECIAL',
+      challenges: 'PROJECT.PORTFOLIO.DETAILS.CHALLENGES'
     },
-    status: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.STATUS'
+    status: 'PROJECT.PORTFOLIO.DETAILS.STATUS'
   },
   {
     id: 2,
@@ -47,8 +50,10 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     techStack: [
       'HTML5',
       'SCSS',
+      'SPA',
       'Angular 18+',
-      'RxJs',
+      'Signals API',
+      'RxJS',
       'TypeScript',
       'REST API',
       'Responsive Design',
@@ -72,6 +77,47 @@ export const PROJECTS: ProjectDetailedInterface[] = [
   },
   {
     id: 3,
+    title: 'PROJECT.WOT_BLITZ_STATISTICS.TITLE',
+    slug: 'wot-blitz-statistics',
+    type: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE',
+    typeDescription: 'PROJECT.WOT_BLITZ_STATISTICS.TYPE_DESCRIPTION',
+    description: 'PROJECTS.WOT_BLITZ_STATISTICS.DESCRIPTION',
+    descriptionShort: 'PROJECT.WOT_BLITZ_STATISTICS.DESCRIPTION_SHORT',
+    techStack: [
+      'HTML5',
+      'SCSS',
+      'SPA',
+      'Angular 18+',
+      'RxJS',
+      'Signals API',
+      'TypeScript',
+      'REST API',
+      'IndexedDB',
+      'Local Storage',
+      'Angular Material',
+      'Responsive Design',
+      'Firebase',
+      'Cloud Functions',
+      'Animations',
+      'ngx-translate'
+    ],
+    tools: ['WebStorm', 'Material UI', 'GitHub'],
+    images: {
+      thumbnail: '/img/projects/wot_blitz_statistics_thumbnail.webp',
+      large: '/img/projects/wot_blitz_statistics_large.webp',
+    },
+    url: 'https://wot-blitz-statistics.web.app/home',
+    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/wot-blitz-statistics',
+    details: {
+      what: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.ABOUT_PROJECT',
+      overview: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.OVERVIEW_PROJECT',
+      special: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
+      challenges: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.SPECIAL',
+    },
+    status: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.STATUS'
+  },
+  {
+    id: 4,
     title: 'PROJECT.JS_SLIDER.TITLE',
     slug: 'js-slider',
     type: 'PROJECT.JS_SLIDER.TYPE',
@@ -81,7 +127,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     techStack: [
       'HTML5',
       'SCSS',
-      'JavaScript (Vanilla)',
+      'JavaScript',
       'Responsive Design',
     ],
     tools: ['WebStorm', 'GitHub'],
@@ -100,7 +146,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.JS_SLIDER.DETAILS.STATUS'
   },
   {
-    id: 4,
+    id: 5,
     title: 'PROJECT.GRID_TEMPLATE.TITLE',
     slug: 'grid-template',
     type: 'PROJECT.GRID_TEMPLATE.TYPE',
@@ -132,7 +178,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.GRID_TEMPLATE.DETAILS.STATUS'
   },
   {
-    id: 5,
+    id: 6,
     title: 'PROJECT.CRUD_MATERIAL.TITLE',
     slug: 'crud-with-material-ui',
     type: 'PROJECT.CRUD_MATERIAL.TYPE',
@@ -142,8 +188,9 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     techStack: [
       'HTML5',
       'SCSS',
+      'SPA',
       'Angular 18+',
-      'RxJs',
+      'RxJS',
       'TypeScript',
       'Angular Material',
       'Reactive Forms',
@@ -166,7 +213,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.CRUD_MATERIAL.DETAILS.STATUS'
   },
   {
-    id: 6,
+    id: 7,
     title: 'PROJECT.KINOZAL.TITLE',
     slug: 'kinozal',
     type: 'PROJECT.KINOZAL.TYPE',
@@ -174,10 +221,11 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     description: 'PROJECTS.KINOZAL.DESCRIPTION',
     descriptionShort: 'PROJECT.KINOZAL.DESCRIPTION_SHORT',
     techStack: [
-      'HTML',
+      'HTML5',
       'SCSS',
       'Bootstrap 5',
-      'Flexbox'
+      'Flexbox',
+      'Responsive Design'
     ],
     tools: ['WebStorm', 'GitHub'],
     images: {
@@ -196,7 +244,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.KINOZAL.DETAILS.STATUS'
   },
   {
-    id: 7,
+    id: 8,
     title: 'PROJECT.MOVIE_SEARCH.TITLE',
     slug: 'movie-search',
     type: 'PROJECT.MOVIE_SEARCH.TYPE',
@@ -204,9 +252,11 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     description: 'PROJECTS.MOVIE_SEARCH.DESCRIPTION',
     descriptionShort: 'PROJECT.MOVIE_SEARCH.DESCRIPTION_SHORT',
     techStack: [
-      'HTML',
+      'HTML5',
       'SCSS',
+      'SPA',
       'JavaScript',
+      'REST API',
       'Responsive Design',
       'OMDb API'
     ],
@@ -227,7 +277,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.MOVIE_SEARCH.DETAILS.STATUS'
   },
   {
-    id: 8,
+    id: 9,
     title: 'PROJECT.CRUD_BOOTSTRAP.TITLE',
     slug: 'crud-with-bootstrap',
     type: 'PROJECT.CRUD_BOOTSTRAP.TYPE',
@@ -235,11 +285,16 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     description: 'PROJECTS.CRUD_BOOTSTRAP.DESCRIPTION',
     descriptionShort: 'PROJECT.CRUD_BOOTSTRAP.DESCRIPTION_SHORT',
     techStack: [
+      'HTML5',
+      'SCSS',
+      'SPA',
       'Angular 18+',
-      'RxJs',
+      'Signals API',
+      'RxJS',
       'TypeScript',
       'Bootstrap 5',
       'Firebase',
+      'Responsive Design',
       'Reactive Forms'
     ],
     tools: ['WebStorm', 'GitHub'],
@@ -259,7 +314,7 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     status: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.STATUS'
   },
   {
-    id: 9,
+    id: 10,
     title: 'PROJECT.CURRENCY_CONVERTER.TITLE',
     slug: 'currency-converter',
     type: 'PROJECT.CURRENCY_CONVERTER.TYPE',
@@ -267,10 +322,16 @@ export const PROJECTS: ProjectDetailedInterface[] = [
     description: 'PROJECTS.CURRENCY_CONVERTER.DESCRIPTION',
     descriptionShort: 'PROJECT.CURRENCY_CONVERTER.DESCRIPTION_SHORT',
     techStack: [
+      'HTML5',
+      'SCSS',
+      'SPA',
       'Angular 18+',
+      'RxJS',
       'TypeScript',
+      'Signals API',
       'Tailwind CSS',
-      'REST API'
+      'REST API',
+      'Responsive Design',
     ],
     tools: ['WebStorm', 'GitHub'],
     images: {

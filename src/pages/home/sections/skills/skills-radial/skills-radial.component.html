@@ -1,66 +1,78 @@
-<!-- кнопки категорий -->
-<div class="flex flex-wrap justify-center">
-  <button
-    (click)="onSelectCategory(category)"
-    *ngFor="let category of categories; let i = index"
-    [ngClass]="[
+<section id="skills-radial">
+  <!-- кнопки категорий -->
+  <div class="flex flex-wrap justify-center mb-6 opacity-0"
+       data-anim="animate-info-fade-up"
+       data-delay="0.5s">
+    <button
+      (click)="onSelectCategory(category)"
+      *ngFor="let category of categories; let i = index"
+      [ngClass]="[
       selectedCategory === category
         ? 'bg-gradient-to-br from-orange-400 to-orange-600 text-black'
         : 'bg-black/30 text-white hover:bg-black/50',
       i === 0 ? 'rounded-l-full' : '',
       i === categories.length - 1 ? 'rounded-r-full' : ''
     ]"
-    class="px-4 py-2 font-semibold min-w-[150px] transition-all duration-200 border border-white/40"
-  >
-    {{ category }}
-  </button>
-</div>
-
-<!-- радиальная сетка -->
-<div *ngIf="selectedCategory" class="relative w-full h-[400px] flex items-center justify-center">
-
-  <!-- линии сразу рисуем без *ngIf -->
-  <svg class="absolute inset-0 w-full h-full pointer-events-none z-10">
-    <ng-container *ngFor="let pos of radialLines">
-      <line
-        [attr.x1]="center.x"
-        [attr.x2]="pos.x"
-        [attr.y1]="center.y"
-        [attr.y2]="pos.y"
-        class="text-neutral-500"
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-width="2"
-      />
-    </ng-container>
-  </svg>
-
-  <!-- центральная категория -->
-  <div
-    #centerCircle
-    class="absolute z-20 w-[7.5rem] aspect-square bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-sm text-white uppercase font-bold tracking-wide text-center whitespace-normal break-words shadow-lg"
-  >
-    {{ selectedCategory }}
+      class="px-4 py-2 font-semibold min-w-[150px] transition-all duration-200 border border-white/40"
+    >
+      {{ category }}
+    </button>
   </div>
 
-  <ng-container *ngFor="let skill of filteredSkills; let i = index">
+  <!-- радиальная сетка -->
+  <div *ngIf="selectedCategory" class="relative w-full h-[400px] flex items-center justify-center">
+
+    <!-- SVG ЛИНИИ: рендерятся только когда showLines = true -->
+    <svg class="absolute inset-0 w-full h-full pointer-events-none z-10">
+      <ng-container *ngFor="let pos of radialLines">
+        <line
+          [@drawLine]="linesReady ? 'ready' : 'void'"
+          [attr.x1]="center.x"
+          [attr.x2]="pos.x"
+          [attr.y1]="center.y"
+          [attr.y2]="pos.y"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-width="2"
+        />
+      </ng-container>
+    </svg>
+
+
+    <!-- центральная сфера -->
     <div
-      #skillCircle
-      (click)="onSelectedSkill(skill.name)"
-      (mouseenter)="hovered[i] = true"
-      (mouseleave)="hovered[i] = false"
-      [ngClass]="{
-        'bg-gradient-to-br from-orange-400 to-orange-600 text-black': selectedSkill === skill.name,
-        'bg-neutral-500 text-white': selectedSkill !== skill.name
-      }"
-      [ngStyle]="getPositionStyle(i)"
-      [style.transform]="'translate(var(--x), var(--y)) scale(' + getScale(i) + ')'"
-      class="absolute text-xs font-semibold text-center leading-tight
-             w-20 h-20 rounded-full flex items-center justify-center
-             transition-all duration-300 drop-shadow-darkXl cursor-pointer z-10
-             select-none p-2"
+      #centerCircle
+      class="absolute z-20 w-[7.5rem] aspect-square
+           bg-gradient-to-br from-orange-400 to-orange-600 rounded-full
+           flex items-center justify-center
+           text-sm text-white uppercase font-bold tracking-wide text-center
+           whitespace-normal break-words shadow-lg"
     >
-      {{ skill.name }}
+      {{ selectedCategory }}
     </div>
-  </ng-container>
-</div>
+
+    <!-- кружки скиллов -->
+    <ng-container *ngFor="let skill of filteredSkills; let i = index">
+      <div
+        #skillCircle
+        (click)="onSelectedSkill(skill.name)"
+        (mouseenter)="hovered[i] = true"
+        (mouseleave)="hovered[i] = false"
+        [@skillPop]="{ value: '', params: { duration: '0.3s' } }"
+        [ngClass]="{
+        'bg-gradient-to-br from-orange-400 to-orange-600 text-black': selectedSkill === skill.name,
+        'bg-neutral-500 text-white': selectedSkill !== skill.name,
+      }"
+        [ngStyle]="getPositionStyle(i)"
+        [style.transform]="'translate(var(--x), var(--y)) scale(' + getScale(i) + ')'"
+        class="absolute text-xs font-semibold text-center leading-tight
+             w-20 h-20 rounded-full flex items-center justify-center
+              drop-shadow-darkXl cursor-pointer z-10
+             select-none p-2 transition-all duration-300"
+      >
+        {{ skill.name }}
+      </div>
+    </ng-container>
+  </div>
+
+</section>

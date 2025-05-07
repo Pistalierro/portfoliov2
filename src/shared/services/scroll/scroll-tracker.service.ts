@@ -98,5 +98,33 @@ export class ScrollTrackerService {
     allAnimElements.forEach(el => observer.observe(el));
   }
 
+  triggerAnimationsIn(selectorOrElement: string | HTMLElement): void {
+    const container = typeof selectorOrElement === 'string'
+      ? document.querySelector(selectorOrElement)
+      : selectorOrElement;
+
+    if (!container) return;
+
+    const elements = container.querySelectorAll('[data-anim][data-repeat]') as NodeListOf<HTMLElement>;
+
+    elements.forEach(el => {
+      const animClass = el.dataset['anim'];
+      const delay = el.dataset['delay'];
+
+      if (!animClass) return;
+
+      el.classList.remove(animClass); // сброс предыдущей анимации
+      void el.offsetWidth; // рефлоу
+
+      if (delay) {
+        el.style.animationDelay = delay;
+      } else {
+        el.style.animationDelay = '';
+      }
+
+      el.classList.add(animClass);
+    });
+  }
+
 
 }

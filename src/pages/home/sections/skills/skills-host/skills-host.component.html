@@ -1,59 +1,62 @@
-<section class="skills relative w-full h-full min-h-screen overflow-hidden" id="skills-host">
+<section class="skills relative w-full min-h-screen overflow-hidden" id="skills-host">
   <div class="skills__overlay absolute inset-0 bg-top bg-repeat-y z-[-1] filter blur-sm"
        style="background-image: url('/bg/bg-skills.jpg')"></div>
 
-  <div class="skills__container h-full w-full max-w-screen-xl mx-auto py-24">
+  <div class="skills__container w-full max-w-screen-xl mx-auto pt-32 pb-24">
 
+    <!-- Навигация -->
     <div class="skills__navbar flex items-center justify-center gap-10 mb-10">
 
-      <button (click)="setActiveTab('skills')" [ngClass]="activeTab === 'skills' ? activeClass : baseClass"
-              class="px-4 py-2 rounded-full  font-bold transition duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl">
+      <button
+        (click)="setActiveTab('skills')"
+        [ngClass]="activeTab === 'skills' ? activeClass : baseClass"
+        class="opacity-0 px-4 py-2 rounded-full font-bold transition duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl"
+        data-anim="animate-block-fly-left-top">
         Навыки
       </button>
 
-      <button (click)="setActiveTab('approach')" [ngClass]="activeTab === 'approach' ? activeClass : baseClass"
-              class="px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl">
+      <button
+        (click)="setActiveTab('approach')"
+        [ngClass]="activeTab === 'approach' ? activeClass : baseClass"
+        class="opacity-0 px-4 py-2 rounded-full font-bold transition-all duration-300 ease-in-out hover:scale-110 min-w-[180px] drop-shadow-darkXl"
+        data-anim="animate-block-fly-right-top"
+        data-delay="0.2s">
         Мой подход
       </button>
 
     </div>
 
-    <div
-      class="relative isolate overflow-hidden">
 
-      <div [ngStyle]="{ transform: getSlideTransform() }"
-           class="flex transition-transform duration-500 ease-in-out w-full">
+    <!-- Контент -->
+    <div class="relative isolate overflow-hidden">
+
+      <div [ngSwitch]="activeTab" class="w-full">
 
         <!-- Skills -->
-        <div
-          [ngClass]="{ 'opacity-100': activeTab === 'skills', 'opacity-0': activeTab !== 'skills', 'pointer-events-none': activeTab !== 'skills' }"
-          class="min-w-full transition-opacity duration-500 ease-in-out">
-          <p class="text-center text-2xl text-black mb-5 text-shadow-lg uppercase font-pangolin">Мои навыки:</p>
-
-          <block-skills-radial
-            (skillSelected)="onSkillSelected($event)"
-            [resetTrigger]="radialReset"></block-skills-radial>
-
-          <!-- Потом карточки проектов -->
-          <block-skills-tech
-            [isSliding]="isSliding"
-            [selectedSkill]="selectedSkill">
-          </block-skills-tech>
-
+        <div *ngSwitchCase="'skills'">
+          <h3
+            [attr.data-delay]="firstRenderer ? '0.6s' : null"
+            class="text-center text-2xl text-black mb-5 text-shadow-xl opacity-0"
+            data-anim="animate-info-appear"
+            data-repeat
+          >Навыки и проекты, где я их применял:</h3>
+          <section-skills-radial (skillSelected)="onSkillSelected($event)"></section-skills-radial>
+          <section-skills-tech [selectedSkill]="selectedSkill"></section-skills-tech>
         </div>
 
-        <!-- Tools -->
-        <div
-          [ngClass]="{ 'opacity-100': activeTab === 'approach', 'opacity-0': activeTab !== 'approach', 'pointer-events-none': activeTab !==
-          'approach' }"
-          class="min-w-full px-4 transition-opacity duration-500 ease-in-out">
-          <p class="text-center text-2xl text-black mb-5 text-shadow-lg uppercase font-pangolin">Инструменты:</p>
+        <!-- Мой подход -->
+        <div *ngSwitchCase="'approach'" class="px-4">
+          <h3 [attr.data-delay]="firstRenderer ? '0.6s' : null"
+              class="text-center text-2xl text-black mb-5 text-shadow-lg opacity-0"
+              data-anim="animate-info-appear"
+              data-repeat
+          >Инструменты:</h3>
           <block-skill-approach></block-skill-approach>
         </div>
 
       </div>
-    </div>
 
+    </div>
 
   </div>
 </section>

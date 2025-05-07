@@ -3,38 +3,44 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  Input,
-  OnChanges,
+  inject,
+  OnInit,
   Output,
   QueryList,
-  SimpleChanges,
   ViewChild,
   ViewChildren
 } from '@angular/core';
 import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {SkillCategoryType, SkillInterface} from '../../../../../types/skills-interface';
 import {SKILL_CATEGORIES, SKILLS} from '../../../../../data/skills';
+import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
+import {drawLineAnimation, skillPopTrigger} from '../../../../../shared/animations/angular.animations';
 
 @Component({
-  selector: 'block-skills-radial',
+  selector: 'section-skills-radial',
   standalone: true,
   imports: [NgForOf, NgClass, NgIf, NgStyle],
   templateUrl: './skills-radial.component.html',
   styleUrl: './skills-radial.component.scss',
+  animations: [drawLineAnimation, skillPopTrigger]
 })
-export class SkillsRadialComponent implements AfterViewInit, OnChanges {
+export class SkillsRadialComponent implements OnInit, AfterViewInit {
   categories: SkillCategoryType[] = SKILL_CATEGORIES;
   skills: SkillInterface[] = SKILLS;
 
-  selectedCategory: SkillCategoryType = 'Languages';
+  selectedCategory: SkillCategoryType = 'Base';
   selectedSkill!: string;
 
   center = {x: 0, y: 0};
   radialLines: { x: number; y: number }[] = [];
+  firstRender = true;
+
   animatedSkillIndexes: number[] = [];
   hovered: boolean[] = [];
+  linesReady: boolean = false;
 
-  @Input() resetTrigger = 0;
+  scrollTrackerService = inject(ScrollTrackerService);
+
   @Output() skillSelected = new EventEmitter<string>();
 
   @ViewChild('centerCircle') centerCircleRef!: ElementRef<HTMLDivElement>;
@@ -46,46 +52,54 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
     return this.skills.filter(s => s.category === this.selectedCategory);
   }
 
+  ngOnInit() {
+    this.scrollTrackerService.observeSectionsForAnimation(['skills-radial'], '', 0.3);
+  }
+
   ngAfterViewInit(): void {
-    // показываем первый выбранный набор
     this.onSelectCategory(this.selectedCategory);
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['resetTrigger']) {
-      // ресет анимации кружков и линий
-      setTimeout(() => {
-        this.animatedSkillIndexes = this.filteredSkills.map((_, i) => i);
-        this.calculateLines();
-      });
-    }
-  }
 
   onSelectCategory(category: SkillCategoryType) {
     this.selectedCategory = category;
     this.selectedSkill = '';
-
-    // сброс
     this.radialLines = [];
+    this.linesReady = false;
 
-    // готовим layout
     const skills = this.filteredSkills;
     if (!this.generatedLayouts[category]) {
       this.generatedLayouts[category] = this.generateRandomLayout(skills.length);
     }
 
-    // первый скилл по-умолчанию
     if (skills.length) {
-      this.selectedSkill = skills[0].name;
-      this.skillSelected.emit(this.selectedSkill);
+      setTimeout(() => {
+        this.selectedSkill = skills[0].name;
+        this.skillSelected.emit(this.selectedSkill);
+      });
     }
 
-    // анимация кружков
     this.animatedSkillIndexes = [];
-    setTimeout(() => (this.animatedSkillIndexes = skills.map((_, i) => i)), 20);
 
-    // отрисовать линии после того, как кружки начнут выезжать
-    setTimeout(() => this.calculateLines(), 50);
+    setTimeout(() => {
+      this.animatedSkillIndexes = skills.map((_, i) => i);
+    }, 20);
+
+    const renderLines = () => {
+      this.calculateLines();
+      this.linesReady = true;
+    };
+
+    if (this.firstRender) {
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          renderLines();
+          this.firstRender = false;
+        }, 300);
+      });
+    } else {
+      setTimeout(renderLines, 300);
+    }
   }
 
   onSelectedSkill(skill: string) {
@@ -93,7 +107,7 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
     this.skillSelected.emit(skill);
   }
 
-  getPositionStyle(index: number): { [key: string]: string } {
+  getPositionStyle(index: number): Record<string, string> {
     const pos = this.generatedLayouts[this.selectedCategory]?.[index];
     if (!pos) {
       return {'--x': '0px', '--y': '0px', transform: 'translate(0,0) scale(0.5)'};
@@ -107,26 +121,21 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
 
   getScale(index: number): number {
     return this.animatedSkillIndexes.includes(index)
-      ? this.hovered[index]
-        ? 1.1
-        : 1
+      ? this.hovered[index] ? 1.1 : 1
       : 0.5;
   }
 
   private generateRandomLayout(count: number): { x: number; y: number }[] {
     const result: { x: number; y: number }[] = [];
-    const radiusX = 220;
-    const radiusY = 130;
-    const minCenter = 120;
-    const minDistance = 100;
-
-    while (result.length < count) {
+    const radiusX = 220, radiusY = 130, minCenter = 120, minDist = 120; // чуть мягче сделал
+    let tries = 0;
+    while (result.length < count && tries < 5000) {
+      tries++;
       const angle = Math.random() * 2 * Math.PI;
-      const x = Math.round(Math.cos(angle) * (Math.random() * radiusX));
-      const y = Math.round(Math.sin(angle) * (Math.random() * radiusY));
-
+      const x = Math.round(Math.cos(angle) * Math.random() * radiusX);
+      const y = Math.round(Math.sin(angle) * Math.random() * radiusY);
       if (Math.hypot(x, y) < minCenter) continue;
-      if (result.every(p => Math.hypot(p.x - x, p.y - y) >= minDistance)) {
+      if (result.every(p => Math.hypot(p.x - x, p.y - y) >= minDist)) {
         result.push({x, y});
       }
     }
@@ -135,17 +144,16 @@ export class SkillsRadialComponent implements AfterViewInit, OnChanges {
 
   private calculateLines(): void {
     if (!this.centerCircleRef) return;
-    const parentRect = this.centerCircleRef.nativeElement.offsetParent!.getBoundingClientRect();
+
+    const parentRect = this.centerCircleRef.nativeElement.offsetParent!
+      .getBoundingClientRect();
     const centerRect = this.centerCircleRef.nativeElement.getBoundingClientRect();
 
     this.center = {
       x: centerRect.left + centerRect.width / 2 - parentRect.left,
       y: centerRect.top + centerRect.height / 2 - parentRect.top
     };
-
-    this.radialLines = this.generatedLayouts[this.selectedCategory].map(p => ({
-      x: this.center.x + p.x,
-      y: this.center.y + p.y
-    }));
+    this.radialLines = this.generatedLayouts[this.selectedCategory]
+      .map(p => ({x: this.center.x + p.x, y: this.center.y + p.y}));
   }
 }
