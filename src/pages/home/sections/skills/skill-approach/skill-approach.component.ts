@@ -48,7 +48,6 @@ export class SkillApproachComponent implements AfterViewInit {
       return {anim: anims[index] || 'animate-block-zoom', delay};
     }
 
-    // sm
     const anims = [
       'animate-block-fly-left-top', 'animate-block-fly-right-top',
       'animate-block-fly-left', 'animate-block-fly-right',

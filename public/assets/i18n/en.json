@@ -246,12 +246,18 @@
   },
   "TECH": {
     "TABS": {
-      "BASE": "Base",
+      "BASE": "Basic",
+      "BASE_CIRCLE": "Basic",
       "CORE": "Core",
+      "CORE_CIRCLE": "Core",
       "ADVANCED": "Advanced",
+      "ADVANCED_CIRCLE": "Advanced",
       "FRAMEWORKS": "Frameworks",
+      "FRAMEWORKS_CIRCLE": "Frame-works",
       "UI": "UI",
-      "LIBRARIES": "Libraries"
+      "UI_CIRCLE": "UI",
+      "LIBRARIES": "Libraries",
+      "LIBRARIES_CIRCLE": "Librar-ies"
     }
   },
   "APPROACH": {

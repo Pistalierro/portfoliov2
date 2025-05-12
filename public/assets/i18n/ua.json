@@ -246,11 +246,17 @@
   "TECH": {
     "TABS": {
       "BASE": "Базові",
+      "BASE_CIRCLE": "Базові",
       "CORE": "Основні",
+      "CORE_CIRCLE": "Основні",
       "ADVANCED": "Просунуті",
+      "ADVANCED_CIRCLE": "Просунуті",
       "FRAMEWORKS": "Фреймворки",
-      "UI": "Інтерфейс",
-      "LIBRARIES": "Бібліотеки"
+      "FRAMEWORKS_CIRCLE": "Фрейм-ворки",
+      "UI": "UI",
+      "UI_CIRCLE": "UI",
+      "LIBRARIES": "Бібліотеки",
+      "LIBRARIES_CIRCLE": "Бібліо-теки"
     }
   },
   "APPROACH": {

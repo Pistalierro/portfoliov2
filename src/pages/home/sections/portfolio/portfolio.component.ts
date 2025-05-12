@@ -16,6 +16,7 @@ import {RouterLink} from '@angular/router';
 import {TypewriterService} from '../../../../shared/services/typewriter.service';
 import {TranslatePipe} from '@ngx-translate/core';
 import {CarouselService} from '../../../../shared/services/carousel.service';
+import {ScrollTrackerService} from '../../../../shared/services/scroll/scroll-tracker.service';
 
 @Component({
   selector: 'section-portfolio',
@@ -27,7 +28,7 @@ import {CarouselService} from '../../../../shared/services/carousel.service';
 export class PortfolioComponent implements AfterViewInit, OnDestroy {
 
   projectPreviews = PROJECTS.map(project => ({...project} as ProjectPreviewInterface));
-  
+
   readonly SLIDES_LENGTH = PROJECTS.length;
 
   isFirstLoad = true;
@@ -44,6 +45,7 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy {
   typewriterService = inject(TypewriterService);
   carouselService = inject(CarouselService);
   private cdr = inject(ChangeDetectorRef);
+  private scrollTrackerService = inject(ScrollTrackerService);
 
   get activeSlide(): number {
     return this.carouselService.activeSlide;
@@ -91,7 +93,7 @@ export class PortfolioComponent implements AfterViewInit, OnDestroy {
 
       setTimeout(() => {
         this.infoVisible = true;
-
+        this.scrollTrackerService.triggerAnimationsIn('.portfolio__info-container');
         this.scrollToActiveThumbnail();
         this.initJsonTyping(this.projectPreviews[index]);
         this.cdr.detectChanges();

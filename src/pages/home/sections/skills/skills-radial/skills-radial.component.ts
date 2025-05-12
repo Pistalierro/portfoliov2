@@ -10,17 +10,17 @@ import {
   ViewChild,
   ViewChildren
 } from '@angular/core';
-import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 import {SkillCategoryType, SkillInterface} from '../../../../../types/skills-interface';
 import {SKILL_CATEGORIES, SKILLS} from '../../../../../data/skills';
 import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
 import {drawLineAnimation, skillPopTrigger} from '../../../../../shared/animations/angular.animations';
 import {TranslatePipe} from '@ngx-translate/core';
+import {NgClass, NgForOf, NgIf, NgStyle} from '@angular/common';
 
 @Component({
   selector: 'section-skills-radial',
   standalone: true,
-  imports: [NgForOf, NgClass, NgIf, NgStyle, TranslatePipe],
+  imports: [NgForOf, NgClass, NgIf, TranslatePipe, NgStyle],
   templateUrl: './skills-radial.component.html',
   styleUrl: './skills-radial.component.scss',
   animations: [drawLineAnimation, skillPopTrigger]
@@ -40,6 +40,8 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
   hovered: boolean[] = [];
   linesReady: boolean = false;
 
+  positionStyles: Record<number, any> = {};
+
   scrollTrackerService = inject(ScrollTrackerService);
 
   @Output() skillSelected = new EventEmitter<string>();
@@ -51,6 +53,10 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
 
   get filteredSkills(): SkillInterface[] {
     return this.skills.filter(s => s.category === this.selectedCategory);
+  }
+
+  get selectedCategoryForCircle(): string {
+    return `${this.selectedCategory}_CIRCLE`;
   }
 
   ngOnInit() {
@@ -81,6 +87,13 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
     }
 
     this.animatedSkillIndexes = [];
+
+    setTimeout(() => {
+      this.positionStyles = {};
+      skills.forEach((_, i) => {
+        this.positionStyles[i] = this.getPositionStyle(i);
+      });
+    });
 
     setTimeout(() => {
       this.animatedSkillIndexes = skills.map((_, i) => i);
@@ -126,30 +139,16 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
       : 0.5;
   }
 
-  getCornerRadius(index: number): string {
-    const width = window.innerWidth;
-    const total = this.categories.length;
-
-    if (width >= 768) {
-      // md: 3 в строку
-      if (index === 0) return 'rounded-tl-md';
-      if (index === 2) return 'rounded-tr-md';
-      if (index === total - 3) return 'rounded-bl-md';
-      if (index === total - 1) return 'rounded-br-md';
-    } else {
-      // sm: 2 в строку
-      if (index === 0) return 'rounded-tl-md';
-      if (index === 1) return 'rounded-tr-md';
-      if (index === total - 2) return 'rounded-bl-md';
-      if (index === total - 1) return 'rounded-br-md';
-    }
-
-    return '';
-  }
-
   private generateRandomLayout(count: number): { x: number; y: number }[] {
     const result: { x: number; y: number }[] = [];
-    const radiusX = 220, radiusY = 130, minCenter = 120, minDist = 120; // чуть мягче сделал
+    const width = window.innerWidth;
+
+    const radiusX = width < 768 ? 150 : 220;      // чуть шире — чтобы ушли от центра
+    const radiusY = width < 768 ? 100 : 130;      // не сплюснутые по вертикали
+    const minCenter = width < 768 ? 100 : 120;    // отступ от центра (чтобы не липли)
+    const minDist = width < 768 ? 90 : 120;       // чтобы кружки не пересекались
+
+
     let tries = 0;
     while (result.length < count && tries < 5000) {
       tries++;

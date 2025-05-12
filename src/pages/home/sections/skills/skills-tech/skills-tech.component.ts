@@ -20,6 +20,7 @@ export class SkillsTechComponent implements OnChanges {
 
   projects: ProjectDetailedInterface[] = PROJECTS;
   opacityClass: string = 'opacity-100';
+  activeFlipIndex: number | null = null;
   @Input() selectedSkill!: string;
   @Input() isSliding = false;
   private scrollTrackerService = inject(ScrollTrackerService);
@@ -43,10 +44,14 @@ export class SkillsTechComponent implements OnChanges {
         this.scrollTrackerService.triggerAnimationsIn('#skills-tech');
       }, 50);
     }
+    this.activeFlipIndex = null;
   }
 
   trackById(index: number, project: ProjectPreviewInterface): number {
     return project.id;
   }
 
+  toggleFlip(i: number): void {
+    this.activeFlipIndex = this.activeFlipIndex === i ? null : i;
+  }
 }

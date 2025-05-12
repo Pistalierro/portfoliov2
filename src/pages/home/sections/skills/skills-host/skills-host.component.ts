@@ -1,19 +1,19 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {NgClass, NgSwitch, NgSwitchCase} from '@angular/common';
 import {PROJECTS} from '../../../../../data/projects';
 import {SKILLS} from '../../../../../data/skills';
 import {SkillInterface} from '../../../../../types/skills-interface';
 import {ProjectDetailedInterface} from '../../../../../types/projects.interface';
-import {SkillApproachComponent} from '../skill-approach/skill-approach.component';
-import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
-import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
 import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {NgClass, NgSwitch, NgSwitchCase} from '@angular/common';
+import {SkillsRadialComponent} from '../skills-radial/skills-radial.component';
+import {SkillsTechComponent} from '../skills-tech/skills-tech.component';
+import {SkillApproachComponent} from '../skill-approach/skill-approach.component';
 
 @Component({
   selector: 'section-skills-host',
   standalone: true,
-  imports: [NgClass, SkillApproachComponent, SkillsTechComponent, SkillsRadialComponent, NgSwitch, NgSwitchCase, TranslatePipe],
+  imports: [TranslatePipe, NgClass, NgSwitch, NgSwitchCase, SkillsRadialComponent, SkillsTechComponent, SkillApproachComponent],
   templateUrl: './skills-host.component.html',
   styleUrl: './skills-host.component.scss'
 })

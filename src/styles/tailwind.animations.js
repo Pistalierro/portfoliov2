@@ -367,7 +367,7 @@ const animation = {
   'slide-out-left': 'slideOutLeft 0.7s ease-in-out forwards',
   'slide-out-right': 'slideOutRight 0.7s ease-in-out forwards',
 
-  'info-appear': 'infoAppear 0.5s ease-out forwards',
+  'info-appear': 'infoAppear 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards',
   'info-fade-up': 'infoFadeUp 0.6s ease-out forwards',
 
   'cursor-blink': 'blink 1s step-end infinite',
