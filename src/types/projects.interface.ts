@@ -9,7 +9,6 @@ export interface ProjectPreviewInterface {
     thumbnail: string;
     large: string;
   };
-  detailsUrl?: string;
 }
 
 export interface ProjectDetailedInterface extends ProjectPreviewInterface {

@@ -4,6 +4,7 @@ import {ProjectDetailedInterface, ProjectPreviewInterface} from '../../../../../
 import {PROJECTS} from '../../../../../data/projects';
 import {TranslatePipe} from '@ngx-translate/core';
 import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll-tracker.service';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'section-skills-tech',
@@ -12,6 +13,7 @@ import {ScrollTrackerService} from '../../../../../shared/services/scroll/scroll
     NgClass,
     NgIf,
     TranslatePipe,
+    RouterLink,
   ],
   templateUrl: './skills-tech.component.html',
   styleUrl: './skills-tech.component.scss'
@@ -24,6 +26,7 @@ export class SkillsTechComponent implements OnChanges {
   @Input() selectedSkill!: string;
   @Input() isSliding = false;
   private scrollTrackerService = inject(ScrollTrackerService);
+  private router = inject(Router);
 
   get filteredProjects(): ProjectPreviewInterface[] {
     if (!this.selectedSkill) return [];
@@ -54,4 +57,5 @@ export class SkillsTechComponent implements OnChanges {
   toggleFlip(i: number): void {
     this.activeFlipIndex = this.activeFlipIndex === i ? null : i;
   }
+
 }

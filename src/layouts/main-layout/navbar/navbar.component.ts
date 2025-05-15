@@ -4,6 +4,7 @@ import {TranslatePipe, TranslateService} from '@ngx-translate/core';
 import {ScrollService} from '../../../shared/services/scroll/scroll.service';
 import {ScrollTrackerService} from '../../../shared/services/scroll/scroll-tracker.service';
 import {getLangFlag} from '../../../shared/utils/lang-flag.helpers';
+import {ContactsModalService} from '../../../shared/services/contacts-modal.service';
 
 @Component({
   selector: 'app-navbar',
@@ -22,9 +23,8 @@ export class NavbarComponent implements AfterViewInit {
   translateService = inject(TranslateService);
   scrollService = inject(ScrollService);
   private scrollTrackerService = inject(ScrollTrackerService);
-
   activeSection = this.scrollTrackerService.activeSection;
-
+  private contactsModalService = inject(ContactsModalService);
   private elRef = inject(ElementRef);
 
   get currentLang(): string {
@@ -70,6 +70,11 @@ export class NavbarComponent implements AfterViewInit {
 
   scrollToSection(id: string): void {
     this.scrollService.scrollTo(id);
+    this.isMenuOpen = false;
+  }
+
+  openContactsModal(): void {
+    this.contactsModalService.open();
     this.isMenuOpen = false;
   }
 }

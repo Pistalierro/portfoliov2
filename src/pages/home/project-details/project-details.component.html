@@ -7,7 +7,8 @@
 
   <div class="project__container mx-auto w-full max-w-screen-xl px-4 py-24">
 
-    <h2 class="text-center text-accent text-4xl mb-5" data-anim="animate-block-fly-top">{{ project.title | translate }}</h2>
+    <h2 class="text-center text-white text-4xl mb-5 text-shadow-whiteGlow"
+        data-anim="animate-block-fly-top">{{ project.title | translate }}</h2>
 
     <div class="project__image-container group relative flex items-center justify-center w-full mt-5" data-anim="animate-flip-unmirror">
       <img [src]="project.images.large" alt="project image" class="rounded-lg overflow-hidden shadow-xl"/>

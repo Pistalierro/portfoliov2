@@ -261,9 +261,13 @@ const keyframes = {
       visibility: 'visible'
     }
   },
-  blockZoom: {
+  blockZoomIn: {
     '0%': {opacity: 0, transform: 'scale(0.75)'},
     '100%': {opacity: 1, transform: 'scale(1)'}
+  },
+  blockZoomOut: {
+    '0%': {opacity: 1, transform: 'scale(1)'},
+    '100%': {opacity: 0, transform: 'scale(0.75)'}
   },
   slideInLeft: {
     '0%': {transform: 'translateX(-100%)'},
@@ -360,7 +364,8 @@ const animation = {
   'block-fly-right-bottom': 'blockFlyRightBottom 0.7s ease-out forwards',
   'block-fly-bottom': 'blockFlyBottom 0.75s ease-out forwards',
   'block-fly-left-bottom': 'blockFlyLeftBottom 0.7s ease-out forwards',
-  'block-zoom': 'blockZoom 0.75s ease-out forwards',
+  'block-zoom-in': 'blockZoomIn 0.75s ease-out forwards',
+  'block-zoom-out': 'blockZoomOut 0.75s ease-out forwards',
 
   'slide-in-left': 'slideInLeft 0.7s ease-in-out forwards',
   'slide-in-right': 'slideInRight 0.7s ease-in-out forwards',

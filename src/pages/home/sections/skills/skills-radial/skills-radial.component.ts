@@ -143,7 +143,7 @@ export class SkillsRadialComponent implements OnInit, AfterViewInit {
     const result: { x: number; y: number }[] = [];
     const width = window.innerWidth;
 
-    const radiusX = width < 768 ? 150 : 220;      // чуть шире — чтобы ушли от центра
+    const radiusX = width < 768 ? 130 : 240;      // чуть шире — чтобы ушли от центра
     const radiusY = width < 768 ? 100 : 130;      // не сплюснутые по вертикали
     const minCenter = width < 768 ? 100 : 120;    // отступ от центра (чтобы не липли)
     const minDist = width < 768 ? 90 : 120;       // чтобы кружки не пересекались

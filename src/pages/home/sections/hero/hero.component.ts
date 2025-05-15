@@ -4,6 +4,7 @@ import {NgClass, NgForOf, NgIf} from '@angular/common';
 import {FLY_ANIMATIONS} from '../../../../shared/constants/animations.const';
 import {paragraphInterface, paragraphsInterface} from '../../../../types/text-animations.interface';
 import {TypewriterService} from '../../../../shared/services/typewriter.service';
+import {ScrollService} from '../../../../shared/services/scroll/scroll.service';
 
 @Component({
   selector: 'section-hero',
@@ -22,6 +23,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
 
   translateService = inject(TranslateService);
   typewriterService = inject(TypewriterService);
+  scrollService = inject(ScrollService);
 
   @ViewChild('heroSection') heroRef!: ElementRef;
 

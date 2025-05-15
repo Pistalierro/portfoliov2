@@ -13,7 +13,8 @@
         <span *ngFor="let word of paragraph" class="inline-flex">
          <span *ngFor="let letter of word; let i = index"
                [ngClass]="letter.anim + ' inline-block invisible'"
-               [style.animationDelay]="letter.delay + 's'">
+               [style.animationDelay]="letter.delay + 's'"
+               class="text-shadow-whiteGlow">
             {{ letter.char }}
           </span>
           <span class="inline-block">&nbsp;</span>
@@ -51,8 +52,8 @@
       <!-- Кнопка в конце -->
       <div class="hero__content-actions">
         <a
-          class="text-sm md:text-base lg:text-lg border rounded-full uppercase select-none cursor-pointer hover:shadow-light bg-white/20 hover:bg-white/30 transition-all duration-200 py-2 px-6 transform hover:scale-105 inline-block"
-          href="#about">{{ 'HERO.ABOUT_LINK' | translate }}</a>
+          (click)="scrollService.scrollTo('about')"
+          class="text-sm md:text-base lg:text-lg border rounded-full uppercase select-none cursor-pointer hover:shadow-light bg-white/20 hover:bg-white/30 transition-all duration-200 py-2 px-6 transform hover:scale-105 inline-block">{{ 'HERO.ABOUT_LINK' | translate }}</a>
       </div>
     </div>
   </div>

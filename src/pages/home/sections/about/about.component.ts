@@ -29,11 +29,6 @@ export class AboutComponent implements OnInit {
     this.isMobile = window.innerWidth < 768;
   }
 
-
-  scrollToSection(id: string) {
-    this.scrollService.scrollToElement(id);
-  }
-
   openModal(): void {
     this.isModalOpen = true;
   }

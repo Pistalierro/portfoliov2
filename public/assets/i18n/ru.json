@@ -244,6 +244,8 @@
     "APPROACH_BLOCK.TITLE": "Инструменты:"
   },
   "TECH": {
+    "MORE": "+ ещё",
+    "DETAILS": "Подробнее",
     "TABS": {
       "BASE": "Базовые",
       "BASE_CIRCLE": "Базовые",

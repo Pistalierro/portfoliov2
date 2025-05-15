@@ -9,31 +9,32 @@
            data-repeat>
 
         <!-- 🔄 Флип карточка на sm -->
-        <div (click)="toggleFlip(i)" class="block sm:hidden relative w-full h-[300px] [perspective:1000px]">
+        <div (click)="toggleFlip(i)" class="block sm:hidden relative w-full h-[260px] [perspective:1000px]">
           <div [ngClass]="{ '[transform:rotateY(180deg)]': activeFlipIndex === i }"
                class="relative w-full h-full duration-700 [transform-style:preserve-3d]">
 
             <!-- Front -->
-            <div class="absolute w-full h-full backface-hidden bg-black/50 rounded-lg p-4 flex flex-col items-center text-white">
+            <div
+              class="absolute w-full h-full backface-hidden drop bg-black/50 rounded-lg p-[10px] flex flex-col gap-3 items-center justify-between text-white transition-transform">
               <img [src]="project.images.thumbnail" alt="image"
-                   class="rounded-lg w-full h-full max-h-[230px] object-cover mb-3"/>
-              <h3 class="text-white text-lg text-center uppercase tracking-wide">
+                   class="rounded-lg w-full h-full aspect-video object-cover"/>
+              <h3 class="text-white text-lg text-center uppercase truncate tracking-wide">
                 {{ project.title | translate }}
               </h3>
             </div>
 
             <!-- Back -->
             <div
-              class="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-black/60 rounded-lg p-4 text-white flex flex-col gap-4 justify-start items-start">
+              class="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-black/60 rounded-lg p-3 text-white flex flex-col gap-3 justify-between items-start">
 
               <!-- Описание всегда сверху -->
-              <p *ngIf="project.descriptionShort" class="text-base leading-snug">
-                {{ project.descriptionShort | translate }}
+              <p *ngIf="project.descriptionShort" class="text-base leading-snug line-clamp-4">
+                {{ project.description | translate }}
               </p>
 
               <!-- Скиллы прижимаются вниз при необходимости -->
-              <ul class="flex flex-wrap gap-2 mt-auto">
-                <li *ngFor="let tech of project.techStack"
+              <ul class="flex items-center justify-center flex-wrap gap-2">
+                <li *ngFor="let tech of project.techStack.slice(0, 8)"
                     [ngClass]="{
                                  'bg-accent/20 shadow-accentGlow text-orange-500 font-bold border border-accent/80 scale-105': tech ===
                                  selectedSkill,
@@ -42,19 +43,24 @@
                     class="text-[12px] px-2.5 py-1 rounded-full transition-all duration-200">
                   {{ tech }}
                 </li>
+                <span *ngIf="project.techStack.length > 8">{{ 'TECH.MORE' |translate }}</span>
               </ul>
-              <div></div>
+              <button
+                [routerLink]="['portfolio', project.slug]"
+                class="mt-auto self-center w-9/12 text-[12px] border px-4 py-1 rounded-full bg-white/20 hover:bg-white/30 transition uppercase">
+                {{ 'TECH.DETAILS' |translate }}
+              </button>
+
             </div>
           </div>
         </div>
 
         <!-- 📅 Карточка с адаптацией для md и выше -->
         <div
-          class="hidden sm:block group p-4 bg-black/50 rounded-lg relative text-white
+          class="hidden sm:block group p-4 bg-black/50 rounded-lg  text-white
          transition-transform hover:-translate-y-1 hover:shadow-lg duration-500 ease-in-out
-         drop-shadow-card hover:shadow-accentGlow/50"
-        >
-          <div class="grid grid-cols-12 gap-5 items-start">
+         drop-shadow-card hover:shadow-accentGlow/50">
+          <div class="grid grid-cols-12 gap-5 items-start relative">
 
             <!-- Картинка -->
             <div class="col-span-12 lg:col-span-3">
@@ -66,10 +72,10 @@
             </div>
 
             <!-- Текст и скиллы (в md две строки, в lg — снова inline) -->
-            <div class="col-span-12 grid md:grid-cols-12 gap-5 lg:col-span-9 items-start">
+            <div class="col-span-12 grid md:grid-cols-12 gap-5 lg:col-span-9 items-start h-full">
 
               <!-- Описание -->
-              <div class="md:col-span-5 space-y-3">
+              <div class="md:col-span-5 space-y-3 h-full">
                 <h3 class="text-orange-500 text-lg md:text-xl text-center md:text-left uppercase tracking-wide">
                   {{ project.title | translate }}
                 </h3>
@@ -82,7 +88,7 @@
               </div>
 
               <!-- Скиллы -->
-              <ul class="md:col-span-7 flex flex-wrap gap-2 justify-start items-start">
+              <ul class="md:col-span-7 flex flex-wrap gap-3 justify-center items-center h-full">
                 <li
                   *ngFor="let tech of project.techStack; let j = index"
                   [ngClass]="{'bg-accent/20 shadow-accentGlow text-orange-500 font-bold border border-accent/80 scale-110': tech === selectedSkill,
@@ -90,7 +96,7 @@
                              }"
                   [style.transitionDelay]="(j * 40) + 'ms'"
                   class="text-sm px-3 py-1 rounded-full transition-all transform duration-300 w-auto
-           group-hover:scale-105 group-hover:shadow-lg"
+                group-hover:scale-105 group-hover:shadow-lg"
                 >
                   {{ tech }}
                 </li>
@@ -98,8 +104,7 @@
 
 
             </div>
-
-            <a [href]="project.detailsUrl" class="absolute inset-0 z-10" target="_blank"></a>
+            <a [routerLink]="['/portfolio', project.slug]" class="absolute inset-0 z-10" target="_blank"></a>
           </div>
         </div>
 

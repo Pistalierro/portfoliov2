@@ -7,7 +7,7 @@
 
   <div class="portfolio__container w-full max-w-screen-xl mx-auto px-4 py-32">
 
-    <h2 class="text-2xl md:text-4xl text-accent text-center mb-10">{{ 'PROJECT.TITLE' | translate }}</h2>
+    <h2 class="text-2xl md:text-4xl text-accent text-center mb-10 text-shadow-accentGlow">{{ 'PROJECT.TITLE' | translate }}</h2>
     <div
       class="portfolio__layout grid grid-cols-12 grid-rows-[auto_auto_1fr] gap-2 items-start h-auto md:grid-rows-3 md:h-[55vh] lg:grid-rows-1">
 
@@ -142,15 +142,12 @@
       </div>
 
       <div
-        class="portfolio__info col-span-12 row-span-1 md:col-span-3 md:row-span-3 md:order-2
-         lg:col-span-3 lg:row-span-1 lg:order-3 p-4 bg-black/30 w-full h-full min-h-0
-         overflow-y-auto rounded-md
-         max-h-[400px] md:max-h-[600px] lg:max-h-none">
+        class="portfolio__info col-span-12 row-span-1 md:col-span-3 md:row-span-3 md:order-2 lg:col-span-3 lg:row-span-1 lg:order-3 p-4 bg-black/30 w-full h-full min-h-0 overflow-y-auto rounded-md max-h-[400px] md:max-h-[600px] lg:max-h-none scrollbar-hidden">
         <ng-container *ngIf="projectPreviews[activeSlide] as project">
           <div class="portfolio__info-container flex flex-col h-auto min-h-full gap-6">
             <!-- Верхняя часть -->
             <div>
-              <h3 class="text-center text-white text-xl mb-2 "
+              <h3 class="text-center text-white text-xl mb-2 text-shadow-whiteGlow"
                   data-anim="animate-info-appear"
                   data-repeat>
                 {{ project.title | translate }}
@@ -164,8 +161,8 @@
 
             <!-- Технологии -->
             <div>
-              <h4 class="text-white text-lg mb-2 text-center"
-                  data-anim="animate-block-zoom"
+              <h4 class="text-white text-lg mb-2 text-center text-shadow-whiteGlow"
+                  data-anim="animate-block-zoom-in"
                   data-repeat>
                 {{ 'PROJECTS.TECH_STACK' | translate }}
               </h4>
@@ -174,7 +171,7 @@
                   *ngFor="let tech of project.techStack"
                   class="bg-accent/10 border text-accent font-semibold border-accent/50
                    text-sm px-3 py-1 rounded-full"
-                  data-anim="animate-block-zoom"
+                  data-anim="animate-block-zoom-in"
                   data-repeat>
                   {{ tech }}
                 </li>
@@ -194,7 +191,7 @@
 
     </div>
 
-    <div #jsonContainer class="bg-black/70 rounded-lg p-4 mt-6 h-[25vh] overflow-auto shadow-inner relative">
+    <div #jsonContainer class="bg-black/70 rounded-lg p-4 mt-6 h-[25vh] overflow-auto shadow-inner relative scrollbar-hidden">
       <pre class="text-green-400 text-sm font-mono leading-tight whitespace-pre-wrap">
 {{ typedJson }}<span class="inline animate-cursor-blink">█</span>
       </pre>

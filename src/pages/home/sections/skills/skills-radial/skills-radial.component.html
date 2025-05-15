@@ -1,6 +1,6 @@
 <section id="skills-radial">
   <h3
-    class="text-center text-2xl text-neutral-700 mb-5 text-shadow-xl opacity-0"
+    class="text-center text-xl md:text-2xl text-neutral-600 mb-5 text-shadow-xl opacity-0"
     data-anim="animate-info-appear"
     data-repeat
   >{{ 'SKILLS.SKILLS_BLOCK.TITLE' | translate }}</h3>
@@ -43,7 +43,7 @@
 
 
   <!-- радиальная сетка -->
-  <div *ngIf="selectedCategory" class="relative w-full h-[300px] md:h-[350px] flex items-center justify-center">
+  <div *ngIf="selectedCategory" class="relative w-full h-[300px] md:h-[350px] m-0 md:m-3 flex items-center justify-center">
 
     <!-- SVG ЛИНИИ: рендерятся только когда showLines = true -->
     <svg class="absolute inset-0 w-full h-full pointer-events-none z-10">

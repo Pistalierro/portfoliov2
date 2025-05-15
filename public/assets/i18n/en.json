@@ -245,6 +245,8 @@
     "APPROACH_BLOCK.TITLE": "Tools:"
   },
   "TECH": {
+    "MORE": "+ more",
+    "DETAILS": "Details",
     "TABS": {
       "BASE": "Basic",
       "BASE_CIRCLE": "Basic",

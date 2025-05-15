@@ -32,11 +32,12 @@
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('contacts')"
-           [ngClass]="{'text-shadow-lgLight': activeSection() === 'contacts'}"
-           class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200">
+        <button
+          (click)="openContactsModal()"
+          class="cursor-pointer select-none text-base font-pangolin hover:text-shadow-lgLight transition-all duration-200"
+        >
           {{ 'NAVBAR.CONTACTS' | translate }}
-        </a>
+        </button>
       </li>
 
       <!-- Селектор языка -->
@@ -105,9 +106,9 @@
         </a>
       </li>
       <li>
-        <a (click)="scrollToSection('contacts')" class="hover:text-shadow-lgLight transition duration-200">
+        <button (click)="openContactsModal()" class="hover:text-shadow-lgLight transition duration-200">
           {{ 'NAVBAR.CONTACTS' | translate }}
-        </a>
+        </button>
       </li>
 
       <li class="pt-4 border-t border-white/20">

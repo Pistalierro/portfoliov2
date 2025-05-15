@@ -30,7 +30,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/portfolio_large.webp',
     },
     url: 'https://portfolio-abe24.web.app',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/portfolio',
     details: {
       what: 'PROJECT.PORTFOLIO.DETAILS.ABOUT_PROJECT',
       overview: 'PROJECT.PORTFOLIO.DETAILS.OVERVIEW_PROJECT',
@@ -65,7 +64,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/weather_forecast_large.webp'
     },
     url: 'https://weather-application-e4426.web.app',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/weather-forecast',
     repositoryUrl: 'https://github.com/Pistalierro/app-weather',
     details: {
       what: 'PROJECT.WEATHER_FORECAST.DETAILS.ABOUT_PROJECT',
@@ -107,7 +105,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/wot_blitz_statistics_large.webp',
     },
     url: 'https://wot-blitz-statistics.web.app/home',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/wot-blitz-statistics',
     details: {
       what: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.ABOUT_PROJECT',
       overview: 'PROJECT.WOT_BLITZ_STATISTICS.DETAILS.OVERVIEW_PROJECT',
@@ -136,7 +133,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/js_slider_large.webp',
     },
     url: 'https://pistalierro.github.io/js-native-slider',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/js-slider',
     details: {
       what: 'PROJECT.JS_SLIDER.DETAILS.ABOUT_PROJECT',
       overview: 'PROJECT.JS_SLIDER.DETAILS.OVERVIEW_PROJECT',
@@ -167,7 +163,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/grid_template_large.webp'
     },
     url: 'https://pistalierro.github.io/grid-template-project',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/grid-template',
     repositoryUrl: 'https://github.com/Pistalierro/grid-template-project',
     details: {
       what: 'PROJECT.GRID_TEMPLATE.DETAILS.ABOUT_PROJECT',
@@ -202,7 +197,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/crud_material_large.webp'
     },
     url: 'https://crud-with-materialui-9a269.web.app',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/crud-with-material-ui',
     repositoryUrl: 'https://github.com/Pistalierro/crud-with-material',
     details: {
       what: 'PROJECT.CRUD_MATERIAL.DETAILS.ABOUT_PROJECT',
@@ -233,7 +227,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/kinozal_large.webp'
     },
     url: 'https://pistalierro.github.io/kinozal_template_bootstrap5.3',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/kinozal',
     repositoryUrl: 'https://github.com/Pistalierro/kinozal_template_bootstrap5.3',
     details: {
       what: 'PROJECT.KINOZAL.DETAILS.ABOUT_PROJECT',
@@ -266,7 +259,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/movie_search_large.webp'
     },
     url: 'https://pistalierro.github.io/app_movies_to_search',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/movie-search',
     repositoryUrl: 'https://github.com/Pistalierro/app_movies_to_search',
     details: {
       what: 'PROJECT.MOVIE_SEARCH.DETAILS.ABOUT_PROJECT',
@@ -303,7 +295,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/crud_bootstrap_large.webp'
     },
     url: 'https://crud-with-bootstrap-21290.web.app',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/crud-with-bootstrap',
     repositoryUrl: 'https://github.com/Pistalierro/CRUD-with-bootstrap',
     details: {
       what: 'PROJECT.CRUD_BOOTSTRAP.DETAILS.ABOUT_PROJECT',
@@ -339,7 +330,6 @@ export const PROJECTS: ProjectDetailedInterface[] = [
       large: '/img/projects/currancy_converter_large.webp'
     },
     url: 'https://currancy-calculator.web.app/',
-    detailsUrl: 'https://portfolio-abe24.web.app/portfolio/currency-converter',
     repositoryUrl: 'https://github.com/Pistalierro/currency-calculator',
     details: {
       what: 'PROJECT.CURRENCY_CONVERTER.DETAILS.ABOUT_PROJECT',

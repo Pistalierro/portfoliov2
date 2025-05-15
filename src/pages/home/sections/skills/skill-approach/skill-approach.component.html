@@ -1,26 +1,30 @@
 <section class="skills__approach w-full h-full" id="skills-approach">
-  <h3 class="text-center text-2xl text-neutral-700 mb-5 text-shadow-lg opacity-0"
+  <h3 class="text-center text-xl md:text-2xl text-neutral-700 mb-5 text-shadow-lg opacity-0"
       data-anim="animate-info-appear"
+      data-repeat
   >{{ 'SKILLS.APPROACH_BLOCK.TITLE' | translate }}</h3>
-  <div class="skills__approach-container grid grid-cols-12 gap-2 items-center justify-center py-2">
-    <article *ngFor="let item of items; let i = index" [attr.data-anim]="getAnimAndDelayByIndex(i).anim"
-             [attr.data-delay]="getAnimAndDelayByIndex(i).delay"
-             class="skills__approach-card col-span-6 md:col-span-4 lg:col-span-3 cursor-pointer opacity-0">
+  <div class="skills__approach-container grid grid-cols-12 gap-3 items-center justify-center py-2">
+    <article #cardWrapper (mouseenter)="onCardHover(i)" *ngFor="let item of items; let i = index"
+             [attr.data-anim]="getAnimAndDelayByIndex(i).anim" [attr.data-delay]="getAnimAndDelayByIndex(i).delay"
+             class="skills__approach-card col-span-6 md:col-span-4 lg:col-span-3 cursor-pointer opacity-0"
+             data-repeat>
 
-      <div class="relative w-full h-[240px] p-2 [perspective:1000px] group">
+      <div class="relative w-full h-[180px] md:h-[240px] [perspective:1000px] group">
         <div
           class="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180 bg-black/50 rounded-lg">
 
           <!-- 🔹 FRONT: иконка -->
-          <div class="absolute inset-0 flex items-center justify-center p-4 backface-hidden">
+          <div class="absolute inset-0 flex items-center justify-center p-2 backface-hidden">
             <img [src]="item.icon" alt="{{ item.name }}" class="w-36 h-36"/>
           </div>
 
           <!-- 🔸 BACK: название и описание -->
           <div
-            class="absolute inset-0 rotate-y-180 p-4 text-white flex flex-col justify-around items-center text-center backface-hidden">
-            <h3 class="text-2xl font-bold text-orange-500 drop-shadow-accentGlow mb-2">{{ item.name | translate }}</h3>
-            <p class="text-base">{{ item.description | translate }}</p>
+            class="absolute inset-0 rotate-y-180 backface-hidden flex gap-1 flex-col items-center justify-items-start p-4 overflow-hidden">
+            <h3 class="text-orange-500 text-lg md:text-2xl uppercase tracking-wide text-shadow-accentGlow">{{ item.name | translate }}</h3>
+            <div #scrollContainer class="relative overflow-y-auto scrollbar-hidden">
+              <p class="text-white text-xs md:text-lg leading-snug">{{ item.description | translate }}</p>
+            </div>
           </div>
 
         </div>

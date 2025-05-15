@@ -8,7 +8,8 @@
         [attr.data-anim]="isMobile ? 'animate-block-fly-right' : 'animate-block-fly-left-top'"
         [attr.data-delay]="isMobile ? '0.3s' : '0s'"
         class="about__intro opacity-0 col-span-12 md:col-span-8 md:row-start-1 bg-black/40 backdrop-blur-md p-6 space-y-4 rounded-2xl shadow-md text-white text-base md:text-lg">
-        <h3 class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide">{{ 'ABOUT.TITLE' | translate }}</h3>
+        <h3
+          class="text-white text-base md:text-lg lg:text-xl text-center mb-3 tracking-wide text-shadow-whiteGlow">{{ 'ABOUT.TITLE' | translate }}</h3>
         <p>{{ 'ABOUT.INTRO.PARAGRAPH1' | translate }}</p>
         <p>{{ 'ABOUT.INTRO.PARAGRAPH2' | translate }}</p>
       </div>
@@ -19,7 +20,7 @@
         data-anim="animate-block-fly-right-top">
         <img alt="photo" class="w-72 h-72 rounded-full object-cover shadow-lg" src="/img/profile-photo.png">
         <div class="flex flex-col gap-4">
-          <a (click)="scrollToSection('contacts')"
+          <a (click)="scrollService.scrollTo('contacts')"
              class="w-60 py-1 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 hover:scale-105 text-white uppercase flex justify-center transition all duration-200">
             <i class="fa-solid fa-phone mr-2 flex items-center"></i>
             {{ 'ABOUT.BUTTONS.CONTACTS' | translate }}
@@ -32,7 +33,7 @@
             {{ 'ABOUT.BUTTONS.RESUME' | translate }}
           </a>
           <a
-            (click)="scrollToSection('portfolio')"
+            (click)="scrollService.scrollTo('portfolio')"
             class="w-60 py-1 rounded-full bg-white/20 hover:bg-white/30 border border-white/30 hover:scale-105 text-white uppercase flex justify-center  transition all duration-200"
             target="_blank">
             <i class="fa-solid fa-file-lines mr-2 flex items-center"></i>
