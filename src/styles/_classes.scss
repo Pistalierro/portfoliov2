@@ -6,3 +6,13 @@
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Chrome, Safari и остальная шайка */
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-text-fill-color: white !important;
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.3) inset !important;
+}
+

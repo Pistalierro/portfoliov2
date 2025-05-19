@@ -45,6 +45,7 @@ module.exports = {
 
       boxShadow: {
         light: '0 0 10px rgba(255, 255, 255, 0.8)',
+        whiteGlow: '0 0 6px rgba(255, 255, 255, 0.6), 0 0 12px rgba(255, 255, 255, 0.4)',
         accentGlow: '0 0 8px rgba(255, 136, 36, 0.5), 0 0 12px rgba(255, 136, 36, 0.4)'
       },
 

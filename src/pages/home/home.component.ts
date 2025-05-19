@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
         document.documentElement.style.setProperty('scroll-behavior', 'smooth');
 
         setTimeout(() => {
-          this.scrollTrackerService.observeSections(['hero', 'about', 'portfolio', 'skills-host', 'contacts']);
+          this.scrollTrackerService.observeSections(['hero', 'about', 'portfolio', 'skills-host', 'contacts-modal']);
         }, 200);
 
       }, 50);

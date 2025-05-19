@@ -26,7 +26,9 @@
   </div>
 
   <!-- Категории для мобильных и планшетов -->
-  <div class="grid grid-cols-2 md:grid-cols-3 lg:hidden mt-4 rounded-md overflow-hidden w-full max-w-[90vw] mx-auto">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:hidden mt-4 rounded-md overflow-hidden w-full max-w-[90vw] mx-auto opacity-0"
+       data-anim="animate-info-fade-up"
+       data-delay="0.3s">
     <button
       (click)="onSelectCategory(category)"
       *ngFor="let category of categories"

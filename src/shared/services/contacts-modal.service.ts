@@ -11,13 +11,11 @@ export class ContactsModalService {
   open(): void {
     this.isVisible.set(true);
     this.isOpen.set(true);
-    console.log('Modal is opened');
   }
 
   close(): void {
     this.isOpen.set(false);
     setTimeout(() => this.isVisible.set(false), 300);
-    console.log('Modal is closed');
   }
 
   toggle(): void {
@@ -26,6 +24,5 @@ export class ContactsModalService {
     } else {
       this.close(); // а здесь уже есть задержка
     }
-    console.log('Is modal open?:', this.isOpen());
   }
 }

@@ -3,7 +3,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {RouterOutlet} from '@angular/router';
 import {FooterComponent} from './footer/footer.component';
 import {FloatingContactButtonComponent} from './components/floating-contact-button/floating-contact-button.component';
-import {ContactsComponent} from '../../pages/home/sections/contacts/contacts.component';
+import {ContactsModalComponent} from '../../pages/home/sections/contacts/contacts-modal/contacts-modal.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -12,7 +12,7 @@ import {ContactsComponent} from '../../pages/home/sections/contacts/contacts.com
     RouterOutlet,
     FooterComponent,
     FloatingContactButtonComponent,
-    ContactsComponent
+    ContactsModalComponent
   ],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
