@@ -25,74 +25,13 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <div class="content__container grid grid-cols-12">
-        <div class="form__container col-span-7 mt-5">
-          <form (ngSubmit)="onSubmit()" [formGroup]="contactsForm" class="flex flex-col gap-3">
-
-            <div class="form__control group flex items-center gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-                 data-anim="animate-block-fly-left" data-delay="500ms" data-repeat>
-              <label class="text-xl w-[80px] transition-all duration-300 ease-in-out" for="name">Имя:</label>
-              <input
-                class="border-2 border-white/50 px-4 py-2 rounded-lg w-full bg-black/30  focus:outline-none focus:ring-2 focus:ring-white focus:shadow-whiteGlow transition-all duration-300 ease-in-out"
-                formControlName="name" id="name" placeholder="Ваше имя..." type="text"/>
-            </div>
-            <div class="h-2 mt-[-10px] mb-2 ml-[calc(80px+0.75rem)]">
-              <small *ngIf="getErrorMessage('name')" class="text-red-500">
-                {{ getErrorMessage('name') }}
-              </small>
-            </div>
-
-            <div class="form__control group flex items-center gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-                 data-anim="animate-block-fly-left" data-delay="600ms" data-repeat>
-              <label class="text-xl w-[80px] transition-all duration-300 ease-in-out" for="email">Email:</label>
-              <input
-                class="border-2 border-white/50 px-4 py-2 rounded-lg w-full bg-black/30  focus:outline-none focus:ring-2 focus:ring-white focus:shadow-whiteGlow transition-all duration-300 ease-in-out"
-                formControlName="email" id="email" placeholder="Укажите e-mail..." type="email"/>
-            </div>
-            <div class="h-2 mt-[-10px] mb-2 ml-[calc(80px+0.75rem)]">
-              <small *ngIf="getErrorMessage('email')" class="text-red-500">
-                {{ getErrorMessage('email') }}
-              </small>
-            </div>
-
-            <div
-              class="form__control group flex items-start gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-              data-anim="animate-block-fly-left" data-delay="700ms" data-repeat>
-              <textarea cdkAutosizeMaxRows="5" cdkAutosizeMinRows="3" cdkTextareaAutosize
-                        class="resize-none border-2 border-white/50 px-4 py-2 rounded-lg w-full bg-black/30 focus:outline-none focus:ring-2 focus:ring-white focus:shadow-whiteGlow transition-all duration-300 ease-in-out"
-                        formControlName="message" id="message" placeholder="Ваше сообщение..."
-              ></textarea>
-            </div>
-            <div class="h-2 mt-[-10px] mb-2 ml-[1rem]">
-              <small *ngIf="getErrorMessage('message')" class="text-red-500">
-                {{ getErrorMessage('message') }}
-              </small>
-            </div>
-
-            <div [ngClass]="contactsForm.invalid || isSubmitting() ? 'hover:scale-100' : 'hover:scale-105'"
-                 class="form_actions flex justify-end items-center mt-3 origin-right transition-transform duration-300 ease-in-out">
-              <button
-                [disabled]="contactsForm.invalid || isSubmitting()"
-                [ngClass]="contactsForm.invalid || isSubmitting() ? disabledButtonClasses : enabledButtonClasses"
-                class="uppercase w-[250px] px-4 py-2 rounded-xl border-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white invisible opacity-0"
-                data-anim="animate-block-fly-left" data-delay="800ms" data-repeat type="submit">
-                {{ isSubmitting() ? 'Отправка...' : 'Отправить' }}
-              </button>
-            </div>
-            <div class="h-2 mt-[-10px]">
-              <p
-                [class.opacity-0]="!isSuccess()"
-                [class.opacity-100]="isSuccess()"
-                class="transition-opacity duration-500 text-green-500 text-end"
-              >
-                Сообщение успешно отправлено!
-              </p>
-            </div>
-          </form>
+      <div class="content__container grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 mb-5">
+        <div class="form__container col-span-7 mt-5 order-2 md:order-1">
+          <form-contacts></form-contacts>
         </div>
 
-        <div class="contacts__container col-span-5">
-          <div class="flex flex-col justify-center"></div>
+        <div class="contacts__container col-span-5 order-1 md:order-2">
+          <section-contacts-info></section-contacts-info>
         </div>
       </div>
 
