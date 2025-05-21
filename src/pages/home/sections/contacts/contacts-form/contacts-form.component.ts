@@ -20,6 +20,7 @@ import {NgClass, NgIf} from '@angular/common';
 export class ContactsFormComponent implements OnInit {
 
   contactsForm!: FormGroup;
+  isMobile = window.innerWidth <= 768;
 
   readonly enabledButtonClasses = `text-white bg-gradient-to-r from-white/20 to-white/30 hover:from-white/30 hover:to-white/40 hover:shadow-whiteGlow hover:border-white hover:scale-105 border-white/50`;
 

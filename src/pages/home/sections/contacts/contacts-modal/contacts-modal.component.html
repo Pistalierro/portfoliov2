@@ -1,43 +1,60 @@
 <ng-container *ngIf="contactsModalService.isVisible()">
-  <section (click)="contactsModalService.close()" class="contacts fixed inset-0 z-50 flex items-center justify-center" id="contacts-modal">
+  <div
+    (click)="contactsModalService.close()"
+    class="fixed inset-0 z-50 overflow-y-auto"
+    id="contacts-modal"
+  >
+    <section class="min-h-full flex items-center justify-center px-4 py-8 md:p-12">
 
-    <div
-      [ngClass]="{
-      'opacity-70': contactsModalService.isOpen(),
-      'opacity-0': !contactsModalService.isOpen()
-    }"
-      class="absolute inset-0 bg-black transition-opacity duration-300 ease-in-out"></div>
+      <!-- Задний фон -->
+      <div
+        [ngClass]="{
+          'opacity-70': contactsModalService.isOpen(),
+          'opacity-0': !contactsModalService.isOpen()
+        }"
+        class="absolute inset-0 bg-black transition-opacity duration-300 ease-in-out"
+      ></div>
 
-    <div
-      (click)="$event.stopPropagation()"
-      [attr.data-anim]="contactsModalService.isOpen() ? 'animate-block-zoom-in' : 'animate-block-zoom-out'"
-      class="contacts__container relative bg-black/30 backdrop-blur-lg  rounded-xl p-6 shadow-light w-11/12 max-w-4xl ring-1 ring-white/20 overflow-hidden"
-      data-repeat>
-      <h3 class="text-white text-shadow-whiteGlow text-center text-3xl opacity-0"
-          data-anim="animate-block-zoom-in"
-          data-delay="400ms"
-          data-repeat>
-        Как со мной связаться</h3>
-      <button
-        (click)="contactsModalService.close()"
-        aria-label="Закрыть"
-        class="absolute top-1 right-3 text-white hover:text-shadow-lgLight text-2xl transition">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <!-- Контейнер модалки -->
+      <div
+        (click)="$event.stopPropagation()"
+        [attr.data-anim]="contactsModalService.isOpen() ? 'animate-block-zoom-in' : 'animate-block-zoom-out'"
+        class="contacts__container relative bg-black/30 backdrop-blur-lg max-h-modal rounded-xl p-6 shadow-light w-11/12 max-w-4xl ring-1 ring-white/20 overflow-hidden"
+        data-repeat
+      >
+        <!-- 👇 ОБЁРТКА: вот что добавляем -->
+        <div class="overflow-y-auto max-h-full">
 
-      <div class="content__container grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 mb-5">
-        <div class="form__container col-span-7 mt-5 order-2 md:order-1">
-          <form-contacts></form-contacts>
+          <h3
+            class="text-white text-shadow-whiteGlow text-center text-xl md:text-2xl lg:text-3xl opacity-0"
+            data-anim="animate-block-zoom-in"
+            data-delay="400ms"
+            data-repeat>
+            Как со мной связаться
+          </h3>
+
+          <button
+            (click)="contactsModalService.close()"
+            aria-label="Закрыть"
+            class="absolute top-1 right-3 text-white hover:text-shadow-lgLight text-2xl transition"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <div class="content__container grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-10 mb-5">
+            <div class="form__container col-span-7 mt-5 order-2 md:order-1">
+              <form-contacts></form-contacts>
+            </div>
+
+            <div class="contacts__container col-span-5 order-1 md:order-2">
+              <section-contacts-info></section-contacts-info>
+            </div>
+          </div>
+
         </div>
+        <!-- ☝️ конец обёртки -->
 
-        <div class="contacts__container col-span-5 order-1 md:order-2">
-          <section-contacts-info></section-contacts-info>
-        </div>
       </div>
-
-
-    </div>
-
-  </section>
-
+    </section>
+  </div>
 </ng-container>

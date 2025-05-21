@@ -74,6 +74,13 @@ module.exports = {
       transitionProperty: {
         'text-shadow': 'text-shadow',
         'transform-opacity': 'transform, opacity'
+      },
+
+      height: {
+        'screen-svh': '100svh'
+      },
+      maxHeight: {
+        'modal': '90svh'
       }
     }
   },
