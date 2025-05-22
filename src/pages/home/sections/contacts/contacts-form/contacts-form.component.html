@@ -2,9 +2,10 @@
 
   <!-- Name -->
   <div
+    [attr.data-anim]="isMobile ? 'animate-block-fly-right' : 'animate-block-fly-left'"
     [attr.data-delay]="isMobile ? '1100ms' : '500ms'"
     class="form__control group flex items-center gap-1.5 xs:gap-2 lg:gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-    data-anim="animate-block-fly-left" data-repeat>
+    data-repeat>
 
     <label
       class="text-sm xs:text-base md:text-lg lg:text-xl w-[60px] xs:w-[70px] lg:w-[80px] transition-all duration-300 ease-in-out"
@@ -23,9 +24,10 @@
 
   <!-- Email -->
   <div
+    [attr.data-anim]="isMobile ? 'animate-block-fly-right' : 'animate-block-fly-left'"
     [attr.data-delay]="isMobile ? '1200ms' : '500ms'"
     class="form__control group flex items-center gap-1.5 xs:gap-2 lg:gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-    data-anim="animate-block-fly-left" data-repeat>
+    data-repeat>
 
     <label
       class="text-sm xs:text-base md:text-lg lg:text-xl w-[60px] xs:w-[70px] lg:w-[80px] transition-all duration-300 ease-in-out"
@@ -44,9 +46,10 @@
 
   <!-- Message -->
   <div
+    [attr.data-anim]="isMobile ? 'animate-block-fly-right' : 'animate-block-fly-left'"
     [attr.data-delay]="isMobile ? '1200ms' : '500ms'"
     class="form__control group flex items-start gap-1.5 xs:gap-2 lg:gap-3 text-white focus-within:text-shadow-lgLight opacity-0"
-    data-anim="animate-block-fly-left" data-repeat>
+    data-repeat>
 
     <label
       class="text-sm xs:text-base md:text-lg lg:text-xl w-[60px] xs:w-[70px] lg:w-[80px] mt-1 transition-all duration-300 ease-in-out"
@@ -72,11 +75,11 @@
     class="form_actions flex justify-center md:justify-end items-center mt-2 xs:mt-3 lg:mt-4 origin-right transition-transform duration-300 ease-in-out">
 
     <button
+      [attr.data-anim]="isMobile ? 'animate-block-fly-bottom' : 'animate-block-fly-left'"
+      [attr.data-delay]="isMobile ? '350ms' : '500ms'"
       [disabled]="contactsForm.invalid || isSubmitting()"
       [ngClass]="contactsForm.invalid || isSubmitting() ? disabledButtonClasses : enabledButtonClasses"
       class="w-9/12 xs:w-[200px] md:w-[250px] lg:w-[300px] px-2.5 py-1.5 xs:px-3 xs:py-2 lg:px-4 lg:py-2.5 text-xs xs:text-sm lg:text-base rounded-xl border-2 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white invisible opacity-0"
-      data-anim="animate-block-fly-left"
-      data-delay="800ms"
       data-repeat
       type="submit">
       {{ isSubmitting() ? 'Отправка...' : 'Отправить' }}

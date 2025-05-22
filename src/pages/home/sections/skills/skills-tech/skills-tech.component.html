@@ -9,7 +9,7 @@
            data-repeat>
 
         <!-- 🔄 Флип карточка на sm -->
-        <div (click)="toggleFlip(i)" class="block sm:hidden relative w-full h-[260px] [perspective:1000px]">
+        <div (click)="toggleFlip(i)" class="block sm:hidden relative w-full h-[280px] [perspective:1000px]">
           <div [ngClass]="{ '[transform:rotateY(180deg)]': activeFlipIndex === i }"
                class="relative w-full h-full duration-700 [transform-style:preserve-3d]">
 
@@ -18,7 +18,7 @@
               class="absolute w-full h-full backface-hidden drop bg-black/50 rounded-lg p-[10px] flex flex-col gap-3 items-center justify-between text-white transition-transform">
               <img [src]="project.images.thumbnail" alt="image"
                    class="rounded-lg w-full h-full aspect-video object-cover"/>
-              <h3 class="text-white text-lg text-center uppercase truncate tracking-wide">
+              <h3 class="text-white text-shadow-whiteGlow text-lg text-center uppercase truncate tracking-wide">
                 {{ project.title | translate }}
               </h3>
             </div>
@@ -47,7 +47,7 @@
               </ul>
               <button
                 [routerLink]="['portfolio', project.slug]"
-                class="mt-auto self-center w-9/12 text-[12px] border px-4 py-1 rounded-full bg-white/20 hover:bg-white/30 transition uppercase">
+                class="mt-auto self-center w-1/2 text-[12px] transform hover:scale-105 duration-200 border px-4 py-1 rounded-full bg-white/20 hover:bg-white/30 transition uppercase">
                 {{ 'TECH.DETAILS' |translate }}
               </button>
 
@@ -81,8 +81,7 @@
                 </h3>
                 <p
                   *ngIf="project.descriptionShort"
-                  class="text-neutral-300 text-sm md:text-base leading-snug md:leading-normal"
-                >
+                  class="text-neutral-300 text-sm md:text-base leading-snug md:leading-normal">
                   {{ project.descriptionShort | translate }}
                 </p>
               </div>
