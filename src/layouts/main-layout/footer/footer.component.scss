@@ -1,0 +1,16 @@
+.footer__bottom {
+  p::first-letter {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 4px;
+      top: 0;
+      left: 0;
+      width: 500px;
+      color: #78F726;
+      z-index: 1;
+    }
+  }
+}
